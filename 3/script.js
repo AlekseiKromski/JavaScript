@@ -1,9 +1,5 @@
-var num1 = 12;
-var num2 = 10;
-//console.log( '+ = ' , num1 + num2 ); // операция сложений 
-//console.log( '- = ' , num1 - num2 ); // операция вычисления 
-//console.log( '* = ' , num1 * num2 ); // операция умножения 
-//console.log( '/ = ' , num1 / num2 ); // операция деления 
-//console.log( '/ = ' , num1 / num2 ); // операция деления 
-console.log( 'True + 1  = ', true + 1  ); // true = 1 
-console.log( 'True + 1  = ', false + 1  ); // false = 0
+var result = 12 - 6 / 3;
+var result2 = 3 + 4 * 2;
+
+var isGreater = 20 - 6 * 3 >= 4;
+console.log('Result = ',isGreater );
