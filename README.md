@@ -2,6 +2,6 @@
 <ul>
     <li><b>Основы JavaScript</b> перенесены в венту <b>old_work branch</b></li>
     <li>После изучения основного материала, он будет перенесен <b>old_work branch</b></li>
-    <li>Обучение идет по курсам WebForMyself</li>
+    <li>Обучение идет по курсам <i>WebForMyself</i></li>
     <li>Алексей Крымский 2019</li>
 </ul>
