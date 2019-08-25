@@ -5,4 +5,4 @@ var obj = {a: 1};
 var isNull = null;
 var undef = undefined;
 
-console.log(number);
+console.log(typeof isTrue);
