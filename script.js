@@ -7,4 +7,5 @@ console.log(h1)
 */ 
 
 var div = document.querySelector('#playground')
-console.log(div)
+div.innerHTML = '<h2 style="color:red">From JS</h2>'
+console.log(div.innerHTML)
