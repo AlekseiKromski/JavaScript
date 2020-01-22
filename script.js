@@ -7,7 +7,7 @@ var h1 = document.getElementsByTagName('h1')
 console.log(div)
 console.log(p)
 console.log(h1)
-*/
+
 
 //New version
 //calss -> .CLASS_NAME
@@ -22,6 +22,13 @@ console.log(input.value);
 console.log(div.innerHTML);
 console.log(p);
 console.log(h1.textContent);
+*/
+
+//Атрибуты
 
 
-
+var a = document.querySelector('a')
+var oldHref = a.getAttribute('href')
+a.setAttribute('href','https://yandex.ru')
+a.textContent = 'Yandex'
+console.log(a.getAttribute('href'))
