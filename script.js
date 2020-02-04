@@ -22,7 +22,7 @@ console.log(input.value);
 console.log(div.innerHTML);
 console.log(p);
 console.log(h1.textContent);
-*/
+
 
 //Атрибуты
 
@@ -32,3 +32,21 @@ var oldHref = a.getAttribute('href')
 a.setAttribute('href','https://yandex.ru')
 a.textContent = 'Yandex'
 console.log(a.getAttribute('href'))
+
+var box1 = document.querySelector('#box1')
+var box2 = document.querySelector('#box2')
+
+box1.classList.add('red');
+box2.classList.remove('blue');
+var hasClass = box2.classList.contains('box');
+console.log(hasClass)*/
+
+var button = document.querySelector('button')
+var h1 = document.querySelector('h1')
+var input = document.querySelector('input')
+
+function buttonHandler(){
+    h1.textContent = input.value;
+}
+//Создание события 
+button.addEventListener('click', buttonHandler) //Передаем ссылку на функцию
