@@ -49,4 +49,6 @@ function buttonHandler(){
     h1.textContent = input.value;
 }
 //Создание события 
-button.addEventListener('click', buttonHandler) //Передаем ссылку на функцию
+button.addEventListener('click', buttonHandler) //Передаем ссылку на функцию 
+
+//Test
