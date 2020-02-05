@@ -63,7 +63,7 @@ h1.addEventListener('mouseleave', function(){
     this.style.backgroundColor = 'white'
 
 
-})*/
+})
 
 var divs = document.querySelectorAll('div')
 
@@ -88,3 +88,16 @@ function linkClick(event){
     }
     console.log(div.style.display) 
 }
+
+var p = document.querySelectorAll('p')
+
+for (var i = 0; i < p.length; i++){
+    p[i].addEventListener('click', function(event){
+        event.target.style.color = 'blue'
+    })
+}*/
+
+document.getElementById('wrapper').addEventListener('click',function(event){
+    console.log(event.target)
+
+})
