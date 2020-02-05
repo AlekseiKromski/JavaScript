@@ -50,5 +50,3 @@ function buttonHandler(){
 }
 //Создание события 
 button.addEventListener('click', buttonHandler) //Передаем ссылку на функцию 
-
-//Test
