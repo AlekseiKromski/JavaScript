@@ -39,14 +39,36 @@ var box2 = document.querySelector('#box2')
 box1.classList.add('red');
 box2.classList.remove('blue');
 var hasClass = box2.classList.contains('box');
-console.log(hasClass)*/
+console.log(hasClass)
 
 var button = document.querySelector('button')
 var h1 = document.querySelector('h1')
 var input = document.querySelector('input')
+
+h1.style = 'width:10%; text-align:center;+'
 
 function buttonHandler(){
     h1.textContent = input.value;
 }
 //Создание события 
 button.addEventListener('click', buttonHandler) //Передаем ссылку на функцию 
+
+h1.addEventListener('mouseenter',function (){
+    this.style.color = 'white'
+    this.style.backgroundColor = 'black'
+})
+
+h1.addEventListener('mouseleave', function(){
+    this.style.color = 'black'
+    this.style.backgroundColor = 'white'
+
+
+})*/
+
+var divs = document.querySelectorAll('div')
+
+for (var i = 0; i < divs.length; i++){
+    divs[i].addEventListener('click',function(){
+        console.log(this.getAttribute('id'))
+    },true)
+}
