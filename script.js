@@ -7,7 +7,7 @@ var h1 = document.getElementsByTagName('h1')
 console.log(div)
 console.log(p)
 console.log(h1)
-
+ 
 
 //New version
 //calss -> .CLASS_NAME
@@ -95,9 +95,31 @@ for (var i = 0; i < p.length; i++){
     p[i].addEventListener('click', function(event){
         event.target.style.color = 'blue'
     })
-}*/
+}
 
 document.getElementById('wrapper').addEventListener('click',function(event){
     console.log(event.target)
 
+})
+*/
+document.querySelector('#alert').addEventListener('click', function(){
+    alert('Hello, user')
+})
+
+document.querySelector('#confirm').addEventListener('click', function(){
+    var desision = confirm('How are you ?')
+
+    if (desision){
+        alert('Вы кликнули на кнопку')
+    }
+})
+
+document.querySelector('#prompt').addEventListener('click', function(){
+    var age = prompt('Enter your age = ', 0)
+
+    if(age >= 18){
+        alert('Вы можете пройти')
+    }else{
+        alert('Вы молоды')
+    }
 })
