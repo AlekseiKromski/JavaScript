@@ -1,4 +1,4 @@
-
+/*
 var id = document.getElementById('playground');
 console.log(id);
 
@@ -19,3 +19,12 @@ console.log(h1.textContent);
 
 var input = document.querySelector('input')
 console.log(input.value);
+*/
+
+var a = document.querySelector('a');
+var oldHref = a.getAttribute('href');
+
+a.setAttribute('href','https://ya.ru')
+a.textContent = 'yandex'
+
+console.log(a.attributes);
