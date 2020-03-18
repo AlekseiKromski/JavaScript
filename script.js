@@ -45,7 +45,7 @@ if(hasClass){
 } else{
     box2.classList.add('blue')
 }
-*/
+
 
 var button = document.querySelector('button')
 var h1 = document.querySelector('h1')
@@ -67,4 +67,4 @@ h1.addEventListener('mouseleave',function (){
 })
 
 button.addEventListener('click',buttonHandler)
-
+*/
