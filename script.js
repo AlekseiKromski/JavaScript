@@ -68,7 +68,7 @@ h1.addEventListener('mouseleave',function (){
 
 button.addEventListener('click',buttonHandler)
 
-*/
+
 var divs = document.querySelectorAll('div')
 var link = document.querySelector('a')
 
@@ -94,3 +94,5 @@ function handleLinkClick(event){
     }
     console.log(div.style.display);
 }
+*/
+
