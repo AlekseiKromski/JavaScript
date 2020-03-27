@@ -111,7 +111,7 @@ document.getElementById('wrapper').addEventListener('click', function(event){
     }
     
 })
-*/
+
 
 document.querySelector('#alert').addEventListener('click', function(){
     alert("You clicked")
@@ -137,3 +137,37 @@ document.querySelector('#prompt').addEventListener('click', function(){
 console.info('test')
 
 throw new Error('eee')
+*/
+
+var str = '1,2,3,4,5,6,7'
+var array = str.split(',')
+
+console.log(array.join(';'));
+console.log(array.reverse());
+console.log(array.reverse());
+
+array.splice(3,0, '99')
+
+var newArray = array.concat([1,2])
+
+console.log(newArray);
+
+var objArr = [
+        {name: 'Max', age: 27},
+        {name: 'Max2', age: 21},
+        {name: 'Max3', age: 26}
+]
+
+
+var find_person = objArr.find(function(person){
+    return person.age <= 22
+    
+})
+
+console.log(find_person);
+
+var oddArray = [1,2,3,4,5,6,7,8,9,].filter(function(i){
+    return i & 2 != 0
+})
+
+console.log(oddArray);
