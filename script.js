@@ -102,7 +102,7 @@ for(var i = 0 ; i < p.length; i++){
     p[i].addEventListener('click',function(event){
         this.style.color = 'blue'
     })
-}*/
+}
 
 document.getElementById('wrapper').addEventListener('click', function(event){
     var tagName = event.target.tagName.toLowerCase()
@@ -111,6 +111,29 @@ document.getElementById('wrapper').addEventListener('click', function(event){
     }
     
 })
+*/
 
+document.querySelector('#alert').addEventListener('click', function(){
+    alert("You clicked")
+})
 
+document.querySelector('#confirm').addEventListener('click', function(){
+    var test = confirm("Вы уверены?")
+    if(test){
+        alert("You clicked")
+    }
+    
+})
 
+document.querySelector('#prompt').addEventListener('click', function(){
+    var age = prompt("Введите свой возраст: ", 0)
+    if(age >= 18){
+        alert("Вы можете купить алкоголь")
+    }else{
+        alert("Вы не можете купить алкоголь")
+    }    
+})
+
+console.info('test')
+
+throw new Error('eee')
