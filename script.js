@@ -170,7 +170,21 @@ var oddArray = [1,2,3,4,5,6,7,8,9,].filter(function(i){
 })
 
 console.log(oddArray);
-*/
+
 console.log(Math.random());
 console.log(Math.floor(2.6));
-console.log(Math.ceil(2.6));
+console.log(Math.ceil(2.6));*/
+
+var person = {
+    name: 'Max',
+    age: 26,
+    car: {
+        model: 'Ford'
+    },
+    job: 'Front-End',
+    friends: ['Elena','Igor']
+}
+
+var str = JSON.stringify(person)
+
+console.log(JSON.parse(str));
