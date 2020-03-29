@@ -6,6 +6,7 @@ function startGame(){
 
 
 function renderBox(){
+    $game.innerHTML = ''
     var box = document.createElement('div')
     box.style.height = box.style.width = '50px'
     box.style.position = 'absolute'
