@@ -173,7 +173,7 @@ console.log(oddArray);
 
 console.log(Math.random());
 console.log(Math.floor(2.6));
-console.log(Math.ceil(2.6));*/
+console.log(Math.ceil(2.6));
 
 var person = {
     name: 'Max',
@@ -188,3 +188,6 @@ var person = {
 var str = JSON.stringify(person)
 
 console.log(JSON.parse(str));
+*/
+
+var date = new Date()
