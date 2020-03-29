@@ -188,6 +188,32 @@ var person = {
 var str = JSON.stringify(person)
 
 console.log(JSON.parse(str));
-*/
+
 
 var date = new Date()
+*/
+
+document.querySelector('#save').addEventListener('click', function(){
+    var value = document.querySelector('input').value
+    var obj = {
+        text: value
+    }
+    localStorage.setItem('headerText', JSON.stringify(obj))
+})
+
+document.querySelector('#delete').addEventListener('click', function(){
+    localStorage.removeItem('headerText')
+})
+
+document.addEventListener('DOMContentLoaded',function(){
+    var obj
+    try{
+        var obj = JSON.parse(localStorage.getItem('headerText'))
+    }catch(e){
+        var obj = {}
+    }
+    
+    if(obj.text && obj.text.trim()){
+        document.querySelector('h1').textContent = obj.text   
+    }
+})
