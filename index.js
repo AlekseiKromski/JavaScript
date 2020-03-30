@@ -1,4 +1,9 @@
 function startGame(){
+    score = 0
+    $time.textContent = 5
+    $timeHeader.classList.remove('hide')
+    $resultHeader.classList.add('hide')
+    setGameTime()
     isGameStarted = true
     $start.classList.add('hide')
     $game.style.backgroundColor = '#fff'
@@ -47,11 +52,30 @@ function getRandom(min,max){
 
 function endGame(){
     isGameStarted = false
+    setGameScore()
+    $start.classList.remove('hide')
+    $game.innerHTML = ''
+    $game.style.backgroundColor = '#ccc'
+    $timeHeader.classList.add('hide')
+    $resultHeader.classList.remove('hide')
+
+}
+
+function setGameScore(){
+    $result.textContent = score.toString()
+}
+
+function setGameTime(){
+    var time = 5
+    $time.textContent =  time.toFixed(1)
 }
 
 var $start = document.querySelector('#start')
 var $game = document.querySelector('#game')
 var $time = document.querySelector('#time')
+var $result = document.querySelector('#result')
+var $resultHeader = document.querySelector('#result-header')
+var $timeHeader = document.querySelector('#time-header')
 var score = 0
 var isGameStarted = false
 
