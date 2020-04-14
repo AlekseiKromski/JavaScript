@@ -24,7 +24,7 @@ Car.prototype.getAge = function(){
 var ford = new Car("Ford",2015)
 var bmw = new Car("BMW",2002)
 console.log(ford);
-console.log(bmw);*/
+console.log(bmw);
 
 var ford = Object.create({
     getAge: function(){
@@ -48,3 +48,23 @@ var ford = Object.create({
 })
 
 console.log(ford);
+*/
+
+var person = {
+    name: 'Max',
+    age: 28,
+    job: 'Front-end'
+}
+
+for (var k in person){
+    if(person.hasOwnProperty(k)){
+        console.log(person[k])
+    }
+    
+}
+
+var keys = Object.keys(person).forEach(function(key){
+    console.log(person[key]);
+    
+})
+console.log(keys);
