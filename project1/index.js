@@ -27,7 +27,7 @@ function renderBox(){
     var maxLeft = gameSize.width - boxSize
     box.style.height = box.style.width = boxSize + 'px'
     box.style.position = 'absolute'
-    box.style.backgroundColor = '#000'
+    box.style.backgroundColor = '#' + getRandom(100,999)
     box.style.top = getRandom(0,maxTop) + 'px'
     box.style.left = getRandom(0,maxLeft) + 'px'
     box.style.cursor = 'pointer'
@@ -62,12 +62,12 @@ function endGame(){
 
 function setGameScore(){
     $result.textContent = score.toString()
-    $timeHeader.classList.remove('hide')
-    $resultHeader.classList.add('hide')
 }
 
 function setGameTime(){
     $time.textContent =  parseInt($gameTime.value).toFixed(1)
+    $timeHeader.classList.remove('hide')
+    $resultHeader.classList.add('hide')   
 }
 
 var $start = document.querySelector('#start')
