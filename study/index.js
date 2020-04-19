@@ -48,7 +48,7 @@ var ford = Object.create({
 })
 
 console.log(ford);
-*/
+
 
 var person = {
     name: 'Max',
@@ -68,3 +68,30 @@ var keys = Object.keys(person).forEach(function(key){
     
 })
 console.log(keys);
+*/
+var createCounter = function (cn){
+    var counter = 0
+
+    return {
+        increment: function(){
+            counter++
+        },
+        decrement: function(){
+            counter--
+        },
+        getCounter: function(){
+            return counter
+        }
+    }
+}
+
+var counterA = createCounter('Counter A')
+var counterB = createCounter('COunter B')
+
+counterA.increment()
+counterA.increment()
+counterA.increment()
+
+counterB.decrement()
+counterB.decrement()
+
