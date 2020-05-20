@@ -71,7 +71,7 @@ for(var key in ford){
     
 }
 
-*/
+
 
 var person = {
     name: 'Maks',
@@ -91,3 +91,4 @@ var keys = Object.keys(person).forEach(function(key){
     
 })
 
+*/
