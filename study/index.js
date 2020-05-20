@@ -139,7 +139,7 @@ var person = {
 }
 person.displayInfo(5000)
 
-*/
+
 
 //2
 
@@ -157,3 +157,35 @@ var person = {
     }
 }
 person.displayInfo(5000)
+
+*/
+
+function printObj(objName){
+    console.log("Printind: ", objName);
+    
+    for(var key in this){
+        if(this.hasOwnProperty(key)){
+            console.log('[' + key + ']', this[key]);
+            
+        }
+    }
+}
+
+var person = {
+    name: 'Maks',
+    age: 28,
+    job: "front-end",
+    friends: ['Elena','Igor']
+}
+
+var car = {
+    name: 'Ford',
+    model: 'Focus',
+    year: 2017
+}
+
+var printPerson = printObj.bind(person);
+
+//printObj.call(car,'Car')
+
+printObj.apply(person, ['Car'])
