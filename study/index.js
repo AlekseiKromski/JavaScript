@@ -91,7 +91,7 @@ var keys = Object.keys(person).forEach(function(key){
     
 })
 
-*/
+
 
 var createCounter = function(counterName){
     var counter = 0
@@ -118,3 +118,42 @@ counterA.increment()
 
 counterB.decrement()
 counterB.decrement()
+
+
+//1
+
+var person = {
+    name: 'Maks',
+    age: '28',
+    job: "front-end",
+    displayInfo: function(ms){
+        console.log(this)
+        var self = this
+
+        setTimeout(function(){
+            console.log('Name: ', self.name)
+            console.log('Age: ', self.age)
+            console.log('Job: ', self.job)
+        },ms)
+    }
+}
+person.displayInfo(5000)
+
+*/
+
+//2
+
+var person = {
+    name: 'Maks',
+    age: '28',
+    job: "front-end",
+    displayInfo: function(ms){
+        console.log(this)
+        setTimeout(function(){
+            console.log('Name: ', this.name)
+            console.log('Age: ', this.age)
+            console.log('Job: ', this.job)
+        }.bind(this),ms)
+    }
+}
+person.displayInfo(5000)
