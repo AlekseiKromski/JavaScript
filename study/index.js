@@ -158,7 +158,7 @@ var person = {
 }
 person.displayInfo(5000)
 
-*/
+
 
 function printObj(objName){
     console.log("Printind: ", objName);
@@ -189,3 +189,25 @@ var printPerson = printObj.bind(person);
 //printObj.call(car,'Car')
 
 printObj.apply(person, ['Car'])
+*/
+var a = [1,2,3]
+var b = [5,'Hello',6]
+
+Array.prototype.double = function(){
+    var newArray = this.map(function(item){
+        if(typeof item === 'number'){
+            return Math.pow(item,2)
+        }else if(typeof item === 'string'){
+            return item += item
+            
+        }
+    });
+
+    return newArray
+}
+
+var newA = a.double()
+var newB = b.double()
+
+console.log('A',newA);
+console.log('B',newB);
