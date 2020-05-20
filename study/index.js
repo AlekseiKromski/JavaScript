@@ -34,7 +34,7 @@ console.log(ford);
 console.log(bmw);
 
 
-*/
+
 
 //Вид создание объектов
 
@@ -70,3 +70,24 @@ for(var key in ford){
     }
     
 }
+
+*/
+
+var person = {
+    name: 'Maks',
+    age: '28',
+    job: "front-end"
+}
+
+for(var key in person){
+    if(person.hasOwnProperty(key)){  
+        console.log(person[key]);
+    }
+}
+
+//Получаем массив ключей и перебераем его
+var keys = Object.keys(person).forEach(function(key){
+    console.log(person[key]);
+    
+})
+
