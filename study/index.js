@@ -268,7 +268,7 @@ const logAge = year => console.log(new Date().getFullYear() - year);
 
 
 logAge(1204)
-*/
+
 
 const person = {
     age: 25,
@@ -280,4 +280,14 @@ const person = {
     }
 }
 
-person.logNameWithTimeOut()
+person.logNameWithTimeOut()*/
+
+const createPost = (title, text, date = new Date().toLocaleDateString()) => {
+    return {
+        title: title,
+        text: text,
+        date: date
+    }
+}
+
+console.log(createPost('test_title','test_text'));
