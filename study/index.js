@@ -280,7 +280,7 @@ const person = {
     }
 }
 
-person.logNameWithTimeOut()*/
+person.logNameWithTimeOut()
 
 const createPost = (title, text, date = new Date().toLocaleDateString()) => {
     return {
@@ -291,3 +291,35 @@ const createPost = (title, text, date = new Date().toLocaleDateString()) => {
 }
 
 console.log(createPost('test_title','test_text'));
+*/
+
+const createCar = (name, model) => {
+    return {
+        name,
+        model
+    }
+}
+
+const ford = createCar('Ford','Focus')
+
+console.log(ford);
+
+const yearField = 'year'
+
+const bmw = {
+    name: 'BMW',
+    ['model']: 'X6 Sport',
+    [yearField]: 2020,
+    
+    logFields() {
+        const {name,year,model} = this
+        console.log(name, model, year);
+    }
+}
+
+console.log(bmw);
+bmw.logFields()
+
+const {year} = bmw
+console.log(year);
+
