@@ -189,7 +189,7 @@ var printPerson = printObj.bind(person);
 //printObj.call(car,'Car')
 
 printObj.apply(person, ['Car'])
-*/
+
 var a = [1,2,3]
 var b = [5,'Hello',6]
 
@@ -211,3 +211,35 @@ var newB = b.double()
 
 console.log('A',newA);
 console.log('B',newB);
+
+
+let color = 'red'
+
+color = {color: "yellow"}
+
+console.log(color);
+
+for(let i = 0; i < 5; i++){
+    setTimeout(function(){
+        console.log(i);
+    }, 2000)
+}*/
+
+const HEX = '#FFF'
+
+const array = [1,2]
+
+const obj = {
+    a: 1
+}
+
+array.unshift(4)
+
+obj.b = 2
+
+console.log(array);
+
+
+document.querySelector('h1').style.color = HEX
+
+console.log(HEX);
