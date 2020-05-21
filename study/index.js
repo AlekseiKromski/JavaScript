@@ -223,7 +223,7 @@ for(let i = 0; i < 5; i++){
     setTimeout(function(){
         console.log(i);
     }, 2000)
-}*/
+}
 
 const HEX = '#FFF'
 
@@ -237,9 +237,47 @@ array.unshift(4)
 
 obj.b = 2
 
-console.log(array);
+console.log( );
 
 
 document.querySelector('h1').style.color = HEX
 
 console.log(HEX);
+
+
+function getAge(year){
+    const current = new Date().getFullYear()
+    return current - year
+}
+
+//Стрелочная функция
+const calculateAge = (year) => {
+    const current = new Date().getFullYear()
+    return current - year  
+}
+
+const getAge = year => {
+    const current = new Date().getFullYear()
+    return current - year
+}
+
+
+const getAge = year => new Date().getFullYear() - year
+
+const logAge = year => console.log(new Date().getFullYear() - year);
+
+
+logAge(1204)
+*/
+
+const person = {
+    age: 25,
+    name: 'Max',
+    logNameWithTimeOut: function(){
+        setTimeout(() => {
+            console.log(this.name);
+        },1000)
+    }
+}
+
+person.logNameWithTimeOut()
