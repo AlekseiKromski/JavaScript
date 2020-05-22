@@ -335,7 +335,7 @@ function saveForm(data){
     
 }
 
-*/
+
 
 const form = document.querySelector('form');
 
@@ -364,3 +364,22 @@ function saveForm(...args){
     
 }
 
+
+
+const createLink = ({path,name}) => {
+    return `<a target="_blank" href="${path}">${name}</a>` //Используем шаблонизацию
+}
+
+const ul = document.querySelector('ul')
+
+ul.insertAdjacentHTML('afterbegin','<li>' + createLink({path: 'https://www.google.ru/', name:'Google'}) + '</li>')
+ul.insertAdjacentHTML('afterbegin','<li>' + createLink({path: 'https://www.ya.ru/', name:'Yandex'}) + '</li>')
+
+const strToLog = `
+    hello
+    world
+       I am
+        new Tab
+`
+
+*/
