@@ -291,7 +291,7 @@ const createPost = (title, text, date = new Date().toLocaleDateString()) => {
 }
 
 console.log(createPost('test_title','test_text'));
-*/
+
 
 const createCar = (name, model) => {
     return {
@@ -322,4 +322,45 @@ bmw.logFields()
 
 const {year} = bmw
 console.log(year);
+
+//Spread оператор 
+function saveForm(data){
+
+    const formData = {
+        date: new Date().toLocaleDateString(),
+        ...data //развертывание полей объекта data
+    }
+
+    console.log('Form data:',formData);
+    
+}
+
+*/
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+    event.preventDefault()
+
+    const title = form.title.value
+    const text = form.text.value
+    const desc = form.description.value
+    saveForm(title,text,desc)    
+})
+
+
+
+//Rest оператор
+function saveForm(...args){
+
+    const [title,text,desc] = args
+
+    const formData = {
+        date: new Date().toLocaleDateString(),
+        title,text,desc
+    }
+
+    console.log('Form data:',formData);
+    
+}
 
