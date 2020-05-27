@@ -1,30 +1,74 @@
+// var promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(2)
+//   },2000)
+// })
+
+// promise.then(num => num *= 2)
+// .catch(err => console.error(err))
+// .then(num *= 3)
+
+class myPromise{
+  
+  constructor(callback){
+
+    this.onCatch = null
+    this.onFinally = null
+    this.thenCbs = []
+    this.isRejected = false
 
 
 
-function loadAsset(url, type, callback) {
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
-  xhr.responseType = type;
+    function resolver(data) {
+      if(this.isRejected){
+        return
+      }
+      this.thenCbs.forEach(cb => {
+        data = cb(data)
+      })
 
-  xhr.onload = function() {
-    callback(xhr.response);
-  };
+      if(this.onFinally){
+        this.onFinally()
+      }
 
-  xhr.send();
-}
-
-function displayImage(blob) {
-    var i = 5
-    while(i<10000000){
-        i++
-        console.log(i);
-        
     }
-  let objectURL = URL.createObjectURL(blob);
 
-  let image = document.createElement('img');
-  image.src = objectURL;
-  document.body.appendChild(image);
+    function rejecter(error) {
+      this.isRejected = true
+      if(this.onCatch){
+        this.onCatch(error)
+      }
+
+      if(this.onFinally){
+        this.onFinally()
+      }
+    }
+
+    callback(resolver.bind(this),rejecter.bind(this))
+  } 
+
+  then(cb) {
+    this.thenCbs.push(cb)
+    return this
+  }
+
+  catch(cb){
+    this.onCatch = cb;
+    return this
+  }
+
+  finally(cb){
+    this.onFinally = cb;
+    return this
+  }
 }
 
-loadAsset('https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Moscow-City_%2836211143494%29.jpg/1200px-Moscow-City_%2836211143494%29.jpg', 'blob', displayImage);
+const promise = new myPromise((resolve, reject) => {
+  setTimeout(() => {
+    reject('Some error')
+    resolve(2)
+  },2000)
+})
+
+promise.then(num => num *= 2)
+.catch(err => console.error(err)).finally(() => console.log('test'))
