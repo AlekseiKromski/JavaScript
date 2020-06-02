@@ -1,7 +1,7 @@
 import {Component} from '../core/component';
 import {Form} from '../core/form'
 import {Validators} from '../core/validators.js'
-import {ApiService} from '../services/api.service'
+import {ApiService, apiService} from '../services/api.service.js'
 export class CreateComponent extends Component {
     constructor(id){
         super(id)
@@ -27,7 +27,6 @@ async function submitHandler(event){
         }
 
         await apiService.createPost(formData)
-
         this.form.clear()
         alert('Запись создана')
     }
