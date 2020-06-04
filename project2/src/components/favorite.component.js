@@ -1,5 +1,6 @@
 import {Component} from '../core/component';
 import { apiService } from '../services/api.service';
+import { TransformService } from '../services/transform.service';
 
 export class FavoriteComponent extends Component {
     constructor(id, {loader}){
@@ -24,13 +25,26 @@ export class FavoriteComponent extends Component {
 
 function renderList(list = []){
     if(list && list.length){
-        return `
-            <ul>
-                ${
-                    list.map(item => `<li><a href="#" class="js-link">${item}</a></li>`).join(' ')
-                }
-            </ul>
-        `
+        console.log(list);
+        const data = list.map(item => {
+            console.log(TransformService.fbObjToArr(apiService.fetchPostById(item)));
+            
+            // const data = {
+            //     id: item,
+            //     data: TransformService.fbObjToArr()
+            // }
+            // return data
+            // console.log(data);
+            
+        })
+        
+        // return `
+        //     <ul>
+        //         ${
+        //             data.map(d => `<li><a href="#" class="js-link">${d.data.title}</a></li>`).join(' ')
+        //         }
+        //     </ul>
+        // `
     }
 
     return `<p class="center">Вы пока ничего не добавили</p>`

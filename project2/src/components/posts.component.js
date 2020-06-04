@@ -35,6 +35,7 @@ function renderPost(post){
     const button = (JSON.parse(localStorage.getItem('favorites')) || []).includes(post.id)
     ? `<button class="buttom-round button-small button-danger" data-id="${post.id}">Удалить</button>`
     : `<button class="buttom-round button-small button-primary" data-id="${post.id}">Сохранить</button>`
+    
 
     return `
         <div class="panel">
