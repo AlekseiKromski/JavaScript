@@ -1,0 +1,66 @@
+
+.main{
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    animation: show  8s ease-in-out;
+}
+main:focus, input:focus{
+    outline: none;
+}
+
+.main h1{
+    color:#b758588c;
+    
+    text-transform: capitalize;
+}
+.main input{
+    padding: 1%;
+    border-radius: 10px;
+    border: 2px solid #d2a8a7;
+    background: none;
+}
+
+.main button{
+    padding: 1%;
+    border: 0px;
+    border-radius: 10px;
+    background: #d09c9c;
+    color: white;
+    border: 2px solid #d09c9c;
+    transition: 0.3s;
+}
+
+.main button:hover{
+    border: 2px solid #d09c9c;
+    transition: 0.3s;
+    background: none;
+    color: #d09c9c;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
+
+/*Animation*/
+@keyframes show {
+    0% {opacity: 0%;}
+    25% {opacity: 25%;}
+    25% {opacity: 50%;}
+    25% {opacity: 75%;}
+    100% {opacity: 100%;}
+}
