@@ -12,7 +12,6 @@ main:focus, input:focus{
 
 .main h1{
     color:#b758588c;
-    
     text-transform: capitalize;
 }
 .main input{
@@ -43,17 +42,25 @@ main:focus, input:focus{
     display: flex;
     align-items: center;
     text-align: center;
+    color: #D09C9C;
 }
 .separator::before, .separator::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #D09C9C;
 }
 .separator::before {
     margin-right: .25em;
 }
 .separator::after {
     margin-left: .25em;
+}
+
+.to-do-block{
+    border: 2px solid #7DA67D;
+    border-radius: 10px;
+    padding: 2%;
+    text-align: left;
 }
 
 /*Animation*/
