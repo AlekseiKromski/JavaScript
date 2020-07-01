@@ -1,20 +1,10 @@
 $(document).ready(function(){
    
-    // $('#change_color').on('click', (() => {
-    //     $('.move_block').toggleClass('bg-green')
-    // }));
+    // $('.block').animate({'width':  '300px'}, 4000)
+    // $('.block').animate({'opacity':  '0'}, 500)
+    // $('.block').animate({'opacity':  '100'}, 500)
 
+    //$('.block').hide(1000).delay(1000).show(3000)
 
-    $('#change_color').on('dblclick', (() => {
-        $('.move_block').toggleClass('bg-green')
-    }));
-
-    $('.move_block').on('mouseenter', (() => {
-        $('.move_block').css('border', '3px solid orange')
-    }));
-
-    $('#input').on('change', (() => {
-        $('#output_name').text($('#input').val())
-    }));
-    
+    $('.block').fade(2000);
 });
