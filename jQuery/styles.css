@@ -1,7 +1,22 @@
-.selected {
-  border: 1px solid red;
+.move_block{
+  padding: 3%;
+  background: red;
+  color: white;
+  font-size: 'Arial';
+  font-weight: 600;
+  text-align: center;
+  font-size: 24px;
+  margin: 1%;
+}
+
+.bg-green{
+  background: green;
+}
+.bg-orange{
+  background: orange;
 }
 
 .focus{
-  background: red;
+  border: 2px solid rebeccapurple;
+  box-shadow: rebeccapurple 0px 0px 19px -5px ;
 }
