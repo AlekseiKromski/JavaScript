@@ -9,9 +9,12 @@
 <body>
   
   <div id="app">
-    <ul>
-      <li v-for="car in cars" v-bind:class="{ 'strike' : car.status }">{{car.name}}</li>
-    </ul>
+
+    <input type="text" v-model="message" v-on:keyup.enter="onClick">
+
+    <form action="">
+      <button v-on:click.prevent="onClick">Click me</button>
+    </form>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -19,20 +22,13 @@
     new Vue({
       el: "#app",
       data: {
-        cars: [
-          {
-            name: 'Ford',
-            status: false,
-          },
-          {
-            name: 'BMW',
-            status: false,
-          },
-          {
-            name: 'Mers',
-            status: true,
-          }
-        ]
+        message: ''
+      },
+      methods: {
+        onClick: function(e){
+          console.log(this.message);
+          
+        },
       }
     });
   </script>
