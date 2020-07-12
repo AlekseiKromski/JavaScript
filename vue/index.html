@@ -10,18 +10,31 @@
 <body>
   
   <div id="app">
-    <header>
-      <button @click="show = !show" ><i class="ion-navicon"></i></button>
-    </header>
 
-    <aside v-show="show" transition="slide"></aside>
+    <input type="text" v-model="input" autofocus>
+
+    <ul>
+      <li v-for="car in cars | filterBy input in 'name'">{{car.name}}</li>
+    </ul>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
   <script>
     new Vue({
       el: "#app",
       data: {
-        show: false
+        input: '',
+        cars: [{
+          name: 'Ford',
+          year: 2004
+        },
+        {
+          name: 'BMW',
+          year: 2007
+        },
+        {
+          name: 'Mers',
+          year: 2015
+        },],
       }
     });
   </script>
