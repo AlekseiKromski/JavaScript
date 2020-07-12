@@ -4,31 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue.js</title>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   
   <div id="app">
+    <header>
+      <button @click="show = !show" ><i class="ion-navicon"></i></button>
+    </header>
 
-    <input type="text" v-model="message" v-on:keyup.enter="onClick">
+    <aside v-show="show" transition="slide"></aside>
 
-    <form action="">
-      <button v-on:click.prevent="onClick">Click me</button>
-    </form>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
   <script>
     new Vue({
       el: "#app",
       data: {
-        message: ''
-      },
-      methods: {
-        onClick: function(e){
-          console.log(this.message);
-          
-        },
+        show: false
       }
     });
   </script>
