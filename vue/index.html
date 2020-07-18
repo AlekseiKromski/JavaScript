@@ -10,31 +10,27 @@
 <body>
   
   <div id="app">
-
-    <input type="text" v-model="input" autofocus>
-
-    <ul>
-      <li v-for="car in cars | filterBy input in 'name'">{{car.name}}</li>
-    </ul>
+    <form>
+      <span>{{count}} / 30</span>
+      <br>
+      <textarea v-model="text"></textarea>
+      <br>
+      <button v-if="count <= 30">Send</button>
+    </form>
+  </div>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
   <script>
     new Vue({
       el: "#app",
       data: {
-        input: '',
-        cars: [{
-          name: 'Ford',
-          year: 2004
-        },
-        {
-          name: 'BMW',
-          year: 2007
-        },
-        {
-          name: 'Mers',
-          year: 2015
-        },],
+        text: ""
+
+      },
+      computed:{
+        count: function(){
+          return this.text.length;
+        }
       }
     });
   </script>
