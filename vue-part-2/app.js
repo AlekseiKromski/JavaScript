@@ -4,8 +4,19 @@ new Vue({
 
     //Filed for variables
     data: {
-        link: 'google.com',
-        markup: '<a href="google.com"> google </a>',
-        name: 'Max'
+        people: [
+            {
+                name: 'Jack1',
+                 stillAlive: false
+            },
+            {
+                name: 'Jack2',
+                stillAlive: true
+            },
+            {
+                name: 'Jack3',
+                stillAlive: false
+            },
+        ]
     }
 })
