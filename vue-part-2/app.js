@@ -4,7 +4,12 @@ new Vue({
 
     //Filed for variables
     data: {
-        string: 'hello, world',
-        string2: 'hello, world2'
+        name: 'world',
+        job: 'programmer'
+    },
+    methods:{
+        greet: function () {
+            return 'Hello, ' + this.name;
+        }
     }
 })

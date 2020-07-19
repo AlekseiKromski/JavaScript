@@ -6,8 +6,12 @@
 </head>
 <body>
 <div id="app">
-    <h1>{{string}}</h1>
-    <h1>{{string2}}</h1>
+    <div class="person">
+        <input type="text" v-model="name">
+        <h1>{{greet()}}</h1>
+        <h2>{{job}}</h2>
+    </div>
+    <pre>{{$data | json}}</pre>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
