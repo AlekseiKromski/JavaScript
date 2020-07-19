@@ -4,12 +4,8 @@ new Vue({
 
     //Filed for variables
     data: {
-        name: 'world',
-        job: 'programmer'
-    },
-    methods:{
-        greet: function () {
-            return 'Hello, ' + this.name;
-        }
+        link: 'google.com',
+        markup: '<a href="google.com"> google </a>',
+        name: 'Max'
     }
 })
