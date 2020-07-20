@@ -5,10 +5,5 @@ new Vue({
     //Filed for variables
     data: {
         counter: 0
-    },
-    methods:{
-        counterAdd(){
-            this.counter++;
-        }
     }
 })
