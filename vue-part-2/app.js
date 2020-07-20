@@ -1,5 +1,4 @@
 new Vue({
-    //Test git
     //get dom access to vue.js
     el: "#app",
 
