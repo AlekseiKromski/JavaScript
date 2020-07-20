@@ -11,12 +11,10 @@ new Vue({
 
     //Filed for variables
     data: {
-        a: 0,
-        b: 0,
-        Age: 20
+        error:false,
+        success: false,
     },
     methods:{
-
     },
     computed:{
         addtoA(){
