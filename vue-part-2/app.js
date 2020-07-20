@@ -2,6 +2,7 @@ new Vue({
     //get dom access to vue.js
     el: "#app",
 
+    //Add our personal key shortcut
     config:{
         keyCodes:{
             f2: 113
@@ -10,11 +11,21 @@ new Vue({
 
     //Filed for variables
     data: {
-        counter: 0
+        a: 0,
+        b: 0,
+        Age: 20
     },
     methods:{
-        changeName(){
-            console.log('Name is changed!');
+
+    },
+    computed:{
+        addtoA(){
+            return this.a + this.Age;
+        },
+        addtoB(){
+            return this.b + this.Age;
+
         }
     }
+
 })
