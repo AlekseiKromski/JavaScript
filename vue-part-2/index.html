@@ -8,10 +8,27 @@
 <body>
     <div id="app">
         <h2>{{counter}}</h2>
-        <button @click="counterAdd">+1</button>
-        <button @click="counter--">-1</button>
+        <button @click.prevent.self="counterAdd">+1</button>
+        <button @click.once="counter--">-1</button>
         <button @dblclick="counter=0">reset</button>
     </div>
+
+    <form @submit.prevent></form>
+
+    <div @scroll.passive="onscroll">
+
+    </div>
+
+    <!--
+        Модификаторы:
+
+        .stop - отмена дальнейшего всплытия
+        .prevent - отмена события по умолчянию
+        .capture -
+        .self - наступление события на данном элементе
+        .once - событие срабатывает один раз
+        .passive - незамедлительное включение функции на случай preventDefault
+    -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="app.js"></script>
