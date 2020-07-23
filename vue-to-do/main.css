@@ -1,0 +1,10 @@
+.strike{
+    text-decoration: line-through;
+}
+li{
+    cursor: pointer;
+}
+.memo{
+    color: #cccccc;
+    margin-bottom: 2%;
+}
