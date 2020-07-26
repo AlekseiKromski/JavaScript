@@ -1,6 +1,6 @@
 # vue-part-2
 
-> No
+> A Vue.js project
 
 ## Build Setup
 
