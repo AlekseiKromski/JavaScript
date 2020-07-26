@@ -1,33 +1,28 @@
 <template>
   <div id="app">
-    <button type="button" @click="component='Reg'">Reg</button>
-    <button type="button" @click="component='Aut'">Aut</button>
-    <keep-alive><component :is="component"></component></keep-alive>
+    <Slot>
+      <h2 slot="title">{{slotTitle}}</h2>
+      <p slot="p">Test</p>
+    </Slot>
   </div>
 </template>
 
 <script>
 
-  import List from './components/list'
-  import Aut from './components/Aut'
-  import Reg from './components/Reg'
-
+  import Slot from './components/Slot'
 
   export default {
     components: {
-      'List': List,
-      'Aut': Aut,
-      'Reg': Reg,
+      Slot,
     },
     data(){
       return {
-        title: 'Homes',
-        component: 'Aut'
+        slotTitle: 'tsetsetset'
       }
   }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
