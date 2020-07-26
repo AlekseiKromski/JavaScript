@@ -3,11 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 
-Vue.config.productionTip = false
+//import List from './components/list'
 
+Vue.config.productionTip = false;
+//Vue.component('List',List);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: { App },
   template: '<App/>'
-})
+});
