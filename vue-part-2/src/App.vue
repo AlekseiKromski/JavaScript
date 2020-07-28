@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h2>Outer title</h2>
-    <list></list>
+    <list :peoples="people"></list>
   </div>
 </template>
 
@@ -15,14 +15,9 @@
     },
     data(){
       return {
-        slotTitle: 'tsetsetset'
+        people: ['Max', 'Leo', 'George']
       }
   }
 }
 </script>
 
-<style scoped>
-  h2{
-    color: red;
-  }
-</style>

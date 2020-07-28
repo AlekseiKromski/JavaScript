@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Inner title</h2>
+    <h2 @click="show()">Inner title</h2>
     <ul>
-      <li v-for="person in people">{{person}}</li>
+      <li v-for="person in peoples">{{person}}</li>
     </ul>
   </div>
 </template>
@@ -10,16 +10,24 @@
 <script>
 
   export default {
+    //Validation
+    props:{
+      peoples:{
+        type: Array,
+        //Обязательное значение
+        required: true,
+        default: []
+      }
+    },
     data(){
       return {
-        people: ['Max', 'Leo', 'George']
+
+      }
+    },
+    methods:{
+      show(){
+        console.log(this.peoples)
       }
     }
   }
 </script>
-
-<style>
-  h2{
-    color: green;
-  }
-</style>
