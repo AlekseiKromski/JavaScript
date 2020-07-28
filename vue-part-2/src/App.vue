@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <Slot>
-      <h2 slot="title">{{slotTitle}}</h2>
-      <p slot="p">Test</p>
-    </Slot>
+    <h2>Outer title</h2>
+    <list></list>
   </div>
 </template>
 
 <script>
 
-  import Slot from './components/Slot'
+  import List from './components/list'
 
   export default {
     components: {
-      Slot,
+      List,
     },
     data(){
       return {
@@ -24,5 +22,7 @@
 </script>
 
 <style scoped>
-
+  h2{
+    color: red;
+  }
 </style>
