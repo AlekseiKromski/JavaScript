@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h2>Outer title</h2>
-    <list :peoples="people"></list>
+    <list :peoples="people" @message="displayMessage"></list>
   </div>
 </template>
 
@@ -17,7 +17,12 @@
       return {
         people: ['Max', 'Leo', 'George']
       }
-  }
+    },
+    methods:{
+      displayMessage(message){
+         this.people.push(message)
+      }
+    }
 }
 </script>
 
