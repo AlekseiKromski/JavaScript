@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <h2>Outer title</h2>
+    <Header></Header>
     <list :peoples="people" @message="displayMessage"></list>
+
   </div>
 </template>
 
 <script>
 
   import List from './components/list'
+  import Header from './components/Header'
 
   export default {
     components: {
-      List,
+      List, Header,
     },
     data(){
       return {
@@ -20,9 +22,9 @@
     },
     methods:{
       displayMessage(message){
-         this.people.push(message)
+        this.people.push(message)
       }
     }
-}
+  }
 </script>
 

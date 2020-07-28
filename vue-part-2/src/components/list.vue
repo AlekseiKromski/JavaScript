@@ -10,7 +10,7 @@
 </template>
 
 <script>
-
+  import {bus} from '../main'
   export default {
     //Validation
     props:{
@@ -31,7 +31,8 @@
         console.log(this.peoples)
       },
       saveMessage(){
-        this.$emit('message', this.message)
+        bus.$emit('message', this.message);
+        this.message = '';
       }
     }
   }
