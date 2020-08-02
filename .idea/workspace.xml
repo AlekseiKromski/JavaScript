@@ -57,12 +57,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02afa295-0c4b-4e16-9639-ffdba29fcf47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/blog-site/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-site/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-site/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/blog-site/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog-site/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog-site/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-site/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-site/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-site/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog-site/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596370437044</updated>
-      <workItem from="1596370438626" duration="1152000" />
+      <workItem from="1596370438626" duration="2882000" />
     </task>
     <servers />
   </component>
