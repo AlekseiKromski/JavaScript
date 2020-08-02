@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" v-if="navbar_panel_state">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,12 +16,53 @@
         </ul>
       </div>
     </nav>
-    <div class="admin_block text-center" v-if="admin_panel_state">
+
+    <!-- Admin panel -->
+    <div class="admin_block text-center" >
       <h1 class="mt-4">Admin panel</h1>
       <p class="sub_text mb-4">In this section you can add/delete post</p>
       <button class="btn btn-success mr-1">Add new post</button>
       <button class="btn btn-warning mr-1">Show all posts</button>
       <button class="btn btn-info mr-1" @click="hide_admin_panel">Hide admin panel</button>
+    </div>
+    <div class="container-fluid mt-5 ml-5 mr-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-xl-3 form_block">
+          <form>
+            <h3>Card form</h3>
+            <hr>
+            <div class="mb-2">
+              <label for="">Card title:</label>
+              <input type="text" class="input">
+            </div>
+            <div class="mb-2">
+              <label for="">Card text:</label>
+              <input type="text" class="input">
+            </div>
+            <div class="mb-2">
+              <label for="">Card img:</label>
+              <input type="file" class="input">
+            </div>
+            <div class="mb-2">
+              <button type="submit" class="btn btn-success">Add new post</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-4 col-xl-3 mt-3 mb-3">
+            <div class="card">
+              <img class="card-img-top" :src="preview_img" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{preview_title}}</h5>
+                <p class="card-text">
+                  {{preview_text}}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
     <hr v-if="admin_panel_state">
 
@@ -93,6 +136,9 @@ export default {
           img: require('@/assets/card_title.gif')
         },
       ],
+      preview_img: require('@/assets/card_title.gif'),
+      preview_title: '',
+      preview_text: ''
     }
   },
   methods:{
@@ -118,6 +164,18 @@ export default {
   .post_block{
     padding-left: 10%;
     padding-right: 10%;
+  }
+  .input{
+    border-radius: 5px 5px;
+    border: 2px solid #cecece;
+  }
+  .input:focus{
+    outline: none;
+  }
+  .form_block{
+    border-radius: 10px 10px;
+    padding: 2%;
+    box-shadow: 0px 0px 13px -1px black;
   }
 
 </style>
