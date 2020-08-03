@@ -21,11 +21,13 @@
     <div class="admin_block text-center" >
       <h1 class="mt-4">Admin panel</h1>
       <p class="sub_text mb-4">In this section you can add/delete post</p>
-      <button class="btn btn-success mr-1">Add new post</button>
+      <button class="btn btn-success mr-1" @click="add_card_form_state = !add_card_form_state">Add new post</button>
       <button class="btn btn-warning mr-1">Show all posts</button>
       <button class="btn btn-info mr-1" @click="hide_admin_panel">Hide admin panel</button>
     </div>
-    <div class="container-fluid mt-5 p-0">
+
+    <!-- Add new post section -->
+    <div v-if="add_card_form_state" class="container-fluid mt-5 p-0">
       <div class="row justify-content-center" style="width: 100%">
         <!--Card form section-->
         <div class="col-md-3 form_block">
@@ -141,7 +143,8 @@ export default {
       ],
       preview_img: require('@/assets/no_image.jpg'),
       preview_title: 'Card title',
-      preview_text: 'Card title'
+      preview_text: 'Card title',
+      add_card_form_state: false,
     }
   },
   methods:{
