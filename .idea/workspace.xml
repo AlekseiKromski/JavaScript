@@ -32,7 +32,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596464341104</updated>
-      <workItem from="1596464341629" duration="4392000" />
+      <workItem from="1596464341629" duration="6854000" />
     </task>
     <servers />
   </component>
@@ -40,6 +40,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="203" key="#Inspections" timestamp="1596473150256">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="586" y="203" key="#Inspections/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1596473150256" />
     <state x="136" y="247" key="run.anything.popup" timestamp="1596465773772">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
