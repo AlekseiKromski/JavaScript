@@ -25,31 +25,34 @@
       <button class="btn btn-warning mr-1">Show all posts</button>
       <button class="btn btn-info mr-1" @click="hide_admin_panel">Hide admin panel</button>
     </div>
-    <div class="container-fluid mt-5 ml-5 mr-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-xl-3 form_block">
+    <div class="container-fluid mt-5 p-0">
+      <div class="row justify-content-center" style="width: 100%">
+        <!--Card form section-->
+        <div class="col-md-3 form_block">
           <form>
             <h3>Card form</h3>
             <hr>
             <div class="mb-2">
               <label for="">Card title:</label>
-              <input type="text" class="input">
+              <input type="text" class="input" v-model="preview_title">
             </div>
             <div class="mb-2">
               <label for="">Card text:</label>
-              <input type="text" class="input">
+              <input type="text" class="input" v-model="preview_text">
             </div>
             <div class="mb-2">
               <label for="">Card img:</label>
-              <input type="file" class="input">
+              <input type="file" class="input" @change="previewFiles($event)">
             </div>
             <div class="mb-2">
               <button type="submit" class="btn btn-success">Add new post</button>
             </div>
           </form>
         </div>
-        <div class="col-md-6">
-          <div class="col-md-4 col-xl-3 mt-3 mb-3">
+
+        <!-- Preview section -->
+        <div class="col-md-3">
+          <div class="col-md-8 mt-3 mb-3">
             <div class="card">
               <img class="card-img-top" :src="preview_img" alt="">
               <div class="card-body">
@@ -136,9 +139,9 @@ export default {
           img: require('@/assets/card_title.gif')
         },
       ],
-      preview_img: require('@/assets/card_title.gif'),
-      preview_title: '',
-      preview_text: ''
+      preview_img: require('@/assets/no_image.jpg'),
+      preview_title: 'Card title',
+      preview_text: 'Card title'
     }
   },
   methods:{
@@ -149,6 +152,25 @@ export default {
     hide_admin_panel(){
       this.admin_panel_state = false;
       this.navbar_panel_state = true;
+    },
+    previewFiles(event){
+
+      let old_this = this;
+
+      var reader = new FileReader();
+
+      /*
+      * Event function
+      *
+      * Обработчик для события load. Это событие
+      * срабатывает при каждом успешном завершении операции чтения.
+      * */
+      reader.onload = function(event) {
+        old_this.preview_img = event.target.result;
+      }
+
+      //Send data to BLOB reading
+      reader.readAsDataURL(event.target.files[0]);
     }
   },
   components: {
