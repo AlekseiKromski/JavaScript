@@ -171,6 +171,14 @@ export default {
 
       //Send data to BLOB reading
       reader.readAsDataURL(event.target.files[0]);
+    },
+    add_new_post(){
+      console.log('TEst')
+      this.posts.unshift({
+        title: this.preview_title,
+        text: this.preview_text,
+        img: require('@/assets/no_image.jpg')
+      });
     }
   },
   components: {
