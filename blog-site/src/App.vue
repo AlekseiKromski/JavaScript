@@ -45,7 +45,7 @@
               <input type="file" class="input" @change="previewFiles($event)">
             </div>
             <div class="mb-2">
-              <button type="submit" class="btn btn-success">Add new post</button>
+              <button type="submit" @click.prevent="add_new_post" class="btn btn-success">Add new post</button>
             </div>
           </form>
         </div>
