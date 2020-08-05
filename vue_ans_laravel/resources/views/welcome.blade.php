@@ -66,6 +66,7 @@
     <body>
         <div id="app">
             <example-component></example-component>
+            <vue_5 v-bind:urldata="{{json_encode($url_data)}}"></vue_5>
         </div>
         <script src="js/app.js"></script>
     </body>
