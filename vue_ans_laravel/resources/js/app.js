@@ -19,6 +19,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'jquery/src/jquery.js'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
