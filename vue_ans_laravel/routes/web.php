@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'indexController@index');
+Route::get('/getJSON', 'indexController@json');

@@ -22,7 +22,7 @@ window.Vue = require('vue');
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/src/jquery.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import vue_5 from "./components/vue_5";
+import vue_6 from "./components/vue_6";
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -34,6 +34,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     components:{
-        'vue_5': vue_5
+        vue_6,
+
     }
 });

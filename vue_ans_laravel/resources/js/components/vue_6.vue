@@ -2,6 +2,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <button @click="update" class="btn btn-info">
+                    Update - {{id}}
+                </button>
+                <span v-if="is_refresh">
+                    Loading
+                </span>
                 <div class="card">
                     <ul>
                         <li v-for="url in urldata">
@@ -17,15 +23,24 @@
 
 <script>
     export default {
-        props:[
-          'urldata'
-        ],
         mounted() {
             this.update();
         },
         methods:{
             update(){
-                console.log(this.urldata);
+                this.is_refresh = true;
+                axios.get('/getJSON').then((response) => {
+                    this.urldata = response.data;
+                    this.is_refresh = false;
+                    this.id++;
+                });
+            }
+        },
+        data: () => {
+            return {
+                urldata: [],
+                is_refresh: false,
+                id: 0
             }
         }
     }
