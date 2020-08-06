@@ -3,6 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <line-chart :chart-data="data" :height="300" :options="{responsive: true, maintainAspectRation: true}"></line-chart>
+                <button @click="update" class="btn btn-info">update</button>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ class indexController extends Controller
             'datasets' => array([
                 'label' => 'Продажи',
                 'backgroundColor' => 'red',
-                'data' => [15000,20000,150,600,6000,6,66222,66446]
+                'data' => [rand(0,40000),rand(0,40000),rand(0,40000),rand(0,40000),rand(0,40000),]
             ])
         ];
 

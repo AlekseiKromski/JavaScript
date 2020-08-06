@@ -1952,6 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -88945,7 +88946,13 @@ var render = function() {
               height: 300,
               options: { responsive: true, maintainAspectRation: true }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-info", on: { click: _vm.update } },
+            [_vm._v("update")]
+          )
         ],
         1
       )
