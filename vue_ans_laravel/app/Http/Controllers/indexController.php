@@ -12,8 +12,12 @@ class indexController extends Controller
 
     public function json(){
         return [
-            ['title' => 'Card title1', 'url'],
-            ['title' => 'Card title2', 'url'],
+            'labels' => ['Март', 'Апрель', 'Май'],
+            'datasets' => array([
+                'label' => 'Продажи',
+                'backgroundColor' => 'red',
+                'data' => [15000,20000,150,600,6000,6,66222,66446]
+            ])
         ];
 
     }
