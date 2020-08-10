@@ -22,9 +22,7 @@ window.Vue = require('vue');
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/src/jquery.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import vue_7 from "./components/vue_7";
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+import vue_8 from "./components/vue_8";
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -34,6 +32,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     components:{
-        vue_7
+        vue_8
     }
 });

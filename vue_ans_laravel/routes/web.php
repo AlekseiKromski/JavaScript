@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'indexController@index');
-Route::get('/getJSON', 'indexController@json');
+Route::get('/start/socket-chart', 'indexController@newEvent');
