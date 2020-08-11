@@ -3,7 +3,7 @@ var io = require('socket.io')(http);
 var Redis = require('ioredis');
 
 var redis = new Redis();
-redis.subscribe('channel');
+redis.subscribe('channel-message');
 redis.on('message', function (channel, message){
     console.log('Message: ' + message);
     console.log('Channel: ' + channel);

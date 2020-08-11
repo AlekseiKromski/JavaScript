@@ -65,7 +65,7 @@
     </head>
     <body>
         <div id="app">
-            <vue_8></vue_8>
+            <vue_9></vue_9>
         </div>
         <script src="js/app.js"></script>
     </body>
