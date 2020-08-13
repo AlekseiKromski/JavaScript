@@ -14,3 +14,7 @@
 Route::get('/', 'indexController@index');
 Route::get('/start/socket-chart', 'indexController@newEvent');
 Route::get('/start/send-message', 'indexController@sendMessage');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
