@@ -65,7 +65,10 @@
     </head>
     <body>
         <div id="app">
-            <vue_9></vue_9>
+            @if(Auth::check())
+                <h4>Your account is: {{Auth::user()->email}} </h4>
+                <vue_10 :users="{{ \App\User::select('email', 'id')->where('id', '!=', Auth::id())->get()}}" :user="{{ Auth::user() }}"></vue_10>
+            @endif
         </div>
         <script src="js/app.js"></script>
     </body>

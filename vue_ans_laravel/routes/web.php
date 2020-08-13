@@ -14,6 +14,7 @@
 Route::get('/', 'indexController@index');
 Route::get('/start/socket-chart', 'indexController@newEvent');
 Route::get('/start/send-message', 'indexController@sendMessage');
+Route::get('/start/send-private-message', 'indexController@sendPrivateMessage');
 
 Auth::routes();
 
