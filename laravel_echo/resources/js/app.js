@@ -22,7 +22,7 @@ window.Vue = require('vue');
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/src/jquery.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import vue_10 from "./components/vue_10";
+import Chat from "./components/Chat";
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,6 +32,6 @@ import vue_10 from "./components/vue_10";
 const app = new Vue({
     el: '#app',
     components:{
-        vue_10
+        Chat
     }
 });
