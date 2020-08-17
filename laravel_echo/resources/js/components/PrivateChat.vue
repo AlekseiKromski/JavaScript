@@ -5,7 +5,8 @@
             <div class="col-sm-12">
                 <textarea class="form-control" rows="12" readonly="">{{messages.join('\n')}}</textarea>
                 <hr>
-                <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage">
+                <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage" @keydown="actionUser">
+                <span v-if="isActive">{{isActive.name}} typing ...</span>
             </div>
         </div>
     </div>
@@ -13,16 +14,33 @@
 
 <script>
     export default {
-        props: ['room'],
+        props: ['room','user'],
         data(){
            return {
                messages: [],
-               textMessage: ''
+               textMessage: '',
+               isActive: false,
+               timer: false,
            }
         },
+        computed: {
+            channel() {
+                return Echo.private('room.' + this.room.id);
+            }
+        },
         mounted() {
-            Echo.private('room.' + this.room.id).listen('PrivateChat', ({data}) => {
+            this.channel.listen('PrivateChat', ({data}) => {
                 this.messages.push(data.body);
+                this.isActive = false;
+            }).listenForWhisper('typing', (e) => {
+                this.isActive = e;
+
+                if (this.timer) clearTimeout(this.timer);
+
+                this.timer = setTimeout(()=>{
+                    this.isActive = false;
+                },2000);
+
             })
         },
         methods:{
@@ -30,6 +48,11 @@
                 axios.post('/messages', {body: this.textMessage, room_id: this.room.id});
                 this.messages.push(this.textMessage);
                 this.textMessage = '';
+            },
+            actionUser(){
+                this.channel.whisper('typing', {
+                    name: this.user.name
+                })
             }
         }
 
