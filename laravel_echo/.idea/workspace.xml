@@ -20,12 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92fcbf1d-d3cc-4936-b23f-512af2c2c535" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Chat.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/chat.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/PrivateChat.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-echo-server.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-echo-server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel-echo-server.lock" beforeDir="false" afterPath="$PROJECT_DIR$/laravel-echo-server.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,12 +153,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\JavaScript\laravel_echo\resources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OSPanel\domains\JavaScript\laravel_echo\resources\js\components" />
       <recent name="C:\OSPanel\domains\JavaScript\laravel_echo\resources\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\domains\JavaScript\laravel_echo\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -176,6 +178,7 @@
       <workItem from="1597344179586" duration="376000" />
       <workItem from="1597345924044" duration="3479000" />
       <workItem from="1597589090394" duration="3151000" />
+      <workItem from="1597681367937" duration="3104000" />
     </task>
     <servers />
   </component>

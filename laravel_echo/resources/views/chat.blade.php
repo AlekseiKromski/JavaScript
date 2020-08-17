@@ -2,6 +2,6 @@
 
 @section('content')
     <div id="app">
-        <Chat></Chat>
+        <private-chat></private-chat>
     </div>
 @endsection

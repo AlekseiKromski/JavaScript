@@ -23,6 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/src/jquery.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Chat from "./components/Chat";
+import PrivateChat from "./components/PrivateChat";
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,6 +33,6 @@ import Chat from "./components/Chat";
 const app = new Vue({
     el: '#app',
     components:{
-        Chat
+        Chat, PrivateChat
     }
 });
