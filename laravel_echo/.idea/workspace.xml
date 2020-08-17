@@ -21,9 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92fcbf1d-d3cc-4936-b23f-512af2c2c535" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/PrivateChat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/PrivateChat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/PrivateChat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PrivateChat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/room.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,7 @@
       <workItem from="1597344179586" duration="376000" />
       <workItem from="1597345924044" duration="3479000" />
       <workItem from="1597589090394" duration="3151000" />
-      <workItem from="1597681367937" duration="6046000" />
+      <workItem from="1597681367937" duration="6536000" />
     </task>
     <servers />
   </component>

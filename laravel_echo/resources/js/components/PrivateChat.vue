@@ -2,11 +2,16 @@
     <div class="container">
         <hr>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-8">
                 <textarea class="form-control" rows="12" readonly="">{{messages.join('\n')}}</textarea>
                 <hr>
                 <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage" @keydown="actionUser">
                 <span v-if="isActive">{{isActive.name}} typing ...</span>
+            </div>
+            <div class="col-sm-4">
+                <ul>
+                   <li v-for="user in activeUsers">{{user}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -21,15 +26,22 @@
                textMessage: '',
                isActive: false,
                timer: false,
+               activeUsers: []
            }
         },
         computed: {
             channel() {
-                return Echo.private('room.' + this.room.id);
+                return Echo.join('room.' + this.room.id);
             }
         },
         mounted() {
-            this.channel.listen('PrivateChat', ({data}) => {
+            this.channel.here((users) => {
+                this.activeUsers = users;
+            }).joining((user) => {
+                this.activeUsers.push(user);
+            }).leaving((user) => {
+                this.activeUsers.splice(this.activeUsers.indexOf(user, 1))
+            }).listen('PrivateChat', ({data}) => {
                 this.messages.push(data.body);
                 this.isActive = false;
             }).listenForWhisper('typing', (e) => {

@@ -2052,6 +2052,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['room', 'user'],
   data: function data() {
@@ -2059,18 +2064,25 @@ __webpack_require__.r(__webpack_exports__);
       messages: [],
       textMessage: '',
       isActive: false,
-      timer: false
+      timer: false,
+      activeUsers: []
     };
   },
   computed: {
     channel: function channel() {
-      return Echo["private"]('room.' + this.room.id);
+      return Echo.join('room.' + this.room.id);
     }
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.channel.listen('PrivateChat', function (_ref) {
+    this.channel.here(function (users) {
+      _this.activeUsers = users;
+    }).joining(function (user) {
+      _this.activeUsers.push(user);
+    }).leaving(function (user) {
+      _this.activeUsers.splice(_this.activeUsers.indexOf(user, 1));
+    }).listen('PrivateChat', function (_ref) {
       var data = _ref.data;
 
       _this.messages.push(data.body);
@@ -63285,7 +63297,7 @@ var render = function() {
     _c("hr"),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-12" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
         _c(
           "textarea",
           { staticClass: "form-control", attrs: { rows: "12", readonly: "" } },
@@ -63329,6 +63341,16 @@ var render = function() {
         _vm.isActive
           ? _c("span", [_vm._v(_vm._s(_vm.isActive.name) + " typing ...")])
           : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.activeUsers, function(user) {
+            return _c("li", [_vm._v(_vm._s(user))])
+          }),
+          0
+        )
       ])
     ])
   ])
