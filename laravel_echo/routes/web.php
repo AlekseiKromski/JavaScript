@@ -21,7 +21,9 @@ Route::post('messages', function(\Illuminate\Http\Request $request){
     App\Events\PrivateChat::dispatch($request->all());
 });
 
-Route::get('/room/{room}', 'indexController@room');
+Route::get('/room/{room}', function (App\Room $room){
+    return view('room', ['room' => $room]);
+});
 
 
 Auth::routes();

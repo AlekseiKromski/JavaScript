@@ -2052,6 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['room'],
   data: function data() {
     return {
       messages: [],
@@ -2061,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    Echo["private"]('room.2').listen('PrivateChat', function (_ref) {
+    Echo["private"]('room.' + this.room.id).listen('PrivateChat', function (_ref) {
       var data = _ref.data;
 
       _this.messages.push(data.body);
@@ -2071,7 +2072,7 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       axios.post('/messages', {
         body: this.textMessage,
-        room_id: 2
+        room_id: this.room.id
       });
       this.messages.push(this.textMessage);
       this.textMessage = '';
