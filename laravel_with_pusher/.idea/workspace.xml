@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd76043-0f19-42d9-9dc1-fcd2b5e69c2a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../laravel_echo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel_echo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laravel_echo/laravel-echo-server.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel_echo/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel_echo/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel_echo/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel_echo/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel_echo" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -159,7 +159,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597761602281</updated>
-      <workItem from="1597761603327" duration="1209000" />
+      <workItem from="1597761603327" duration="1815000" />
     </task>
     <servers />
   </component>
@@ -176,5 +176,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1597763574508">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1597763574508" />
   </component>
 </project>
