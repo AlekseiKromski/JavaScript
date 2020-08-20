@@ -2002,6 +2002,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _blog_blogComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blog/blogComponent */ "./resources/js/components/blog/blogComponent.vue");
 //
 //
 //
@@ -2027,6 +2028,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2036,7 +2038,8 @@ __webpack_require__.r(__webpack_exports__);
       search_result: [],
       focusOnBlock: false,
       focusClass: '',
-      focusOnSearch: false
+      focusOnSearch: false,
+      input: {}
     };
   },
   methods: {
@@ -2086,10 +2089,12 @@ __webpack_require__.r(__webpack_exports__);
       this.focusOnBlock = false;
       this.showSearchResult = false;
       this.focusClass = '';
-      this.$refs.input.blur();
+      this.input.blur();
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.input = this.$refs.input;
+  }
 });
 
 /***/ }),

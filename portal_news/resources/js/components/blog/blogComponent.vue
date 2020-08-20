@@ -41,7 +41,6 @@
                 this.newsLoader = false;
                 this.newsComplete = true;
             })
-
         },
         methods:{
 

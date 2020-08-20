@@ -24,6 +24,8 @@
 </template>
 
 <script>
+    import blogComponent from "../blog/blogComponent";
+
     export default {
         data(){
             return {
@@ -34,6 +36,7 @@
                 focusOnBlock: false,
                 focusClass: '',
                 focusOnSearch: false,
+                input: {},
             }
         },
         methods:{
@@ -77,11 +80,12 @@
                 this.focusOnBlock = false;
                 this.showSearchResult = false;
                 this.focusClass = '';
-                this.$refs.input.blur()
+                this.input.blur();
             }
+
         },
         mounted() {
-
+            this.input = this.$refs.input;
         }
 
     }
