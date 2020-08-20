@@ -2028,6 +2028,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      showSearchResult: false,
+      searchText: '',
+      timer: false,
+      search_result: [],
+      focusOnBlock: false,
+      focusClass: '',
+      focusOnSearch: false
+    };
+  },
   methods: {
     search: function search() {
       var _this = this;
@@ -2051,6 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             _this.showSearchResult = true;
+            _this.focusOnSearch = true;
           });
         }
       }, 1000);
@@ -2061,26 +2073,23 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkAfterBlur: function checkAfterBlur() {
-      this.focus = false;
+      this.focusOnSearch = false;
 
-      if (this.focusOnSearchBlock && this.focus === true) {
+      if (this.focusOnBlock) {
         this.showSearchResult = true;
+        this.focusClass = 'form-control-focus';
       } else {
         this.showSearchResult = false;
       }
+    },
+    mouseLeave: function mouseLeave() {
+      this.focusOnBlock = false;
+      this.showSearchResult = false;
+      this.focusClass = '';
+      this.$refs.input.blur();
     }
   },
-  mounted: function mounted() {},
-  data: function data() {
-    return {
-      showSearchResult: false,
-      searchText: '',
-      timer: false,
-      search_result: [],
-      focusOnSearchBlock: false,
-      focus: false
-    };
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -6536,7 +6545,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.search_result[data-v-27df9156]{\n    box-shadow: 0px 0px 11px -1px black;\n    position: absolute;\n    top: 61px;\n    right: 20px;\n    min-width: 300px;\n    max-width: 500px;\n    padding: 1%;\n    background: white;\n    z-index: 1;\n    border-radius: 10px 10px;\n}\n", ""]);
+exports.push([module.i, "\n.search_result[data-v-27df9156]{\n    box-shadow: 0px 0px 11px -1px black;\n    position: absolute;\n    top: 61px;\n    right: 20px;\n    min-width: 300px;\n    max-width: 500px;\n    padding: 1%;\n    background: white;\n    z-index: 1;\n    border-radius: 10px 10px;\n}\n.form-control-focus[data-v-27df9156] {\n    color: #495057;\n    background-color: #fff;\n    border-color: #80bdff;\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);\n}\n", ""]);
 
 // exports
 
@@ -38511,7 +38520,9 @@ var render = function() {
                   expression: "searchText"
                 }
               ],
+              ref: "input",
               staticClass: "form-control mr-sm-2",
+              class: _vm.focusClass,
               attrs: {
                 type: "search",
                 placeholder: "Поиск",
@@ -38523,8 +38534,7 @@ var render = function() {
                   return _vm.search()
                 },
                 focus: function($event) {
-                  _vm.checkSearchResult()
-                  _vm.focus = true
+                  return _vm.checkSearchResult()
                 },
                 blur: function($event) {
                   return _vm.checkAfterBlur()
@@ -38543,10 +38553,12 @@ var render = function() {
                   "div",
                   {
                     staticClass: "search_result",
-                    attrs: { mouseover: (_vm.focusOnSearchBlock = true) },
                     on: {
+                      mouseenter: function($event) {
+                        _vm.focusOnBlock = true
+                      },
                       mouseleave: function($event) {
-                        _vm.focusOnSearchBlock = false
+                        return _vm.mouseLeave(_vm.$)
                       }
                     }
                   },

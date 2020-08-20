@@ -12,8 +12,8 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" >
-                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search" @keydown="search()" @focus="checkSearchResult();focus = true" @blur="checkAfterBlur()" v-model="searchText">
-                <div v-if="showSearchResult" :mouseover="focusOnSearchBlock = true" @mouseleave="focusOnSearchBlock = false" class="search_result">
+                <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
+                <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result">
                     <ul>
                         <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
                     </ul>
@@ -25,6 +25,17 @@
 
 <script>
     export default {
+        data(){
+            return {
+                showSearchResult: false,
+                searchText: '',
+                timer: false,
+                search_result: [],
+                focusOnBlock: false,
+                focusClass: '',
+                focusOnSearch: false,
+            }
+        },
         methods:{
             search(){
                 if(this.timer){
@@ -43,39 +54,36 @@
                                 this.search_result = [{title: 'No result'}];
                             }
                             this.showSearchResult = true;
+                            this.focusOnSearch = true;
                         });
                     }
                 },1000);
             },
             checkSearchResult(){
-                if (this.searchText.length != 0){
+                if(this.searchText.length !=0){
                     this.showSearchResult = true;
                 }
             },
             checkAfterBlur(){
-                this.focus = false;
-                if(this.focusOnSearchBlock && this.focus === true){
+                this.focusOnSearch = false;
+                if(this.focusOnBlock){
                     this.showSearchResult = true;
+                    this.focusClass = 'form-control-focus';
                 }else{
                     this.showSearchResult = false;
                 }
-
+            },
+            mouseLeave(){
+                this.focusOnBlock = false;
+                this.showSearchResult = false;
+                this.focusClass = '';
+                this.$refs.input.blur()
             }
         },
         mounted() {
 
         }
-        ,
-        data(){
-            return {
-                showSearchResult: false,
-                searchText: '',
-                timer: false,
-                search_result: [],
-                focusOnSearchBlock: false,
-                focus: false
-            }
-        }
+
     }
 </script>
 
@@ -91,5 +99,12 @@
         background: white;
         z-index: 1;
         border-radius: 10px 10px;
+    }
+    .form-control-focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
     }
 </style>
