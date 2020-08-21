@@ -24,4 +24,12 @@ class ApiController extends Controller
             return null;
         }
     }
+
+    public function getTop3News(){
+        if($result = News::getTop3News()){
+            return $result;
+        }else{
+            return null;
+        }
+    }
 }

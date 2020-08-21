@@ -26,6 +26,29 @@ class News extends Model
         }
     }
 
+    public static function getTop3News(){
+        if($news = DB::table('news')->take(3)->get()){
+            $news = self::getNormalArr($news);
+            $news = json_decode(json_encode($news),true);
+            $count = 0;
+            foreach ($news as $k => $v){
+                if($count === 0){
+                    $news[$k]['show'] = true;
+                }else{
+                    $news[$k]['show'] = false;
+                }
+                if($news[$k]['img'] === null){
+                    $news[$k]['img'] = 'img/no_slider_image.jpg';
+                }
+                $count++;
+            }
+            $news = json_encode($news);
+            return $news;
+        }else{
+            return false;
+        }
+    }
+
     private static function getNormalArr($arr){
         $new_arr = [];
         foreach ($arr as $k => $v){
@@ -33,4 +56,6 @@ class News extends Model
         }
         return $new_arr;
     }
+
+
 }
