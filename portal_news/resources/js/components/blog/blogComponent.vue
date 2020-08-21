@@ -1,19 +1,10 @@
 <template>
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
-            <div v-if="newsLoader">
+            <!-- <div v-if="newsLoader">
                 <h4>Loading</h4>
-            </div>
-            <div class="col-md-3 mb-5" v-for="post in posts">
-                <div v-if="newsComplete" class="card mr-4" style="width: 18rem;"  >
-                    <img :src="post.img" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title" :alt="post.title">{{post.title}}</h5>
-                        <p class="card-text">{{post.text}}</p>
-                        <a href="#" class="btn btn-primary">More</a>
-                    </div>
-                </div>
-            </div>
+            </div> -->
+            <sliderComponent></sliderComponent>
 
 
         </div>
@@ -21,7 +12,11 @@
 </template>
 
 <script>
+    import sliderComponent from "./components/sliderComponent";
     export default {
+        components:{
+            sliderComponent,
+        },
         data(){
             return {
                 posts: [],
