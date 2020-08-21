@@ -1,30 +1,37 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">{ Portal_news }</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" >
-                <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
-                <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result">
-                    <ul>
-                        <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
-                    </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <div class="row p-0">
+                <div class="col-1 p-0">
+                    <a class="navbar-brand logo" href="#">Portal news</a>
                 </div>
-            </form>
+                <div class="col-11 p-0">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Главная</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0" >
+                            <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
+                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result">
+                                <ul>
+                                    <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
+
     </nav>
 </template>
 
 <script>
-    import blogComponent from "../blog/blogComponent";
+
 
     export default {
         data(){
@@ -110,5 +117,23 @@
         border-color: #80bdff;
         outline: 0;
         box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    .logo{
+        font-family: 'Alata', sans-serif;
+        font-weight: 400;
+    }
+    .nav-link{
+        font-family: 'Alata', sans-serif;
+
+    }
+    .form-control{
+        font-family: 'Alata', sans-serif;
+
+    }
+    .navbar{
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid blog">
         <div class="row justify-content-center">
             <!-- <div v-if="newsLoader">
                 <h4>Loading</h4>
@@ -59,5 +59,8 @@
     .filters{
         background:green;
         min-height:1000px;
+    }
+    .blog{
+        margin-top: 104px;
     }
 </style>

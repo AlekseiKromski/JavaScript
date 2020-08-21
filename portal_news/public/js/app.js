@@ -2151,7 +2151,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _blog_blogComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blog/blogComponent */ "./resources/js/components/blog/blogComponent.vue");
 //
 //
 //
@@ -2177,7 +2176,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6680,7 +6685,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.row{\n    width: 80%;\n    margin-left: auto;\n    margin-right: auto;\n}\n.card{\n    width: 100%;\n    margin-left: auto;\n    margin-right: auto;\n}\n.card-title{\n    max-height: 72px;\n    white-space: nowrap; /* Отменяем перенос текста */\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.filters{\n    background:green;\n    min-height:1000px;\n}\n", ""]);
+exports.push([module.i, "\n.row{\n    width: 80%;\n    margin-left: auto;\n    margin-right: auto;\n}\n.card{\n    width: 100%;\n    margin-left: auto;\n    margin-right: auto;\n}\n.card-title{\n    max-height: 72px;\n    white-space: nowrap; /* Отменяем перенос текста */\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.filters{\n    background:green;\n    min-height:1000px;\n}\n.blog{\n    margin-top: 104px;\n}\n", ""]);
 
 // exports
 
@@ -6699,7 +6704,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.new_text{\n    color: #212529;\n}\n.new_text:hover{\n    color: #212529;\n    text-decoration: none;\n}\n", ""]);
+exports.push([module.i, "\n.new_text{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n}\n.new_text:hover{\n    color: #212529;\n    text-decoration: none;\n}\n.new_title{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n    font-weight: 600;\n}\n.new_title:hover{\n    color: #212529;\n    text-decoration: none;\n}\n", ""]);
 
 // exports
 
@@ -6737,7 +6742,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.search_result[data-v-27df9156]{\n    box-shadow: 0px 0px 11px -1px black;\n    position: absolute;\n    top: 61px;\n    right: 20px;\n    min-width: 300px;\n    max-width: 500px;\n    padding: 1%;\n    background: white;\n    z-index: 1;\n    border-radius: 10px 10px;\n}\n.form-control-focus[data-v-27df9156] {\n    color: #495057;\n    background-color: #fff;\n    border-color: #80bdff;\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);\n}\n", ""]);
+exports.push([module.i, "\n.search_result[data-v-27df9156]{\n    box-shadow: 0px 0px 11px -1px black;\n    position: absolute;\n    top: 61px;\n    right: 20px;\n    min-width: 300px;\n    max-width: 500px;\n    padding: 1%;\n    background: white;\n    z-index: 1;\n    border-radius: 10px 10px;\n}\n.form-control-focus[data-v-27df9156] {\n    color: #495057;\n    background-color: #fff;\n    border-color: #80bdff;\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);\n}\n.logo[data-v-27df9156]{\n    font-family: 'Alata', sans-serif;\n    font-weight: 400;\n}\n.nav-link[data-v-27df9156]{\n    font-family: 'Alata', sans-serif;\n}\n.form-control[data-v-27df9156]{\n    font-family: 'Alata', sans-serif;\n}\n.navbar[data-v-27df9156]{\n    position: fixed;\n    top: 0px;\n    width: 100%;\n    z-index: 1;\n}\n", ""]);
 
 // exports
 
@@ -38669,7 +38674,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid mt-5" }, [
+  return _c("div", { staticClass: "container-fluid blog" }, [
     _c(
       "div",
       { staticClass: "row justify-content-center" },
@@ -38723,7 +38728,7 @@ var render = function() {
           return !_vm.newsLoader
             ? _c("div", { staticClass: "col-12" }, [
                 _c("h5", [
-                  _c("a", { staticClass: "new_text", attrs: { href: "#" } }, [
+                  _c("a", { staticClass: "new_title", attrs: { href: "#" } }, [
                     _vm._v(_vm._s(p.title))
                   ])
                 ]),
@@ -38880,93 +38885,95 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+    { staticClass: "navbar navbar-expand-lg navbar-light bg-light shadow-sm" },
     [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("{ Portal_news }")
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent" }
-        },
-        [
-          _vm._m(1),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row p-0" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.searchText,
-                  expression: "searchText"
-                }
-              ],
-              ref: "input",
-              staticClass: "form-control mr-sm-2",
-              class: _vm.focusClass,
-              attrs: {
-                type: "search",
-                placeholder: "Поиск",
-                "aria-label": "Search"
+          _c("div", { staticClass: "col-11 p-0" }, [
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarSupportedContent" }
               },
-              domProps: { value: _vm.searchText },
-              on: {
-                keydown: function($event) {
-                  return _vm.search()
-                },
-                focus: function($event) {
-                  return _vm.checkSearchResult()
-                },
-                blur: function($event) {
-                  return _vm.checkAfterBlur()
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.searchText = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm.showSearchResult
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "search_result",
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.searchText,
+                        expression: "searchText"
+                      }
+                    ],
+                    ref: "input",
+                    staticClass: "form-control mr-sm-2",
+                    class: _vm.focusClass,
+                    attrs: {
+                      type: "search",
+                      placeholder: "Поиск",
+                      "aria-label": "Search"
+                    },
+                    domProps: { value: _vm.searchText },
                     on: {
-                      mouseenter: function($event) {
-                        _vm.focusOnBlock = true
+                      keydown: function($event) {
+                        return _vm.search()
                       },
-                      mouseleave: function($event) {
-                        return _vm.mouseLeave(_vm.$)
+                      focus: function($event) {
+                        return _vm.checkSearchResult()
+                      },
+                      blur: function($event) {
+                        return _vm.checkAfterBlur()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.searchText = $event.target.value
                       }
                     }
-                  },
-                  [
-                    _c(
-                      "ul",
-                      _vm._l(_vm.search_result, function(sr) {
-                        return _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v(_vm._s(sr.title))
-                          ])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm.showSearchResult
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "search_result",
+                          on: {
+                            mouseenter: function($event) {
+                              _vm.focusOnBlock = true
+                            },
+                            mouseleave: function($event) {
+                              return _vm.mouseLeave(_vm.$)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "ul",
+                            _vm._l(_vm.search_result, function(sr) {
+                              return _c("li", [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v(_vm._s(sr.title))
+                                ])
+                              ])
+                            }),
+                            0
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]
+            )
           ])
-        ]
-      )
+        ])
+      ])
     ]
   )
 }
@@ -38975,21 +38982,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent",
-          "aria-controls": "navbarSupportedContent",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
+    return _c("div", { staticClass: "col-1 p-0" }, [
+      _c("a", { staticClass: "navbar-brand logo", attrs: { href: "#" } }, [
+        _vm._v("Portal news")
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -38998,7 +38995,7 @@ var staticRenderFns = [
     return _c("ul", { staticClass: "navbar-nav mr-auto" }, [
       _c("li", { staticClass: "nav-item active" }, [
         _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
-          _vm._v("Home")
+          _vm._v("Главная")
         ])
       ])
     ])
