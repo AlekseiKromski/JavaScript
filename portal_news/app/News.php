@@ -7,7 +7,7 @@ use DB;
 class News extends Model
 {
     public static function getAllNews(){
-        if($news = DB::table('news')->get()){
+        if($news = DB::table('news')->orderBy('id', 'desc')->get()){
             return self::getNormalArr($news);
         }else{
             return false;
@@ -16,7 +16,7 @@ class News extends Model
 
     public static function search($data){
         if (!empty($title = $data['title'])){
-            if($result = DB::select("SELECT title FROM news WHERE title LIKE '%$title%'")){
+            if($result = DB::select("SELECT title FROM news WHERE title LIKE '%$title%' ORDER BY id DESC ")){
                 return $result;
             }else{
                 return false;
@@ -27,7 +27,7 @@ class News extends Model
     }
 
     public static function getTop3News(){
-        if($news = DB::table('news')->take(3)->get()){
+        if($news = DB::table('news')->take(3)->orderBy('id', 'desc')->get()){
             $news = self::getNormalArr($news);
             $news = json_decode(json_encode($news),true);
             $count = 0;

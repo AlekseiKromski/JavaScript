@@ -6,8 +6,13 @@
                 <h4>Loading</h4>
             </div>
             <div v-if="!newsLoader" class="col-12 p-0" v-for="p in posts">
-                <h6><a href="#"  class="new_title">{{p.title}}</a></h6>
-                <p><a href="#" class="new_text">{{p.text}}</a></p>
+                <div class="row m-0">
+                    <div class="col-4" v-bind:style="{background: `url(${p.img})`, 'background-size': 'cover','background-position': 'center'}"></div>
+                    <div class="col-8">
+                        <h6><a href="#"  class="new_title">{{p.title}}</a></h6>
+                        <p><a href="#" class="new_text">{{p.text}}</a></p>
+                    </div>
+                </div>
                 <hr>
             </div>
         </div>

@@ -32,7 +32,7 @@
             return{
                 sliders:[],
                 buttons:[],
-                slider: 7,
+                slider: 0,
 
             }
         },
@@ -84,6 +84,7 @@
                     element.text = element.text.substring(0, 120) + ' ...';
                     this.sliders.push(element)
                     if(index === 0){
+                        this.slider = element.id;
                         this.buttons.push({id: element.id, active: true, class: 'button-active' })
                     }else{
                         this.buttons.push({id: element.id, active: false, class: 'button-' })
