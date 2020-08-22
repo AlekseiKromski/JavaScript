@@ -1,11 +1,12 @@
 <template>
     <div class="container-fluid">
         <div class="row" style="width: 100%">
-            <div v-if="newsLoader">
+            <h3 class="mb-3 pb-2 name">News:</h3>
+            <div v-if="newsLoader" class="col-12">
                 <h4>Loading</h4>
             </div>
-            <div v-if="!newsLoader" class="col-12" v-for="p in posts">
-                <h5><a href="#"  class="new_title">{{p.title}}</a></h5>
+            <div v-if="!newsLoader" class="col-12 p-0" v-for="p in posts">
+                <h6><a href="#"  class="new_title">{{p.title}}</a></h6>
                 <p><a href="#" class="new_text">{{p.text}}</a></p>
                 <hr>
             </div>
@@ -56,5 +57,9 @@
     .new_title:hover{
         color: #212529;
         text-decoration: none;
+    }
+    .name{
+        border-bottom: 1px solid black;
+        width: 100%;
     }
 </style>

@@ -11,7 +11,9 @@
                         <newsComponent></newsComponent>
                     </div>
                     <div class="col-1 "></div>
-                    <div class="col-4 filters"></div>
+                    <div class="col-4 filters">
+                        <filtersComponent></filtersComponent>
+                    </div>
                 </div>
             </div>
 
@@ -22,9 +24,10 @@
 <script>
     import sliderComponent from "./components/sliderComponent";
     import newsComponent from "./components/newsComponent";
+    import filtersComponent from "./components/filtersComponent";
     export default {
         components:{
-            sliderComponent,newsComponent
+            sliderComponent, newsComponent, filtersComponent
         },
         data(){
             return {
@@ -55,10 +58,6 @@
         white-space: nowrap; /* Отменяем перенос текста */
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-    .filters{
-        background:green;
-        min-height:1000px;
     }
     .blog{
         margin-top: 104px;

@@ -49,6 +49,14 @@ class News extends Model
         }
     }
 
+    public static function getCategories(){
+        if($news = DB::table('categories')->get()){
+            return self::getNormalArr($news);
+        }else{
+            return false;
+        }
+    }
+
     private static function getNormalArr($arr){
         $new_arr = [];
         foreach ($arr as $k => $v){

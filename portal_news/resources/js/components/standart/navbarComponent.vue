@@ -1,20 +1,34 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <div class="row p-0">
                 <div class="col-1 p-0">
-                    <a class="navbar-brand logo" href="#">Portal news</a>
+                    <a class="navbar-brand logo" href="/">Portal news</a>
                 </div>
                 <div class="col-11 p-0">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/">Главная</a>
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item active" @mouseenter.prevent="showCategories()" @mouseleave.prevent="hideCategories()">
+                                <a class="nav-link" href="/" >Categories</a>
+                                <div v-if="categoriesBlock" class="dropdown_menu shadow-lg animate__animated animate__bounceIn" @mouseenter.prevent="focusOnCategoriesBlock = true;" @mouseleave="leaveCategoriesBlock($event)">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <ul>
+                                                <li v-for="c in categories">
+                                                    <a href="#">{{c.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                         <form class="form-inline my-2 my-lg-0" >
                             <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
-                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result">
+                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result shadow animate__animated animate__bounceIn">
                                 <ul>
                                     <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
                                 </ul>
@@ -44,6 +58,9 @@
                 focusClass: '',
                 focusOnSearch: false,
                 input: {},
+                categoriesBlock: false,
+                focusOnCategoriesBlock: false,
+                categories: [],
             }
         },
         methods:{
@@ -87,12 +104,30 @@
                 this.focusOnBlock = false;
                 this.showSearchResult = false;
                 this.focusClass = '';
-                this.input.blur();
+                this.$refs.input.blur();
+            },
+            showCategories(){
+                this.categoriesBlock = true;
+            },
+            hideCategories(){
+                if(this.focusOnCategoriesBlock != false){
+                    this.categoriesBlock = false;
+                }
+
+            },
+            leaveCategoriesBlock(e){
+                this.focusOnCategoriesBlock = false;
+                this.categoriesBlock = false;
+
             }
 
         },
         mounted() {
-            this.input = this.$refs.input;
+            axios.get('/api/getCategories').then(response => {
+                response.data.forEach(e => {
+                    this.categories.push(e);
+                })
+            });
         }
 
     }
@@ -100,7 +135,6 @@
 
 <style scoped>
     .search_result{
-        box-shadow: 0px 0px 11px -1px black;
         position: absolute;
         top: 61px;
         right: 20px;
@@ -135,5 +169,15 @@
         top: 0px;
         width: 100%;
         z-index: 1;
+    }
+    .dropdown_menu{
+        background-color: white;
+        border-radius: 10px 10px;
+        min-width: 250px;
+        position: absolute;
+        z-index: 1;
+        left: -17px;
+        top: 55px;
+        padding: 1%;
     }
 </style>

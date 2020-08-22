@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid">
-        <div class="slider" v-if="s.show" v-bind:style="{background:  `url(${s.img})`, 'background-size': 'cover'}" v-for="s in sliders">
+    <div class="container-fluids">
+        <div ref="slider" class="slider animate__animated animate__backInLeft" v-if="s.show" v-bind:style="{background:  `url(${s.img})`, 'background-size': 'cover'}" v-for="s in sliders">
             <div class="row align-items-center blur" v-bind:style="{'backdrop-filter': `blur(8px)`, width: '100%'}">
                 <div class="row justify-content-center" style="width: 100%;" >
                     <div class="col-md-3 ">
@@ -73,6 +73,8 @@
                     }
                 });
 
+
+
             }
         },
         mounted(){
@@ -135,6 +137,6 @@
         max-height: 10px;
         max-width: 10px;
         height: 10px;
-        background: blue;
+        background: #212529;
     }
 </style>

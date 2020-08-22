@@ -32,4 +32,12 @@ class ApiController extends Controller
             return null;
         }
     }
+
+    public function getCategories(){
+        if($result = News::getCategories()){
+            return $result;
+        }else{
+            return null;
+        }
+    }
 }

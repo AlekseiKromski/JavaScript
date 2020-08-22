@@ -20,6 +20,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+//Import libs
+import 'animate.css';
+
+//Import components
 import navbar from "./components/standart/navbarComponent";
 import blog from "./components/blog/blogComponent";
 
