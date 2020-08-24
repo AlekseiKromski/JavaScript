@@ -5,8 +5,7 @@
             <div v-if="newsLoader" class="col-12">
                 <h4>Loading</h4>
             </div>
-            {{selectedCategories}}
-            <div v-on:changeList="test()" v-if="!newsLoader" class="col-12 p-0" v-for="p in posts">
+            <div  v-if="!newsLoader && p.show" class="col-12 p-0" v-for="p in posts">
                 <div class="row m-0">
                     <div class="col-4" v-bind:style="{background: `url(${p.img})`, 'background-size': 'cover','background-position': 'center'}"></div>
                     <div class="col-8">
@@ -47,40 +46,20 @@
                 });
 
                 this.newsLoader = false;
-                //this.$eventBus.$on('changeList', this.test());
-
             })
         },
         created() {
-            this.$eventBus.$on('changeList', (categories) => {
-
-                // for(let post in this.posts){
-                //     categories.forEach((e,post) => {
-                //         if(e.selected){
-                //             console.log(post.category)
-                //             if(e.id == post.category){
-                //                 console.log('selected')
-                //             }
-                //         }
-                //     })
-                // }
-
-                let posts2 = [];
-
+            this.$eventBus.$on('changeList', (id) => {
+                console.log(id)
                 this.posts.forEach(p => {
-                    categories.forEach((c) => {
-                        if(c.selected){
-                            console.log(c.selected)
-                            if(c.id == p.category){
-                                posts2.push(p);
-                            }else if(c.name == 'All'){
-                                console.log('all')
-                            }
-                        }
-                    })
+                    if(p.category === id){
+                        p.show=true;
+                    }else if(id === null){
+                        p.show=true;
+                    }else{
+                        p.show=false;
+                    }
                 })
-                console.log(posts2)
-                this.posts = posts2;
             })
         },
     }

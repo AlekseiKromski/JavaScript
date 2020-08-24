@@ -8,7 +8,12 @@ class News extends Model
 {
     public static function getAllNews(){
         if($news = DB::table('news')->orderBy('id', 'desc')->get()){
-            return self::getNormalArr($news);
+            $news = self::getNormalArr($news);
+            $news = json_decode(json_encode($news),true);
+            foreach ($news as $k => $v){
+                $news[$k]['show'] = false;
+            }
+            return $news;
         }else{
             return false;
         }
@@ -54,11 +59,7 @@ class News extends Model
             $categories = self::getNormalArr($categories);
             $categories = json_decode(json_encode($categories),true);
             foreach ($categories as $k => $v){
-                if($categories[$k]['name'] == 'All'){
-                    $categories[$k]['selected'] = true;
-                }else{
-                    $categories[$k]['selected'] = false;
-                }
+                $categories[$k]['selected'] = false;
             }
             return $categories;
         }else{

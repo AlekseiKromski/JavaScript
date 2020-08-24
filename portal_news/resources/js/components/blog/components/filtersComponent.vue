@@ -5,7 +5,7 @@
             <div class="col-12 p-0" >
                 <ul class="p-0">
                     <li class="mb-2" v-for="c in categories">
-                        <input v-model="c.selected" type="checkbox" v-on:click="selectCategory($event)">
+                        <input v-bind:id="c.id" type="checkbox" v-on:click="selectCategory($event)">
                         {{c.name}}
                     </li>
                 </ul>
@@ -28,9 +28,15 @@
         },
         methods:{
             selectCategory(event){
-                this.$emit('getSelectedCategory', this.categories)
-                this.$eventBus.$emit('changeList', this.categories);
+                let id = Number(event.target.id);
 
+                if(event.target.checked){
+                    this.$emit('getSelectedCategory', this.id)
+                    this.$eventBus.$emit('changeList', id);
+                }else{
+                    this.$emit('getSelectedCategory', this.id)
+                    this.$eventBus.$emit('changeList', null);
+                }
             }
         }
     }

@@ -2028,8 +2028,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     selectCategory: function selectCategory(event) {
-      this.$emit('getSelectedCategory', this.categories);
-      this.$eventBus.$emit('changeList', this.categories);
+      var id = Number(event.target.id);
+
+      if (event.target.checked) {
+        this.$emit('getSelectedCategory', this.id);
+        this.$eventBus.$emit('changeList', id);
+      } else {
+        this.$emit('getSelectedCategory', this.id);
+        this.$eventBus.$emit('changeList', null);
+      }
     }
   }
 });
@@ -2045,7 +2052,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2091,41 +2097,24 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.posts.push(element);
       });
-      _this.newsLoader = false; //this.$eventBus.$on('changeList', this.test());
+      _this.newsLoader = false;
     });
   },
   created: function created() {
     var _this2 = this;
 
-    this.$eventBus.$on('changeList', function (categories) {
-      // for(let post in this.posts){
-      //     categories.forEach((e,post) => {
-      //         if(e.selected){
-      //             console.log(post.category)
-      //             if(e.id == post.category){
-      //                 console.log('selected')
-      //             }
-      //         }
-      //     })
-      // }
-      var posts2 = [];
+    this.$eventBus.$on('changeList', function (id) {
+      console.log(id);
 
       _this2.posts.forEach(function (p) {
-        categories.forEach(function (c) {
-          if (c.selected) {
-            console.log(c.selected);
-
-            if (c.id == p.category) {
-              posts2.push(p);
-            } else if (c.name == 'All') {
-              console.log('all');
-            }
-          }
-        });
+        if (p.category === id) {
+          p.show = true;
+        } else if (id === null) {
+          p.show = true;
+        } else {
+          p.show = false;
+        }
       });
-
-      console.log(posts2);
-      _this2.posts = posts2;
     });
   }
 });
@@ -39165,44 +39154,10 @@ var render = function() {
           _vm._l(_vm.categories, function(c) {
             return _c("li", { staticClass: "mb-2" }, [
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: c.selected,
-                    expression: "c.selected"
-                  }
-                ],
-                attrs: { type: "checkbox" },
-                domProps: {
-                  checked: Array.isArray(c.selected)
-                    ? _vm._i(c.selected, null) > -1
-                    : c.selected
-                },
+                attrs: { id: c.id, type: "checkbox" },
                 on: {
                   click: function($event) {
                     return _vm.selectCategory($event)
-                  },
-                  change: function($event) {
-                    var $$a = c.selected,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = null,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && _vm.$set(c, "selected", $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            c,
-                            "selected",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
-                      }
-                    } else {
-                      _vm.$set(c, "selected", $$c)
-                    }
                   }
                 }
               }),
@@ -39251,52 +39206,41 @@ var render = function() {
               _c("h4", [_vm._v("Loading")])
             ])
           : _vm._e(),
-        _vm._v("\n        " + _vm._s(_vm.selectedCategories) + "\n        "),
+        _vm._v(" "),
         _vm._l(_vm.posts, function(p) {
-          return !_vm.newsLoader
-            ? _c(
-                "div",
-                {
-                  staticClass: "col-12 p-0",
-                  on: {
-                    changeList: function($event) {
-                      return _vm.test()
+          return !_vm.newsLoader && p.show
+            ? _c("div", { staticClass: "col-12 p-0" }, [
+                _c("div", { staticClass: "row m-0" }, [
+                  _c("div", {
+                    staticClass: "col-4",
+                    style: {
+                      background: "url(" + p.img + ")",
+                      "background-size": "cover",
+                      "background-position": "center"
                     }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "row m-0" }, [
-                    _c("div", {
-                      staticClass: "col-4",
-                      style: {
-                        background: "url(" + p.img + ")",
-                        "background-size": "cover",
-                        "background-position": "center"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-8" }, [
-                      _c("h6", [
-                        _c(
-                          "a",
-                          { staticClass: "new_title", attrs: { href: "#" } },
-                          [_vm._v(_vm._s(p.title))]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c(
-                          "a",
-                          { staticClass: "new_text", attrs: { href: "#" } },
-                          [_vm._v(_vm._s(p.text))]
-                        )
-                      ])
-                    ])
-                  ]),
+                  }),
                   _vm._v(" "),
-                  _c("hr")
-                ]
-              )
+                  _c("div", { staticClass: "col-8" }, [
+                    _c("h6", [
+                      _c(
+                        "a",
+                        { staticClass: "new_title", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(p.title))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c(
+                        "a",
+                        { staticClass: "new_text", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(p.text))]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr")
+              ])
             : _vm._e()
         })
       ],
