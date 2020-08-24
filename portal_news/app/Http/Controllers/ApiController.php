@@ -33,7 +33,7 @@ class ApiController extends Controller
         }
     }
 
-    public function getCategories(){
+    public static function getCategories(){
         if($result = News::getCategories()){
             return $result;
         }else{

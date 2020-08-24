@@ -48,6 +48,7 @@
 
 
     export default {
+        props:['categories'],
         data(){
             return {
                 showSearchResult: false,
@@ -60,7 +61,6 @@
                 input: {},
                 categoriesBlock: false,
                 focusOnCategoriesBlock: false,
-                categories: [],
                 timerCategories: false,
                 timerCategories2: false
             }
@@ -159,11 +159,7 @@
 
         },
         mounted() {
-            axios.get('/api/getCategories').then(response => {
-                response.data.forEach(e => {
-                    this.categories.push(e);
-                })
-            });
+
         }
 
     }

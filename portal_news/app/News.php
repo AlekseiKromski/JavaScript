@@ -50,8 +50,17 @@ class News extends Model
     }
 
     public static function getCategories(){
-        if($news = DB::table('categories')->get()){
-            return self::getNormalArr($news);
+        if($categories = DB::table('categories')->get()){
+            $categories = self::getNormalArr($categories);
+            $categories = json_decode(json_encode($categories),true);
+            foreach ($categories as $k => $v){
+                if($categories[$k]['name'] == 'All'){
+                    $categories[$k]['selected'] = true;
+                }else{
+                    $categories[$k]['selected'] = false;
+                }
+            }
+            return $categories;
         }else{
             return false;
         }

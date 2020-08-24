@@ -6,11 +6,11 @@
             <div class="container-fluid mt-5">
                 <div class="row" style="width: 100%;">
                     <div class="col-7 news">
-                        <newsComponent></newsComponent>
+                        <newsComponent v-bind:selectedCategories="selectedCategories"></newsComponent>
                     </div>
                     <div class="col-1 "></div>
                     <div class="col-4 filters">
-                        <filtersComponent></filtersComponent>
+                        <filtersComponent v-bind:categories="categories"  v-on:getSelectedCategory="getSelectedCategories($event)"></filtersComponent>
                     </div>
                 </div>
             </div>
@@ -25,18 +25,22 @@
     import filtersComponent from "./components/filtersComponent";
     import sliderComponent_2 from "./components/sliderComponent_2";
     export default {
+        props:['categories'],
         components:{
             sliderComponent, newsComponent, filtersComponent, sliderComponent_2
         },
         data(){
             return {
-
+                selectedCategories: this.categories,
             }
         },
         mounted() {
+
         },
         methods:{
-
+            getSelectedCategories(e){
+                this.selectedCategories = e;
+            }
         }
     }
 </script>

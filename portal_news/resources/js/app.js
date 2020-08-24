@@ -19,8 +19,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
 //Import libs
 import 'animate.css';
 
@@ -34,9 +32,17 @@ import blog from "./components/blog/blogComponent";
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.prototype.$eventBus = new Vue(); // 1способ
+
 const app = new Vue({
     el: '#app',
     components: {
         navbar, blog
+    },
+    data:{
+
+    },
+    mounted() {
+
     }
 });

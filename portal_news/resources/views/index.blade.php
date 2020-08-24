@@ -8,9 +8,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
     </head>
     <body>
+
         <div id="app">
-            <navbar></navbar>
-            <blog></blog>
+            <navbar v-bind:categories="{{json_encode($categories)}}"></navbar>
+            <blog v-bind:categories="{{json_encode($categories)}}"></blog>
         </div>
 
         <script src="{{asset('js/app.js')}}"></script>
