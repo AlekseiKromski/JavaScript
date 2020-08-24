@@ -1,10 +1,8 @@
 <template>
     <div class="container-fluid blog">
         <div class="row justify-content-center">
-            <!-- <div v-if="newsLoader">
-                <h4>Loading</h4>
-            </div> -->
-            <sliderComponent></sliderComponent>
+            <!--<sliderComponent></sliderComponent>-->
+            <sliderComponent_2></sliderComponent_2>
             <div class="container-fluid mt-5">
                 <div class="row" style="width: 100%;">
                     <div class="col-7 news">
@@ -25,9 +23,10 @@
     import sliderComponent from "./components/sliderComponent";
     import newsComponent from "./components/newsComponent";
     import filtersComponent from "./components/filtersComponent";
+    import sliderComponent_2 from "./components/sliderComponent_2";
     export default {
         components:{
-            sliderComponent, newsComponent, filtersComponent
+            sliderComponent, newsComponent, filtersComponent, sliderComponent_2
         },
         data(){
             return {
