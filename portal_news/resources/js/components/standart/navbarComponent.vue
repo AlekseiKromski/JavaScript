@@ -11,9 +11,9 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
-                            <li class="nav-item active" @mouseenter.prevent="showCategories()" @mouseleave.prevent="hideCategories()">
+                            <li class="nav-item active" @mouseenter="showCategories()" @mouseleave="hideCategories()">
                                 <a class="nav-link" href="/" >Categories</a>
-                                <div v-if="categoriesBlock" class="dropdown_menu shadow-lg animate__animated animate__bounceIn" @mouseenter.prevent="focusOnCategoriesBlock = true;" @mouseleave="leaveCategoriesBlock($event)">
+                                <div v-if="categoriesBlock" ref="catBlock" class="dropdown_menu shadow-lg animate__animated animate__bounceIn" @mouseenter="enterCategoriesBlock()" @mouseleave="leaveCategoriesBlock($event)">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <ul>
@@ -28,7 +28,7 @@
                         </ul>
                         <form class="form-inline my-2 my-lg-0" >
                             <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
-                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($)" class="search_result shadow animate__animated animate__bounceIn">
+                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave()" class="search_result shadow animate__animated animate__bounceIn">
                                 <ul>
                                     <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
                                 </ul>
@@ -61,6 +61,8 @@
                 categoriesBlock: false,
                 focusOnCategoriesBlock: false,
                 categories: [],
+                timerCategories: false,
+                timerCategories2: false
             }
         },
         methods:{
@@ -107,18 +109,52 @@
                 this.$refs.input.blur();
             },
             showCategories(){
+                if(this.timerCategories){
+                    clearTimeout(this.timerCategories);
+                }
                 this.categoriesBlock = true;
             },
             hideCategories(){
-                if(this.focusOnCategoriesBlock != false){
-                    this.categoriesBlock = false;
+
+                if(this.timerCategories){
+                    clearTimeout(this.timerCategories);
                 }
+                this.timerCategories = setTimeout(()=>{
+                    if(this.focusOnCategoriesBlock === false){
+                        this.$refs.catBlock.classList.remove('animate__bounceIn')
+                        this.$refs.catBlock.classList.add('animate__bounceOut')
+                        this.$refs.catBlock.addEventListener('animationend',(event) =>{
+                            event.target.classList.remove('animate__bounceOut');
+                            this.categoriesBlock = false;
+                        });
+
+                    }
+                }, 1000)
+
 
             },
             leaveCategoriesBlock(e){
-                this.focusOnCategoriesBlock = false;
-                this.categoriesBlock = false;
+                if(this.timerCategories2){
+                    clearTimeout(this.timerCategories2);
+                }
+                this.timerCategories2 = setTimeout(()=>{
+                    e.target.classList.remove('animate__bounceIn')
+                    e.target.classList.add('animate__bounceOut')
+                    e.target.addEventListener('animationend',(event) =>{
+                        event.target.classList.remove('animate__bounceOut');
+                        this.focusOnCategoriesBlock = false;
+                        this.categoriesBlock = false;
+                    });
 
+                }, 500)
+
+
+            },
+            enterCategoriesBlock(){
+                if(this.timerCategories2){
+                    clearTimeout(this.timerCategories2);
+                }
+                this.focusOnCategoriesBlock = true
             }
 
         },

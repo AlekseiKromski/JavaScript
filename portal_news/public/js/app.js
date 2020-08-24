@@ -2430,7 +2430,9 @@ __webpack_require__.r(__webpack_exports__);
       input: {},
       categoriesBlock: false,
       focusOnCategoriesBlock: false,
-      categories: []
+      categories: [],
+      timerCategories: false,
+      timerCategories2: false
     };
   },
   methods: {
@@ -2483,24 +2485,63 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.input.blur();
     },
     showCategories: function showCategories() {
+      if (this.timerCategories) {
+        clearTimeout(this.timerCategories);
+      }
+
       this.categoriesBlock = true;
     },
     hideCategories: function hideCategories() {
-      if (this.focusOnCategoriesBlock != false) {
-        this.categoriesBlock = false;
+      var _this2 = this;
+
+      if (this.timerCategories) {
+        clearTimeout(this.timerCategories);
       }
+
+      this.timerCategories = setTimeout(function () {
+        if (_this2.focusOnCategoriesBlock === false) {
+          _this2.$refs.catBlock.classList.remove('animate__bounceIn');
+
+          _this2.$refs.catBlock.classList.add('animate__bounceOut');
+
+          _this2.$refs.catBlock.addEventListener('animationend', function (event) {
+            event.target.classList.remove('animate__bounceOut');
+            _this2.categoriesBlock = false;
+          });
+        }
+      }, 1000);
     },
     leaveCategoriesBlock: function leaveCategoriesBlock(e) {
-      this.focusOnCategoriesBlock = false;
-      this.categoriesBlock = false;
+      var _this3 = this;
+
+      if (this.timerCategories2) {
+        clearTimeout(this.timerCategories2);
+      }
+
+      this.timerCategories2 = setTimeout(function () {
+        e.target.classList.remove('animate__bounceIn');
+        e.target.classList.add('animate__bounceOut');
+        e.target.addEventListener('animationend', function (event) {
+          event.target.classList.remove('animate__bounceOut');
+          _this3.focusOnCategoriesBlock = false;
+          _this3.categoriesBlock = false;
+        });
+      }, 500);
+    },
+    enterCategoriesBlock: function enterCategoriesBlock() {
+      if (this.timerCategories2) {
+        clearTimeout(this.timerCategories2);
+      }
+
+      this.focusOnCategoriesBlock = true;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this4 = this;
 
     axios.get('/api/getCategories').then(function (response) {
       response.data.forEach(function (e) {
-        _this2.categories.push(e);
+        _this4.categories.push(e);
       });
     });
   }
@@ -39509,11 +39550,9 @@ var render = function() {
                       staticClass: "nav-item active",
                       on: {
                         mouseenter: function($event) {
-                          $event.preventDefault()
                           return _vm.showCategories()
                         },
                         mouseleave: function($event) {
-                          $event.preventDefault()
                           return _vm.hideCategories()
                         }
                       }
@@ -39529,12 +39568,12 @@ var render = function() {
                         ? _c(
                             "div",
                             {
+                              ref: "catBlock",
                               staticClass:
                                 "dropdown_menu shadow-lg animate__animated animate__bounceIn",
                               on: {
                                 mouseenter: function($event) {
-                                  $event.preventDefault()
-                                  _vm.focusOnCategoriesBlock = true
+                                  return _vm.enterCategoriesBlock()
                                 },
                                 mouseleave: function($event) {
                                   return _vm.leaveCategoriesBlock($event)
@@ -39613,7 +39652,7 @@ var render = function() {
                               _vm.focusOnBlock = true
                             },
                             mouseleave: function($event) {
-                              return _vm.mouseLeave(_vm.$)
+                              return _vm.mouseLeave()
                             }
                           }
                         },
