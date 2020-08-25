@@ -6,11 +6,11 @@
             <div class="container-fluid mt-5">
                 <div class="row" style="width: 100%;">
                     <div class="col-7 news">
-                        <newsComponent v-bind:selectedCategories="selectedCategories"></newsComponent>
+                        <newsComponent v-bind:categories="categories"></newsComponent>
                     </div>
                     <div class="col-1 "></div>
                     <div class="col-4 filters">
-                        <filtersComponent v-bind:categories="categories"  v-on:getSelectedCategory="getSelectedCategories($event)"></filtersComponent>
+                        <filtersComponent v-bind:categories="categories"></filtersComponent>
                     </div>
                 </div>
             </div>
@@ -31,16 +31,14 @@
         },
         data(){
             return {
-                selectedCategories: this.categories,
+
             }
         },
         mounted() {
 
         },
         methods:{
-            getSelectedCategories(e){
-                this.selectedCategories = e;
-            }
+
         }
     }
 </script>

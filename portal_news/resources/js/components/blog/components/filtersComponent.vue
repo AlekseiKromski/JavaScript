@@ -31,11 +31,29 @@
                 let id = Number(event.target.id);
 
                 if(event.target.checked){
-                    this.$emit('getSelectedCategory', this.id)
-                    this.$eventBus.$emit('changeList', id);
+
+                    this.selectedCategories.push(id);
+
+                    let result = [];
+
+                    for (let s of this.selectedCategories) {
+                        if (!result.includes(s) && s !== null) {
+                            result.push(s);
+                        }
+                    }
+
+                    this.selectedCategories = result;
+
+                    this.$eventBus.$emit('changeList', this.selectedCategories);
                 }else{
-                    this.$emit('getSelectedCategory', this.id)
-                    this.$eventBus.$emit('changeList', null);
+
+                    //If unchecked, then delete this id
+                    this.selectedCategories = this.selectedCategories.filter(sc => {
+                       if(sc !== id){
+                           return sc;
+                       }
+                    });
+                    this.$eventBus.$emit('changeList', this.selectedCategories);
                 }
             }
         }

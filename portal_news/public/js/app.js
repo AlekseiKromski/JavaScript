@@ -1976,16 +1976,10 @@ __webpack_require__.r(__webpack_exports__);
     sliderComponent_2: _components_sliderComponent_2__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
-    return {
-      selectedCategories: this.categories
-    };
+    return {};
   },
   mounted: function mounted() {},
-  methods: {
-    getSelectedCategories: function getSelectedCategories(e) {
-      this.selectedCategories = e;
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -1999,6 +1993,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -2031,11 +2031,36 @@ __webpack_require__.r(__webpack_exports__);
       var id = Number(event.target.id);
 
       if (event.target.checked) {
-        this.$emit('getSelectedCategory', this.id);
-        this.$eventBus.$emit('changeList', id);
+        this.selectedCategories.push(id);
+        var result = [];
+
+        var _iterator = _createForOfIteratorHelper(this.selectedCategories),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var s = _step.value;
+
+            if (!result.includes(s) && s !== null) {
+              result.push(s);
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        this.selectedCategories = result;
+        this.$eventBus.$emit('changeList', this.selectedCategories);
       } else {
-        this.$emit('getSelectedCategory', this.id);
-        this.$eventBus.$emit('changeList', null);
+        //If unchecked, then delete this id
+        this.selectedCategories = this.selectedCategories.filter(function (sc) {
+          if (sc !== id) {
+            return sc;
+          }
+        });
+        this.$eventBus.$emit('changeList', this.selectedCategories);
       }
     }
   }
@@ -2074,12 +2099,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['selectedCategories'],
+  props: ['categories'],
   data: function data() {
     return {
       posts: [],
-      newsLoader: true,
-      selected: []
+      newsLoader: true
     };
   },
   methods: {},
@@ -2103,18 +2127,29 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    this.$eventBus.$on('changeList', function (id) {
-      console.log(id);
+    this.$eventBus.$on('changeList', function (sc) {
+      if (sc.length === 0) {
+        _this2.posts.forEach(function (p) {
+          p.show = true;
+        });
+      } else {
+        var on = [];
+        sc.forEach(function (sc) {
+          _this2.posts.forEach(function (p) {
+            if (p.category === sc) {
+              on.push(p);
+            }
+          });
+        });
 
-      _this2.posts.forEach(function (p) {
-        if (p.category === id) {
-          p.show = true;
-        } else if (id === null) {
-          p.show = true;
-        } else {
+        _this2.posts.forEach(function (p) {
           p.show = false;
-        }
-      });
+        });
+
+        on.forEach(function (on) {
+          on.show = true;
+        });
+      }
     });
   }
 });
@@ -39089,11 +39124,7 @@ var render = function() {
             _c(
               "div",
               { staticClass: "col-7 news" },
-              [
-                _c("newsComponent", {
-                  attrs: { selectedCategories: _vm.selectedCategories }
-                })
-              ],
+              [_c("newsComponent", { attrs: { categories: _vm.categories } })],
               1
             ),
             _vm._v(" "),
@@ -39104,12 +39135,7 @@ var render = function() {
               { staticClass: "col-4 filters" },
               [
                 _c("filtersComponent", {
-                  attrs: { categories: _vm.categories },
-                  on: {
-                    getSelectedCategory: function($event) {
-                      return _vm.getSelectedCategories($event)
-                    }
-                  }
+                  attrs: { categories: _vm.categories }
                 })
               ],
               1

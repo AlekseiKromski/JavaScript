@@ -21,12 +21,11 @@
 
 <script>
     export default {
-        props:['selectedCategories'],
+        props:['categories'],
         data(){
             return{
                 posts: [],
                 newsLoader: true,
-                selected: [],
             }
         },
         methods:{
@@ -49,17 +48,35 @@
             })
         },
         created() {
-            this.$eventBus.$on('changeList', (id) => {
-                console.log(id)
-                this.posts.forEach(p => {
-                    if(p.category === id){
-                        p.show=true;
-                    }else if(id === null){
-                        p.show=true;
-                    }else{
-                        p.show=false;
-                    }
-                })
+            this.$eventBus.$on('changeList', (sc) => {
+
+                if(sc.length === 0){
+                   this.posts.forEach(p => {
+                       p.show = true;
+                   })
+                }else{
+                    let on = [];
+                    sc.forEach( sc => {
+                        this.posts.forEach(p => {
+                            if(p.category === sc){
+                                on.push(p)
+                            }
+                        })
+                    });
+
+                    this.posts.forEach(p => {
+                        p.show = false;
+                    })
+
+                    on.forEach(on => {
+                        on.show = true;
+                    });
+                }
+
+
+
+
+
             })
         },
     }

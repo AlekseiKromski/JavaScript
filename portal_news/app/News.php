@@ -11,7 +11,7 @@ class News extends Model
             $news = self::getNormalArr($news);
             $news = json_decode(json_encode($news),true);
             foreach ($news as $k => $v){
-                $news[$k]['show'] = false;
+                $news[$k]['show'] = true;
             }
             return $news;
         }else{
@@ -56,12 +56,7 @@ class News extends Model
 
     public static function getCategories(){
         if($categories = DB::table('categories')->get()){
-            $categories = self::getNormalArr($categories);
-            $categories = json_decode(json_encode($categories),true);
-            foreach ($categories as $k => $v){
-                $categories[$k]['selected'] = false;
-            }
-            return $categories;
+            return self::getNormalArr($categories);
         }else{
             return false;
         }
