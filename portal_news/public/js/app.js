@@ -2517,11 +2517,10 @@ __webpack_require__.r(__webpack_exports__);
         this.showSearchResult = false;
       }
     },
-    mouseLeave: function mouseLeave() {
+    mouseLeave: function mouseLeave(event) {
       this.focusOnBlock = false;
       this.showSearchResult = false;
       this.focusClass = '';
-      this.$refs.input.blur();
     },
     showCategories: function showCategories() {
       if (this.timerCategories) {
@@ -39644,7 +39643,7 @@ var render = function() {
                               _vm.focusOnBlock = true
                             },
                             mouseleave: function($event) {
-                              return _vm.mouseLeave()
+                              return _vm.mouseLeave($event)
                             }
                           }
                         },

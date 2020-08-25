@@ -28,7 +28,7 @@
                         </ul>
                         <form class="form-inline my-2 my-lg-0" >
                             <input ref="input" class="form-control mr-sm-2"  v-bind:class="focusClass" type="search" placeholder="Поиск" aria-label="Search" v-on:keydown="search()" v-on:focus="checkSearchResult()" v-on:blur="checkAfterBlur()" v-model="searchText">
-                            <div v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave()" class="search_result shadow animate__animated animate__bounceIn">
+                            <div  v-if="showSearchResult"  v-on:mouseenter="focusOnBlock = true"  v-on:mouseleave="mouseLeave($event)" class="search_result shadow animate__animated animate__bounceIn">
                                 <ul>
                                     <li v-for="sr in search_result"><a href="#">{{sr.title}}</a></li>
                                 </ul>
@@ -102,11 +102,14 @@
                     this.showSearchResult = false;
                 }
             },
-            mouseLeave(){
+            mouseLeave(event){
                 this.focusOnBlock = false;
                 this.showSearchResult = false;
                 this.focusClass = '';
-                this.$refs.input.blur();
+
+
+
+
             },
             showCategories(){
                 if(this.timerCategories){
