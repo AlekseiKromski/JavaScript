@@ -24,7 +24,7 @@
             }
         },
         mounted(){
-            console.log(this.categories)
+
         },
         methods:{
             selectCategory(event){
@@ -36,9 +36,9 @@
 
                     let result = [];
 
-                    for (let s of this.selectedCategories) {
-                        if (!result.includes(s) && s !== null) {
-                            result.push(s);
+                    for (let sc of this.selectedCategories) {
+                        if (!result.includes(sc) && sc !== null) {
+                            result.push(sc);
                         }
                     }
 

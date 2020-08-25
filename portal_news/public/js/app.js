@@ -2023,9 +2023,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       selectedCategories: []
     };
   },
-  mounted: function mounted() {
-    console.log(this.categories);
-  },
+  mounted: function mounted() {},
   methods: {
     selectCategory: function selectCategory(event) {
       var id = Number(event.target.id);
@@ -2039,10 +2037,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var s = _step.value;
+            var sc = _step.value;
 
-            if (!result.includes(s) && s !== null) {
-              result.push(s);
+            if (!result.includes(sc) && sc !== null) {
+              result.push(sc);
             }
           }
         } catch (err) {
@@ -2098,6 +2096,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categories'],
   data: function data() {
@@ -2110,7 +2113,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log(this.selectedCategories);
     axios.get('/api/getNews').then(function (response) {
       response.data.forEach(function (element) {
         if (element.img === null) {
@@ -2119,7 +2121,13 @@ __webpack_require__.r(__webpack_exports__);
 
         element.text = element.text.substring(0, 120) + ' ...';
 
-        _this.posts.push(element);
+        _this.categories.forEach(function (e) {
+          if (element.category === e.id) {
+            element.category_name = e.name;
+
+            _this.posts.push(element);
+          }
+        });
       });
       _this.newsLoader = false;
     });
@@ -7061,7 +7069,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.new_text{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n}\n.new_text:hover{\n    color: #212529;\n    text-decoration: none;\n}\n.new_title{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n    font-weight: 600;\n}\n.new_title:hover{\n    color: #212529;\n    text-decoration: none;\n}\n.name{\n    border-bottom: 1px solid black;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.new_text{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n}\n.new_text:hover{\n    color: #212529;\n    text-decoration: none;\n}\n.new_title{\n    color: #212529;\n    font-family: 'Alata', sans-serif;\n    font-weight: 600;\n}\n.new_title:hover{\n    color: #212529;\n    text-decoration: none;\n}\n.name{\n    border-bottom: 1px solid black;\n    width: 100%;\n}\n.imgBlock{\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -39235,16 +39243,14 @@ var render = function() {
         _vm._v(" "),
         _vm._l(_vm.posts, function(p) {
           return !_vm.newsLoader && p.show
-            ? _c("div", { staticClass: "col-12 p-0" }, [
+            ? _c("div", { staticClass: "col-12 p-0 animate__animated" }, [
                 _c("div", { staticClass: "row m-0" }, [
-                  _c("div", {
-                    staticClass: "col-4",
-                    style: {
-                      background: "url(" + p.img + ")",
-                      "background-size": "cover",
-                      "background-position": "center"
-                    }
-                  }),
+                  _c("div", { staticClass: "col-4" }, [
+                    _c("img", {
+                      staticClass: "imgBlock",
+                      attrs: { src: p.img, alt: "" }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-8" }, [
                     _c("h6", [
@@ -39261,6 +39267,10 @@ var render = function() {
                         { staticClass: "new_text", attrs: { href: "#" } },
                         [_vm._v(_vm._s(p.text))]
                       )
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "mt-2", attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(p.category_name))
                     ])
                   ])
                 ]),

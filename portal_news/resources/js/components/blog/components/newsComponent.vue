@@ -5,16 +5,21 @@
             <div v-if="newsLoader" class="col-12">
                 <h4>Loading</h4>
             </div>
-            <div  v-if="!newsLoader && p.show" class="col-12 p-0" v-for="p in posts">
+            <div v-if="!newsLoader && p.show" class="col-12 p-0 animate__animated" v-for="p in posts">
                 <div class="row m-0">
-                    <div class="col-4" v-bind:style="{background: `url(${p.img})`, 'background-size': 'cover','background-position': 'center'}"></div>
+                    <div class="col-4">
+                        <img :src="p.img"  class="imgBlock" alt="">
+                    </div>
                     <div class="col-8">
                         <h6><a href="#"  class="new_title">{{p.title}}</a></h6>
                         <p><a href="#" class="new_text">{{p.text}}</a></p>
+                        <a href="#" class="mt-2">{{p.category_name}}</a>
                     </div>
+
                 </div>
-                <hr>
+                <hr>    
             </div>
+
         </div>
     </div>
 </template>
@@ -32,7 +37,7 @@
 
         },
         mounted(){
-            console.log(this.selectedCategories)
+
             axios.get('/api/getNews').then( response => {
                 response.data.forEach(element => {
 
@@ -40,16 +45,20 @@
                         element.img = "img/no_image.png";
                     }
                     element.text = element.text.substring(0, 120) + ' ...';
-                    this.posts.push(element)
+                    this.categories.forEach(e => {
+                        if(element.category === e.id){
+                            element.category_name = e.name;
+                            this.posts.push(element);
 
+                        }
+                    })
                 });
-
                 this.newsLoader = false;
+
             })
         },
         created() {
             this.$eventBus.$on('changeList', (sc) => {
-
                 if(sc.length === 0){
                    this.posts.forEach(p => {
                        p.show = true;
@@ -102,6 +111,9 @@
     }
     .name{
         border-bottom: 1px solid black;
+        width: 100%;
+    }
+    .imgBlock{
         width: 100%;
     }
 </style>
