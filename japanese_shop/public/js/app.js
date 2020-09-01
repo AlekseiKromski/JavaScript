@@ -2042,6 +2042,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "sliderComponent",
   mounted: function mounted() {
@@ -2058,13 +2064,65 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       sliderStyle: {
-        'background': 'linear-gradient(360deg, #000000 -52.61%, rgba(255, 255, 255, 0) 100%), url("img/bg.jpg")',
-        'background-size': 'cover'
+        'background': 'linear-gradient(360deg, #000000 -52.61%, rgba(255, 255, 255, 0) 100%), url("img/bg.jpg")'
       },
       block_slider_style: {
         'margin-top': '200px'
+      },
+      sliders: [{
+        id: 0,
+        show: true,
+        img: 'img/bg.jpg',
+        title: 'KATANA - Isiru',
+        price: '89.00$',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\n'
+      }, {
+        id: 1,
+        show: false,
+        img: 'img/logo.png',
+        title: 'KATANA - Isiru2',
+        price: '89.00$',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\n'
+      }, {
+        id: 2,
+        show: false,
+        img: 'img/bg.jpg',
+        title: 'KATANA - Isiru3',
+        price: '89.00$',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\n'
+      }],
+      next_slider: 0,
+      sliderClass: {
+        'container-fluid': true,
+        'slider': true,
+        'animate__animated': true
       }
     };
+  },
+  methods: {
+    nextSlider: function nextSlider() {
+      var _this2 = this;
+
+      this.next_slider++;
+
+      if (this.next_slider >= this.sliders.length) {
+        this.next_slider = 0;
+      }
+
+      this.sliders.forEach(function (e) {
+        if (e.show === true) {
+          e.show = false;
+        }
+
+        if (e.id === _this2.next_slider) {
+          e.show = true;
+          _this2.sliderStyle = {
+            'background': "linear-gradient(360deg, #000000 -52.61%, rgba(255, 255, 255, 0) 100%) , url(\"".concat(e.img, "\")"),
+            'background-size': 'cover'
+          };
+        }
+      });
+    }
   }
 });
 
@@ -6578,7 +6636,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.row{\n    min-height: 593px;\n}\n.row h1{\n    font-family: Advent Pro;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 38px;\n    line-height: 45px;\n\n    color: #FFFFFF;\n}\n.row p{\n    font-family: Advent Pro;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 24px;\n\n    color: #FFFFFF;\n}\n", ""]);
+exports.push([module.i, "\n.row{\n    min-height: 593px;\n}\n.row h1{\n    font-family: Advent Pro;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 38px;\n    line-height: 45px;\n\n    color: #FFFFFF;\n}\n.row p{\n    font-family: Advent Pro;\n    font-style: normal;\n    font-weight: 500;\n    font-size: 20px;\n    line-height: 24px;\n\n    color: #FFFFFF;\n}\n.next{\n    display: block;\n    margin-left: auto;\n}\n", ""]);
 
 // exports
 
@@ -38547,11 +38605,55 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "col-10" }, [
-            _c(
-              "div",
-              { staticClass: "container-fluid slider", style: _vm.sliderStyle },
-              [_vm._m(0)]
-            )
+            _c("div", { class: _vm.sliderClass, style: _vm.sliderStyle }, [
+              _c(
+                "div",
+                { staticClass: "row justify-content-center" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._l(_vm.sliders, function(slider) {
+                    return slider.show
+                      ? _c("div", { staticClass: "col-6 align-self-center" }, [
+                          _c("h1", [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(slider.title)
+                            ),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(slider.price) +
+                                "\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(slider.text) +
+                                "\n                        "
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-3 align-self-center" }, [
+                    _c("img", {
+                      staticClass: "next",
+                      attrs: { src: "img/next.png", alt: "" },
+                      on: {
+                        click: function($event) {
+                          return _vm.nextSlider()
+                        }
+                      }
+                    })
+                  ])
+                ],
+                2
+              )
+            ])
           ])
         ]
       )
@@ -38563,22 +38665,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-6 align-self-center" }, [
-        _c("h1", [
-          _vm._v("\n                            KATANA - Isiru"),
-          _c("br"),
-          _vm._v(
-            "\n                            89.00$\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat\n                        "
-          )
-        ])
-      ])
+    return _c("div", { staticClass: "col-3 align-self-center" }, [
+      _c("img", { attrs: { src: "img/back.png", alt: "" } })
     ])
   }
 ]
