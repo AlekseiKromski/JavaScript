@@ -95,3 +95,86 @@ alert(result)
 // // использование: функции showOk, showCancel передаются в качестве аргументов ask
 // ask("Вы согласны?", showOk, showCancel);
 
+// --- NAME: Объекты ---
+
+//Вычесляемые свойства
+// let fruit = prompt("Какой фрукт купить?", "apple");
+//
+// let bag = {
+//     [fruit]: 5
+// }
+//
+// alert(bag.apple)
+//
+// let user = {
+//     name: "John",
+//     age: 30,
+//     isAdmin: true
+// };
+//
+// for(let u in user){
+//     alert(user[u]);
+// }
+//
+// let user = { name: "John" };
+//
+// let permissions1 = { canView: true };
+// let permissions2 = { canEdit: true };
+//
+// Object.assign(user, permissions1, permissions2)
+// console.log(user)
+
+// let user = {
+//     name: "John",
+//     age: 30
+// };
+//
+// let clone = Object.assign({}, user);
+// console.log(clone)
+//
+// function isEmpty(schedule){
+//     for(let s in schedule){
+//         return false;
+//     }
+//     return true;
+// }
+//
+// let schedule = {};
+//
+// alert( isEmpty(schedule) ); // true
+//
+// schedule["8:30"] = "get up";
+//
+// alert( isEmpty(schedule) ); // false
+//
+// let salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Pete: 130
+// }
+//
+// let count = 0;
+// for(let s in salaries){
+//     count += salaries[s];
+// }
+// console.log(count)
+
+function multiplyNumeric(menu){
+    for (let m in menu){
+        if (typeof menu[m] == 'number'){
+            console.log('ok')
+            menu[m] *= 2;
+        }
+    }
+}
+
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+
+multiplyNumeric(menu);
+
+console.log(menu)

@@ -20,220 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaa0c4e7-3f75-4137-81ee-308d67a24478" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.img/project.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../japanese_shop/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/japanese_shop.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/.styleci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Console/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/Authenticate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Providers/AuthServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Providers/EventServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/Providers/RouteServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/broadcasting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/hashing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/config/view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/database/seeds/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../japanese_shop/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../japanese_shop/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../japanese_shop/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/img/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/img/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/img/next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/mix-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/public/web.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../japanese_shop/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/js/components/nav/navComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/js/components/slider/sliderComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/lang/en/pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/lang/en/passwords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/lang/en/validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/sass/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/sass/app.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/routes/api.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/routes/channels.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/server.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/tests/CreatesApplication.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../japanese_shop/webpack.mix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/portal_news.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/.styleci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Console/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Exceptions/Handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/ApiController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Controllers/MainController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Kernel.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/Authenticate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/News.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Providers/AppServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Providers/AuthServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Providers/EventServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/Providers/RouteServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/artisan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/bootstrap/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/broadcasting.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/cache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/filesystems.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/hashing.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/logging.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/mail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/queue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/services.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/config/view.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/database/seeds/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/img/hack.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/img/jarvselja-jarvselja-mets-jarvselja-metsad-mets-metsad-sugis-sugisene-m-89780063.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/img/no_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/img/no_slider_image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/mix-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/public/web.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/ExampleComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/blog/blogComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/blog/components/filtersComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/blog/components/newsComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/blog/components/sliderComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/blog/components/sliderComponent_2.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/js/components/standart/navbarComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/lang/en/pagination.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/lang/en/passwords.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/lang/en/validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/sass/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/sass/app.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/resources/views/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/routes/api.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/routes/channels.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/routes/console.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/routes/web.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/server.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/cache/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/sessions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/testing/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/framework/views/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/storage/logs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/tests/CreatesApplication.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/tests/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/tests/Unit/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../portal_news/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../japanese_shop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -267,6 +55,7 @@
       <workItem from="1599073025309" duration="1685000" />
       <workItem from="1599154410110" duration="4243000" />
       <workItem from="1599160680599" duration="10000" />
+      <workItem from="1599826682556" duration="2257000" />
     </task>
     <servers />
   </component>
