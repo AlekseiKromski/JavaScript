@@ -158,23 +158,50 @@ alert(result)
 //     count += salaries[s];
 // }
 // console.log(count)
+//
+// function multiplyNumeric(menu){
+//     for (let m in menu){
+//         if (typeof menu[m] == 'number'){
+//             console.log('ok')
+//             menu[m] *= 2;
+//         }
+//     }
+// }
+//
+// let menu = {
+//     width: 200,
+//     height: 300,
+//     title: "My menu"
+// };
+//
+//
+// multiplyNumeric(menu);
+//
+// console.log(menu)
+//
+// let user = {
+//     name: "Test"
+// }
+//
+// let id = Symbol("id");
+//
+// user[id] = 1;
+// console.log(user)
 
-function multiplyNumeric(menu){
-    for (let m in menu){
-        if (typeof menu[m] == 'number'){
-            console.log('ok')
-            menu[m] *= 2;
-        }
+let ladder = {
+    step: 0,
+    up() {
+        this.step++;
+        return this;
+    },
+    down() {
+        this.step--;
+        return this;
+    },
+    showStep: function() { // показывает текущую ступеньку
+        alert( this.step );
+        return this;
     }
-}
-
-let menu = {
-    width: 200,
-    height: 300,
-    title: "My menu"
 };
-
-
-multiplyNumeric(menu);
-
-console.log(menu)
+ladder.up().up().down().showStep()
+console.log(ladder)
