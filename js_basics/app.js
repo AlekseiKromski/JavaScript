@@ -207,34 +207,103 @@ alert(result)
 // console.log(ladder)
 
 // --- NAME: Числа, как приметивы ---
+//
+// let x = 11;
+// //Передаваемое значение, это система исчисления
+// console.log(x.toString(10))
+//
+//
+// x = 3.6
+// //Округление в меньшую сторону
+// console.log(Math.floor(x))
+//
+//
+// //Округление в большую сторону
+// console.log(Math.ceil(x))
+//
+// //Округление до ближайшего целого
+// console.log(Math.round(x))
+//
+// x = "3%"
+// // Ищет только цифры
+// console.log(parseInt(x))
+//
+// console.log(Math.max(3, 5, -10, 0, 1))
+// console.log(Math.min(3, 5, -10, 0, 1))
+//
+// //Возведение в степень
+// console.log(2 ** 3)
+// console.log(Math.pow(2, 3));
+//
+// //Отображение определенного количества символов после запятой
+// console.log(2.34.toFixed(1));
 
-let x = 11;
-//Передаваемое значение, это система исчисления
-console.log(x.toString(10))
+// --- NAME: Строки, как приметивы ---
+// let str = 'Widget with id';
+// console.log(str[str.indexOf('id', 2)])
+//
+// let str = 'Ослик Иа-Иа посмотрел на виадук';
+//
+// let target = 'а'; // цель поиска
+//
+// let pos = 0;
+// while (true) {
+//     let foundPos = str.indexOf(target, pos);
+//     if (foundPos == -1) break;
+//
+//     console.log( `Найдено тут: ${foundPos}` );
+//     pos = foundPos + 1; // продолжаем со следующей позиции
+// }
 
+// //Данная проверка возращает true, если найдена подстрока
+// console.log("test".includes("q"));
+//
+// //Проверка на то, начинается ли строка с подстроки, которую мы передали
+// console.log("test".startsWith("te"));
+//
+// //Проверка на то, начинается ли строка с подстроки, которую мы передали
+// console.log("test".endsWith("tt"));
+//
+// let str = "stringify";
+//
+// //Не велючает последний символ
+// console.log(str.slice(0,5)) //strin
+//
+// // Можно испольховать start больше, чем end
+// alert( str.substring(2, 6) ); // "ring"
+// alert( str.substring(6, 2) ); // "ring"
 
-x = 3.6
-//Округление в меньшую сторону
-console.log(Math.floor(x))
+// function ucFirst(str){
+//
+//         return str[0].toUpperCase() + str.slice(1);
+// };
+//
+// console.log(ucFirst("вася"));
 
+// function checkSpam(str){
+//     str = str.toLowerCase();
+//     if(str.includes("fff") || str.includes("yyy")){
+//         return true;
+//     }else{
+//         return false;
+//     }
+// };
+// console.log(checkSpam('buy fff now'))
+// console.log(checkSpam('yyy'))
+// console.log(checkSpam('test'))
 
-//Округление в большую сторону
-console.log(Math.ceil(x))
+// function truncate(str, max){
+//     if(str.length >= max){
+//         return str.slice(0,max) + "...";
+//     }
+//     return str;
+// }
+//
+// console.log(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
+// console.log(truncate("Всем привет!", 20));
 
-//Округление до ближайшего целого
-console.log(Math.round(x))
+function extractCurrencyValue(currency){
+    return +currency.slice(1);
+};
 
-x = "3%"
-// Ищет только цифры
-console.log(parseInt(x))
-
-console.log(Math.max(3, 5, -10, 0, 1))
-console.log(Math.min(3, 5, -10, 0, 1))
-
-//Возведение в степень
-console.log(2 ** 3)
-console.log(Math.pow(2, 3));
-
-//Отображение определенного количества символов после запятой
-console.log(2.34.toFixed(1));
-
+console.log(extractCurrencyValue('$120'));
