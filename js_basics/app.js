@@ -188,20 +188,53 @@ alert(result)
 // user[id] = 1;
 // console.log(user)
 
-let ladder = {
-    step: 0,
-    up() {
-        this.step++;
-        return this;
-    },
-    down() {
-        this.step--;
-        return this;
-    },
-    showStep: function() { // показывает текущую ступеньку
-        alert( this.step );
-        return this;
-    }
-};
-ladder.up().up().down().showStep()
-console.log(ladder)
+// let ladder = {
+//     step: 0,
+//     up() {
+//         this.step++;
+//         return this;
+//     },
+//     down() {
+//         this.step--;
+//         return this;
+//     },
+//     showStep: function() { // показывает текущую ступеньку
+//         alert( this.step );
+//         return this;
+//     }
+// };
+// ladder.up().up().down().showStep()
+// console.log(ladder)
+
+// --- NAME: Числа, как приметивы ---
+
+let x = 11;
+//Передаваемое значение, это система исчисления
+console.log(x.toString(10))
+
+
+x = 3.6
+//Округление в меньшую сторону
+console.log(Math.floor(x))
+
+
+//Округление в большую сторону
+console.log(Math.ceil(x))
+
+//Округление до ближайшего целого
+console.log(Math.round(x))
+
+x = "3%"
+// Ищет только цифры
+console.log(parseInt(x))
+
+console.log(Math.max(3, 5, -10, 0, 1))
+console.log(Math.min(3, 5, -10, 0, 1))
+
+//Возведение в степень
+console.log(2 ** 3)
+console.log(Math.pow(2, 3));
+
+//Отображение определенного количества символов после запятой
+console.log(2.34.toFixed(1));
+
