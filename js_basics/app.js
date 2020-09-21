@@ -385,11 +385,48 @@ alert(result)
 //   }
 
 
-  let arr = ['Вася', 'Петя', 'Маша'];
+//   let arr = ['Вася', 'Петя', 'Маша'];
 
-  let str = arr.join(';'); // объединить массив в строку через ;
+//   let str = arr.join(';'); // объединить массив в строку через ;
   
-  alert( str ); // Вася;Петя;Маша
+//   alert( str ); // Вася;Петя;Маша
 
 
+// let map = new Map();
 
+// map.set("1", "str1");    // строка в качестве ключа
+// map.set(1, "num1");      // цифра как ключ
+// map.set(true, "bool1");  // булево значение как ключ
+
+// // помните, обычный объект Object приводит ключи к строкам?
+// // Map сохраняет тип ключей, так что в этом случае сохранится 2 разных значения:
+// alert(map.get(1)); // "num1"
+// alert(map.get("1")); // "str1"
+
+// alert(map.size); // 3
+
+// let john  = {name: "john"};
+// let visitsCountMap = new Map();
+// visitsCountMap.set(john, 123);
+// alert(visitsCountMap.get(john));
+
+// let recipeMap = new Map([
+//     ["огурец", 500],
+//     ["помидор", 350],
+//     ["лук",    50]
+// ]);
+  
+// // перебор по ключам (овощи)
+// for (let vegetable of recipeMap.keys()) {
+//     alert(vegetable); // огурец, помидор, лук
+// }
+  
+// // перебор по значениям (числа)
+// for (let amount of recipeMap.values()) {
+//     alert(amount); // 500, 350, 50
+// }
+  
+// // перебор по элементам в формате [ключ, значение]
+// for (let entry of recipeMap) { // то же самое, что и recipeMap.entries()
+//     alert(entry); // огурец,500 (и так далее)
+// }
