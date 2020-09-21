@@ -302,8 +302,94 @@ alert(result)
 // console.log(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
 // console.log(truncate("Всем привет!", 20));
 
-function extractCurrencyValue(currency){
-    return +currency.slice(1);
-};
+// function extractCurrencyValue(currency){
+//     return +currency.slice(1);
+// };
 
-console.log(extractCurrencyValue('$120'));
+// // console.log(extractCurrencyValue('$120'));
+// let fruits = ["Яблоко", "Апельсин", "Груша"];
+// //Удаляет с конца
+// //fruits.pop();
+
+// //Добавляет в конец
+// //fruits.push("Mandarin")
+
+// //Добавляет элемент в начало
+// //fruits.unshift('Мандарин');
+
+// //Удаляет элемент с начала
+// fruits.shift();
+// console.log(fruits);
+
+// let fruits = ["Яблоки", "Груша", "Апельсин"];
+// let shoppingCart = fruits;
+// shoppingCart.push("Банан");
+// console.log( fruits ); 
+
+// let styles = ["Джаз", "Блюз"];
+// console.log(styles);
+
+// styles.push("Рок-н-ролл");
+// console.log(styles);
+
+// styles[Math.floor(styles.length / 2)] = "Классика";
+// console.log(styles);
+
+// let deleted = styles.shift();
+// console.log(styles);
+
+// styles.unshift("Рэп","Регги")
+// console.log(styles);
+
+// let arr = [];
+
+// do{
+//     let user_answer = prompt();
+//     if(user_answer == null || user_answer == "") break;
+//     user_answer = Number(user_answer);
+//     arr.push(user_answer);
+// }while(true);
+
+// let count = 0;
+// for(a of arr){
+//     count = count + a;
+// // }
+// // console.log(count);
+
+// let arr = ["Я", "изучаю", "JavaScript"];
+
+// arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
+
+// alert( arr );
+
+// let arr = ["Я", "изучаю", "JavaScript", "прямо", "сейчас"];
+
+// // удалить 3 первых элемента и заменить их другими
+// arr.splice(0, 3, "Давай", "танцевать");
+
+// alert( arr ) // теперь ["Давай", "танцевать", "прямо", "сейчас"]
+
+// ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+//     alert(`${item} имеет позицию ${index} в ${array}`);
+//   });
+
+
+
+
+//   let names = 'Вася, Петя, Маша';
+
+//   let arr = names.split(', ');
+  
+//   for (let name of arr) {
+//     alert( `Сообщение получат: ${name}.` ); // Сообщение получат: Вася (и другие имена)
+//   }
+
+
+  let arr = ['Вася', 'Петя', 'Маша'];
+
+  let str = arr.join(';'); // объединить массив в строку через ;
+  
+  alert( str ); // Вася;Петя;Маша
+
+
+
