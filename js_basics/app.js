@@ -1,12 +1,6 @@
-let user = {
-    name: 'John',
-    age: 30
-};
-count(user);
-function count(obj){
-    let sum = 0;
-    for(obj of Object.keys(obj)){
-        sum++;
-    }
-    console.log(sum);
+
+function sumAll2(a,b,s,c,s){
+    console.log(a,b,s);
 }
+let arr = [1,2,3,4];
+sumAll2(...arr)
