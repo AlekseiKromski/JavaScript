@@ -1,0 +1,21 @@
+.form{
+    background: none;
+    height: 100vh;
+}
+.form-block{
+    background: white;
+    border-radius: 10px 10px;
+    min-height: 350px;
+}
+.counter{
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: #6c757d!important;
+}
+.email-logo{
+    display: none;
+}
+.logo{
+    width: 100%;
+    opacity: 0;
+}
