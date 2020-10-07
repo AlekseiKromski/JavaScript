@@ -1,7 +1,23 @@
 new Vue({
     el: "#app",
     data: {
-        "link": "http://www.example.com",
-        "markup": "<a href='http://www.example.com'>link</a>"
+        people: [
+            {
+                name: "Franky Four Fingers",
+                stillAlive: false
+            },
+            {
+                name: "Franky Four Fingers 1",
+                stillAlive: true
+            },
+            {
+                name: "Franky Four Fingers 2",
+                stillAlive: false
+            },
+            {
+                name: "Franky Four Fingers 3",
+                stillAlive: true
+            }
+        ]
     },
 });
