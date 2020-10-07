@@ -6,17 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
-        .bg{
-            background: red;
-        }
-    </style>
     <div id="app">
-        <ul>
-            <li v-for="person in people" v-bind:class="{'bg':!person.stillAlive}">
-                {{person.name}}
-            </li>
-        </ul>
+        <h2>{{counter}}</h2>
+        <button v-on:click="counter++">+1</button>
+        <button v-on:click="counter--">-1</button>
+        <button v-on:dblclick="counter=0">clear</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
