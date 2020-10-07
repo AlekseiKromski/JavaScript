@@ -1,12 +1,11 @@
 new Vue({
     el: "#app",
     data: {
-        counter: 0,
+        name: "",
+        checked: false
 
     },
     methods:{
-        change: function (){
-            console.log("Change");
-        }
+        
     }
 });
