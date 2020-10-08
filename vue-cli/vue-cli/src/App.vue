@@ -1,28 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    {{title}}
+    <List></List>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import List from './components/List';
 
 export default {
-  name: 'App',
+  data: function(){
+    return {
+      title: "my app"
+    }
+  },
   components: {
-    HelloWorld
+    "List": List
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
