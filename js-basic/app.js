@@ -1,10 +1,14 @@
-new Vue({
-    el: "#app",
-    data: {
-        error:  false,
-        success: false, 
-
+let person = Object.create({}, {
+    name: {
+        value: "Vladilen",
+        enumerable: true,
     },
-    computed:{
+    birthYear: {
+        value: 1993,
+        enumerable: true,
     }
 });
+
+for(let key in person){
+    console.log(key);
+}
