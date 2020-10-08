@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    {{title}}
-    <List></List>
+    <Slot>
+      <h2 slot="title">Test h</h2>
+      <p slot="text">Test p</p>
+    </Slot>
   </div>
 </template>
 
 <script>
-import List from './components/List';
+import Slot from './components/Slot';
 
 export default {
   data: function(){
-    return {
-      title: "my app"
-    }
+
   },
   components: {
-    "List": List
+    Slot
   }
 }
 </script>
