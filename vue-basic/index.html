@@ -9,22 +9,7 @@
 <body>
    
     <div id="app">
-        <input type="text" v-on:keydown.enter="addNewTask($event)" v-model="text_input" >
-        
-        <ul>
-            <li v-bind:class="{'strike' : task.isCompleted}"
-            v-for="task in tasks"
-            >
-                {{task.text}}
-                <input type="checkbox" v-on:click="task.isCompleted = !task.isCompleted">
-                <button v-on:click="deleteTask(task)">delete</button>
-                <button v-on:click="task.isEdit = !task.isEdit">change</button>
-                <div  v-if="task.isEdit">
-                    <input type="text" v-model="task.editText">
-                    <button v-on:click="changeTask(task)">EDIT</button>
-                </div>
-            </li>
-        </ul>
+        <vue-test></vue-test>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
