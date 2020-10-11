@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <h2>Inner title</h2>
-    <List></List>
+    <List v-bind:peoples="peoples"></List>
   </div>
 </template>
 
@@ -9,17 +8,18 @@
 import List from './components/List';
 
 export default {
-  data: function(){
-
-  },
+  
   components: {
     List
-  }
+  },
+  data: function(){
+    return { 
+      peoples: ['Max', 'Jack', 'Maksim']
+    }
+  },
 }
 </script>
 
 <style scoped>
-  h2{
-    color:red;
-  }
+
 </style>

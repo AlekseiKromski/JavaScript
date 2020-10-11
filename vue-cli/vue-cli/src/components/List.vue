@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h2>Outer title</h2>
+      <h2>List</h2>
+      <ul>
+          <li v-for="person in peoples">
+            {{person}}
+          </li>
+      </ul>
   </div>
 </template>
 
@@ -8,17 +13,16 @@
 
 
 export default {
-  data: function(){
-
-  },
-  components: {
+    props: ['peoples'],
+    data: function(){
+        return {}
+    },
+    components: {
     
-  }
+    }
 }
 </script>
 
 <style scoped>
-    h2{
-        color: green;
-    }
+
 </style>
