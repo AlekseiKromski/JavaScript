@@ -1,27 +1,23 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <List v-bind:peoples="peoples" v-on:message="displayMessage"></List>
+    <addBlock></addBlock>
   </div>
 </template>
 
 <script>
-import List from './components/List';
-import Header from './components/Header'
+import addBlock from './components/addBlock';
 export default {
   
   components: {
-    List, Header
+    addBlock
   },
   data: function(){
     return { 
-      peoples: ['Max', 'Jack', 'Maksim'],
+
     }
   },
   methods:{
-    displayMessage: function(message){
-      this.peoples.unshift(message)
-    }
+    
   }
 }
 </script>
