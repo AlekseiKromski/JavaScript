@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <Slot>
-      <h2 slot="title">Test h</h2>
-      <p slot="text">Test p</p>
-    </Slot>
+    <h2>Inner title</h2>
+    <List></List>
   </div>
 </template>
 
 <script>
-import Slot from './components/Slot';
+import List from './components/List';
 
 export default {
   data: function(){
 
   },
   components: {
-    Slot
+    List
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+  h2{
+    color:red;
+  }
 </style>

@@ -1,21 +1,24 @@
 <template>
   <div>
-    <slot name="title"></slot>
-    <h1>Slot title</h1>
-    <slot name="text"></slot>
-
+    <h2>Outer title</h2>
   </div>
 </template>
 
 <script>
 
+
 export default {
   data: function(){
 
+  },
+  components: {
+    
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+    h2{
+        color: green;
+    }
 </style>
