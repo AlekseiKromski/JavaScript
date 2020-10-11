@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <List v-bind:peoples="peoples"></List>
+    <List v-bind:peoples="peoples" v-on:message="displayMessage"></List>
   </div>
 </template>
 
@@ -14,9 +14,14 @@ export default {
   },
   data: function(){
     return { 
-      peoples: ['Max', 'Jack', 'Maksim']
+      peoples: ['Max', 'Jack', 'Maksim'],
     }
   },
+  methods:{
+    displayMessage: function(message){
+      this.peoples.unshift(message)
+    }
+  }
 }
 </script>
 

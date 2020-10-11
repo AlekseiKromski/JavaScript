@@ -1,6 +1,7 @@
 <template>
   <div>
       <h2>List</h2>
+      <input type="text" v-model="message" @keydown.enter="saveMessage">
       <ul>
           <li v-for="person in peoples">
             {{person}}
@@ -15,7 +16,14 @@
 export default {
     props: ['peoples'],
     data: function(){
-        return {}
+        return {
+            message: ''
+        }
+    },
+    methods:{
+        saveMessage: function (){
+            this.$emit("message", this.message);
+        }
     },
     components: {
     
