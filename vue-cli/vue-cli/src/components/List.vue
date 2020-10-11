@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+import {bus} from '../main'
 
 export default {
     props: ['peoples'],
@@ -22,7 +22,9 @@ export default {
     },
     methods:{
         saveMessage: function (){
-            this.$emit("message", this.message);
+            //this.$emit("message", this.message);
+            bus.$emit("message", this.message);
+            this.message = '';
         }
     },
     components: {
