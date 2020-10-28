@@ -1,4 +1,4 @@
-export const state = () => ({
+export  const state = () => ({
     news: null
 })
 
@@ -9,7 +9,14 @@ export const mutations = {
 }
 
 export const getters = {
-    getTopNews: state => {
-        return state.news
+    getHeaderNew: (state) => {
+        let count = 0;
+        return state.news.filter(e => {
+            if(count < 1){
+                count++;
+                return e;
+            }
+            count++;
+        })
     }
 }
