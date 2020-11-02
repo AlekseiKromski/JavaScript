@@ -3,7 +3,7 @@
     <navBar></navBar> 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-4">
+        <div class="col-sm-12 col-md-8 col-xl-4">
           <consumption></consumption> 
         </div>
       </div>

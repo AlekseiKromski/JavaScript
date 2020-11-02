@@ -1,5 +1,5 @@
 <template>
-    <div class="row shadow rounded m-5 p-4 consumption">
+    <div class="row shadow rounded m-sm-0 m-md-5 p-4 consumption">
             <div class="col-12">
                 <ul class="nav nav-tabs">
                     <li class="nav-item" v-for="link in links" v-bind:key="link.id">
