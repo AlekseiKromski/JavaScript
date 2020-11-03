@@ -20,19 +20,19 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Расход на 100 км</span>
                                 </div>
-                                <input type="number" step="0.01" v-model="average_consumption" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="number" step="0.01" v-bind:value="average_consumption" @input="setAverage_consumption($event)" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Средняя цена топлива</span>
                                 </div>
-                                <input type="number" step="0.01" v-model="average_price" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="number" step="0.01" v-bind:value="average_price" @input="setAverage_price($event)" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Кольво км</span>
                                 </div>
-                                <input type="number" step="0.01" v-model="km" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                <input type="number" step="0.01" v-bind:value="km" @input="setKm($event)" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             </div>
                             <div class="input-group mb-3">
                                 <input type="submit" value="Расчитать" class="btn btn-success">
@@ -66,51 +66,55 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex';
+import {mapState} from 'vuex';
 export default {
-    data: function(){
-        return {
-            links:[
-                {
-                    id: "howMuchFuel",
-                    name: "fuel",
-                    active: true
-
-                },
-                {
-                    id: "howMuchKM",
-                    name: "km",
-                    active: false
-
-                }
-            ],
-            FuelResult: null,
-            FuelResultPrice: null,
-            average_consumption: null,
-            average_price: null,
-            km: null,
-            dialog: 'howMuchFuel',
-            error_message: null,
-        }
+    mounted(){
+        console.log(this);
     },
+    computed: mapState({
+        //state.{YOUR MODULE}.example
+        links: state => state.consumption.links,
+        FuelResult: state => state.consumption.FuelResult,
+        dialog: state => state.consumption.dialog,
+        FuelResultPrice: state => state.consumption.FuelResultPrice,
+        average_consumption: state => state.consumption.average_consumption,
+        average_price: state => state.consumption.average_price,
+        km: state => state.consumption.km,
+        error_message: state => state.consumption.error_message,
+    }),
     methods:{
+        ...mapMutations(['changeActiveToFalse', 'updateAverage_consumption', 'updateAverage_price', 'updateKm', 'updateDialog', 'updateFuelResult', 'updateFuelResultPrice', 'updateError_message']),
         changeNav: function(e,item){
             e.preventDefault();
-            this.links.forEach(e => {
-                if(e.active) e.active=false;
-            })
+            this.changeActiveToFalse();
             item.active = true;
-            this.dialog = item.id;
+            this.updateDialog(item.id);
         },
         getFuelResult: function(e){
             e.preventDefault();
             if(this.average_consumption != null && this.average_consumption != "" || this.average_price != null &&  this.average_price != "" || this.km != null &&  this.km != ""){
-                this.error_message = null;
-                this.FuelResult = ((this.km * this.average_consumption) / 100) + " l";
-                this.FuelResultPrice = Math.round(((this.km * this.average_consumption) / 100) * this.average_price) + " euro";
+                this.updateError_message(null);
+                this.updateFuelResult(((this.km * this.average_consumption) / 100) + " l");
+                this.updateFuelResultPrice(Math.round(((this.km * this.average_consumption) / 100) * this.average_price) + " euro");
             }else{
-                this.error_message = 'Вы не заполнили все поля'
+                this.updateError_message("Вы не заполнили все поля");
             }
+        },
+
+        /* Methods for change */
+        setAverage_consumption: function(e){
+            this.updateAverage_consumption(e.target.value);
+        },
+        
+        setAverage_price: function(e){
+            this.updateAverage_price(e.target.value);
+        },
+         
+        setKm: function(e){
+            this.updateKm(e.target.value);
         }
+
     }
 }
 </script>
