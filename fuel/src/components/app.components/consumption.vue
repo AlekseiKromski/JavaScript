@@ -1,5 +1,5 @@
 <template>
-    <div class="row shadow rounded m-sm-0 m-md-5 p-4 consumption">
+    <div class="row shadow rounded m-sm-0 p-4 consumption">
             <div class="col-12">
                 <ul class="nav nav-tabs">
                     <li class="nav-item" v-for="link in links" v-bind:key="link.id">
@@ -46,6 +46,9 @@
                             <div class="error_message" v-if="error_message">
                                 {{error_message}}
                             </div>
+                            <div class="input-group mb-3 mt-3" v-if="FuelResult">
+                                <input type="submit" v-on:click="setFuelData($event)" value="Добавить данные" class="btn btn-info">
+                            </div>
                         </form>
                     </div>
                     <div v-if="dialog == 'howMuchKM'">
@@ -69,9 +72,6 @@
 import {mapMutations} from 'vuex';
 import {mapState} from 'vuex';
 export default {
-    mounted(){
-        console.log(this);
-    },
     computed: mapState({
         //state.{YOUR MODULE}.example
         links: state => state.consumption.links,
@@ -82,9 +82,10 @@ export default {
         average_price: state => state.consumption.average_price,
         km: state => state.consumption.km,
         error_message: state => state.consumption.error_message,
+        fuel_data: state => state.consumption.fuel_data
     }),
     methods:{
-        ...mapMutations(['changeActiveToFalse', 'updateAverage_consumption', 'updateAverage_price', 'updateKm', 'updateDialog', 'updateFuelResult', 'updateFuelResultPrice', 'updateError_message']),
+        ...mapMutations(['changeActiveToFalse', 'updateAverage_consumption', 'updateAverage_price', 'updateKm', 'updateDialog', 'updateFuelResult', 'updateFuelResultPrice', 'updateError_message', 'addFuelData']),
         changeNav: function(e,item){
             e.preventDefault();
             this.changeActiveToFalse();
@@ -100,6 +101,19 @@ export default {
             }else{
                 this.updateError_message("Вы не заполнили все поля");
             }
+        },
+        setFuelData: function(e){
+            e.preventDefault();
+            let today = new Date();
+            this.addFuelData({
+                average_consumption: this.average_consumption,
+                average_price: this.average_price,
+                km: this.km,  
+                date: today.getDate() + "." + today.getMonth() + "." + today.getFullYear(),
+                ableDelete: false
+            })
+            this.updateFuelResult(null);
+            this.updateFuelResultPrice(null);
         },
 
         /* Methods for change */
