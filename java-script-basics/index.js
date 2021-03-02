@@ -67,4 +67,54 @@ console.log(string.toLowerCase());
 
 //ES5 - строки могу интерпритироваться, как массивы
 //ES5 стандарт работает во всех современных браузерах
-console.log(string[13]);*/
+console.log(string[13]);
+
+
+
+//Значение, которые при конвертации будут выдвать true
+console.log(Boolean(Infinity));
+console.log(Boolean("ASD"));
+console.log(Boolean(true));
+console.log(Boolean(1));
+
+//Значение, которые при конвертации будут выдвать false
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(0));
+console.log(Boolean(NaN));
+console.log(Boolean(""));
+
+var s = "test"
+
+if(s){
+    console.log("Yes, that true");
+}
+
+console.log(true && false);
+console.log(false  && false);
+console.log(true && true);
+console.log(true || false);
+console.log(false || false);
+console.log(!true);
+console.log(!false);
+
+// Второе выражение будет вычесляться только в том случае ,
+// если первое будет отрицательное
+
+/*
+Если левый аргумент – false, оператор И возвращает его и
+заканчивает вычисления. Иначе – вычисляет и
+возвращает правый аргумент.
+
+true && (a = 5)
+*/
+
+/*
+Допустим, вычисляются несколько ИЛИ подряд: a || b || c ||
+.... Если первый аргумент – true, то результат
+заведомо будет true (хотя бы одно из значений – true),
+и остальные значения игнорируются.
+
+true || (a = 5)
+*/
+
