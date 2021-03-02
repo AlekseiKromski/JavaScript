@@ -116,5 +116,28 @@ true && (a = 5)
 и остальные значения игнорируются.
 
 true || (a = 5)
-*/
 
+
+//Оператор + будет стараться делать строки
+console.log(5 + "5");
+
+//Оператор * будет стараться делать числа
+console.log(5 * "5");
+
+//Если чесло не получается получить, то выйдет NaN
+console.log(5 * "ADF");
+
+//Быстрое приаброзование в болевый тип
+console.log(!!5); //true
+console.log(!!0); //false
+
+console.log(+"45 px");
+console.log(Number.parseInt("45 px  55"));
+
+//Парсит только значения с точной
+console.log(Number.parseFloat("455.6 px 455..5"));
+
+var n = 5
+console.log(n.value);
+
+*/
