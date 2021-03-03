@@ -156,4 +156,55 @@ let i = 0
 while(i < 10){
     console.log(i);
     i++
-}*/
+}
+
+//Функции
+//Если функция ничего не возвращает, то она отадет undefined
+
+//Выражение опеределние функции
+var greet2 = function (name){
+    //Get all arguments (special object)
+    console.log(arguments);
+    return "Hello" + name;
+};
+
+//Инструкция объявления функции
+function greet(name){
+    console.log(arguments);
+    return "Hello" + name;
+}
+
+// console.log(greet2("Vasja"));
+// console.log(greet("Petja"));
+
+//USE CALLBACK IN FUCTION
+
+var func = function(callback){
+    callback("Sorax");
+}
+
+func(function(name){
+    console.log("Hello, " + name);
+})
+
+
+var func = function(){
+    return function(){
+        console.log('Hi');
+    }
+}
+
+func()()
+
+//Можно сразу вызвать функцию, но при условии, что она является
+//выражением
+//Анонимная самовызывающаяся функция
+var fucn2 = (function(name){
+    console.log("Hi, " + name);
+}("TEST"));
+
+var testfunc = function(){
+    return "hi"
+}
+
+console.log();*/
