@@ -208,3 +208,17 @@ var testfunc = function(){
 }
 
 console.log();*/
+
+var i = 5
+var func = function(){
+    var i = 10;
+    console.log(i);
+
+    var func = function () {
+        
+        console.log(i);
+        var i = 55
+    }
+    func()
+    console.log(i);
+}()
