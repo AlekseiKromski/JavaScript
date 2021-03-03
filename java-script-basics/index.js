@@ -140,6 +140,20 @@ console.log(Number.parseFloat("455.6 px 455..5"));
 var n = 5
 console.log(n.value);
 
-*/
 
 
+
+//Циклы не создают свое собственную область видимости 
+for(let i = 0; i < 3; i++){
+    console.log(i);
+}
+
+for(let i = 3; i > 0; i--){
+    console.log(i);
+}
+
+let i = 0
+while(i < 10){
+    console.log(i);
+    i++
+}*/
