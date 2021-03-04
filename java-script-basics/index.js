@@ -207,7 +207,7 @@ var testfunc = function(){
     return "hi"
 }
 
-console.log();*/
+console.log();
 
 var i = 5
 var func = function(){
@@ -222,3 +222,36 @@ var func = function(){
     func()
     console.log(i);
 }()
+
+var counter = function () {
+    var count = 0;
+   return function () {
+        return count ++;
+   }
+}();
+console.log(counter());
+console.log(counter());
+
+function logPerson (){
+    console.log(`Person name: ${this.name}, Person age: ${this.age}`);
+}
+
+var bind = function(person, func){
+    return function(){
+        func.apply(person, arguments)
+    }
+}
+
+
+const person1 = {name: 'Andry', age: 22}
+const person2 = {name: 'Andry2', age: 19}
+
+bind(person1, logPerson)*/
+ 
+try{
+    console.log('10');
+}catch (error){
+    console.log(error);
+}finally{
+    console.log('Finnaly');
+}
