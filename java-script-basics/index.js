@@ -246,7 +246,7 @@ var bind = function(person, func){
 const person1 = {name: 'Andry', age: 22}
 const person2 = {name: 'Andry2', age: 19}
 
-bind(person1, logPerson)*/
+bind(person1, logPerson)
  
 try{
     console.log('10');
@@ -255,3 +255,30 @@ try{
 }finally{
     console.log('Finnaly');
 }
+
+//Объектный литерал
+//В Js - нет методов, мы просто присваеваем функции свойствам
+var person = {
+    name: 'LOL',
+    sayHi: function(){
+        console.log('HI, ' + this.name);
+    }
+}
+
+person.name = "test"
+
+person.sayHi()
+
+
+//Старый поход создания объектов
+
+//Создается объект с помощью конструктора класса Object
+var object = new Object();
+object.x = 10
+// var object = Object.create({
+//     x: 12
+// });
+
+
+console.log(object);
+*/
