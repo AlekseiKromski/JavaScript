@@ -359,4 +359,28 @@ console.log(o);
 
  var person = Object.create(ObjectProto).constructor("Test", 12,"male")
  console.log(person);*/
- 
+
+//Реализация классов(Конструкторов) в ES5
+var Person, person, anotherPerson
+
+Person = function (name) {
+    this.name = name
+}
+
+person = new Person("jack")
+
+Person.prototype.greet = function (param) {
+    return "hi"
+}
+
+Developer = function(name, skills){
+    Person.apply(this, arguments)
+    this.skills = skills;
+}
+Developer.prototype = Object.create(Person.prototype)
+Developer.prototype.constructor = Developer
+
+var developer = new Developer("TES|T", ['js','php'])
+console.log(developer);
+
+console.log(Object.prototype);
