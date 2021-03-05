@@ -281,4 +281,30 @@ object.x = 10
 
 
 console.log(object);
-*/
+
+
+function globalSayHi(){
+    console.log("Hi, " + this.name);
+}
+
+var person1 = {
+    name: "yanikarp",
+    sayHi: globalSayHi
+}
+var person2 = {
+    name: "yanikarp - tester",
+    sayHi: globalSayHi
+}
+
+
+person1.sayHi()
+person2.sayHi()
+
+//Отдаем контекст выполнения
+globalSayHi.call(person1)
+globalSayHi.apply(person1)
+
+
+//Bind -делает связку функции с конкретным контекстом
+//Возвращает новую функцию 
+var bound = globalSayHi.bind(person2)*/
