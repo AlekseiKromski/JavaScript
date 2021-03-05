@@ -1,22 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jquery lessons</title>
-</head>
-<body>
-    <div class="header">
-        <ul>
-            <li class="test"></li>
-            <li>TEST</li>
-            <li>TEST</li>
-            <li>TEST</li>
-            <li>TEST</li>
-        </ul>
-    </div>
-    <script src="jquery.js"></script>
-    <script src="index.js"></script>
+	<head>
+		<title>About Us</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+		
+		
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/contact-form.css">
+		
+		<script src="js/jquery.js"></script>
+		
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+		<script src="js/script.js"></script>
+		
+		
+		
+		
+	</head>
+<body class="index-1">
+<!--==============================header=================================-->
+<header id="header">
+	<div id="stuck_container">
+		<div class="container">
+			<div class="row">
+				<div class="grid_12">
+					<h1><a href="index.html">Build-Up</a><span>your advertising agency</span></h1>
+					<nav>
+						<ul class="sf-menu">
+							<li><a href="index.html">Home</a></li>
+							<li class="current"><a href="index-1.html">About</a></li>
+							<li><a href="index-2.html">Projects</a></li>
+							<li><a href="index-3.html">Services</a></li>
+							<li><a href="index-4.html">Contacts</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!--=======content================================-->
+
+<section id="content">
+	<div class="full-width-container block-2">
+		<div class="container nt">
+			<div class="row">
+				<div class="grid_12">
+					<header>
+						<h2><span>About Us</span></h2>
+					</header>
+				</div>
+				<div class="grid_4">
+					<div class="img_container"><img src="images/index-1_img-1.jpg" alt="img"></div>
+				</div>
+				<div class="grid_7 preffix_1">
+					<p>Gamus at magna non nunc tristique rhoncuseri tym. Aliquam nibh ante, egestas id dictum aterert commodo re luctus libero. Praesent faucibus malesuada cibuste. Donec laoreet metus id laoreet malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros. <br><br>Lamus at magna non nunc tristique rhoncuseri tym. Aliquam nibh ante, egestas id dictum aterert commodo re luctus libero. Praesent faucibus malesuada cibuste. Donec laoreet metus id laoreet malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula.</p>
+					<a href="#" class="btn">More</a>
+				</div>
+			</div>
+			
+			<!--<div><h5>Hello</h5></div>-->
+		</div>
+	</div>
+	<div class="full-width-container block-1 nt">
+		<div class="container">
+			<div class="row">
+				<div class="grid_5">
+					<form id="contact-form">
+						<div class="contact-form-loader"></div>
+							<header>
+								<h2><span>Contact Form</span></h2>
+							</header>
+							<fieldset>
+									<label class="name">
+										<span class="text">Your Name:</span>
+										<input class="example" type="text" name="name" placeholder="" value="" data-constraints="@Required @JustLetters" />
+									</label>
+									<label class="email">
+										<span class="text">Your E-mail:</span>
+										<input type="text" name="email" placeholder="" value="" data-constraints="@Required @Email" />
+										<p name="email">hello</p>
+									</label>
+									<label class="phone">
+										<span class="text">Subject:</span>
+										<input type="text" name="phone" placeholder="" value="" data-constraints="@Required" />
+									</label>
+									<label class="message">
+										<span class="text">Message:</span>
+										<textarea name="message" placeholder="" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+									</label>
+								<div class="cont_btn">
+									<a href="#" data-type="submit" class="btn">Send</a>
+								</div>
+						</fieldset> 
+					</form>
+				</div>
+				<div class="grid_6 preffix_1">
+					<div>
+						<hader>
+							<h2><span>Contact Information</span></h2>
+						</hader>
+						<p class="el-1">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel
+						</p>
+						<p class="el-2">
+							24/7 support is on for all <a href="#">premium themes.</a> <br><br>
+							<a href="#">TemplateTuning</a> will help you with customization of any chosen template. <br><br>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros.Lamus at magna non nunc tristique rhoncuseri tym. 
+						</p>
+					</div>
+					<div class="grid_3 alpha">
+						<div class="address">
+							<p>The Company Name Inc. <br>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
+						</div>
+					</div>
+					<div class="grid_3">
+						<div class="address">
+							<p>Telephone:+1 800 603 6035 <br>FAX:+1 800 889 9898 <br>E-mail: <a href="mailto:mail@demolink.org" class="mail">mail@demolink.org</a></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--=======footer=================================-->
+<footer id="footer">
+	
+	<div class="footer_bottom"><a href="http://www.templatemonster.com/" rel="nofollow"><img src="images/footer-logo.png" alt="logo"></a></div>
+</footer>
 </body>
+
+
 </html>
