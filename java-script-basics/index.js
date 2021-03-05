@@ -346,5 +346,17 @@ Object.defineProperties(0, {
         writable: false
     }
 })
+console.log(o);
 
-console.log(o);*/
+ var ObjectProto = {
+     constructor: function(name,age,gender){
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        return this;
+     }
+ }
+
+ var person = Object.create(ObjectProto).constructor("Test", 12,"male")
+ console.log(person);*/
+ 
