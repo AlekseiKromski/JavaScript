@@ -307,4 +307,44 @@ globalSayHi.apply(person1)
 
 //Bind -делает связку функции с конкретным контекстом
 //Возвращает новую функцию 
-var bound = globalSayHi.bind(person2)*/
+var bound = globalSayHi.bind(person2)
+
+//Accessors
+var person = {
+    name: "yanikarp",
+    age_: 20,
+    //Getter and setter 
+    get age(){
+        return this.age_
+    },
+    set age(value){
+        this.age_ = value 
+    }
+}
+
+//console.log(Object.getOwnPropertyDescriptor(person, "name"));
+Object.defineProperty(person, "gender", {
+    value: "male",
+    writable: false,
+    enumerable: true,
+    configurable: false
+})
+person.gender = 33
+
+// for(property in person){
+//     console.log(property);
+// }
+
+console.log(Object.keys(person));
+
+var o = {}
+Object.defineProperties(0, {
+    x: {
+        value: 12,
+        enumerable: false,
+        writable: false,
+        writable: false
+    }
+})
+
+console.log(o);*/
