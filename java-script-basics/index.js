@@ -358,8 +358,7 @@ console.log(o);
  }
 
  var person = Object.create(ObjectProto).constructor("Test", 12,"male")
- console.log(person);*/
-
+ console.log(person);
 //Реализация классов(Конструкторов) в ES5
 var Person, person, anotherPerson
 
@@ -383,4 +382,4 @@ Developer.prototype.constructor = Developer
 var developer = new Developer("TES|T", ['js','php'])
 console.log(developer);
 
-console.log(Object.prototype);
+console.log(Object.prototype);*/
