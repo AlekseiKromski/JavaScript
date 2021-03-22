@@ -382,4 +382,45 @@ Developer.prototype.constructor = Developer
 var developer = new Developer("TES|T", ['js','php'])
 console.log(developer);
 
-console.log(Object.prototype);*/
+console.log(Object.prototype);
+
+
+var m = ['mbw', 'Jaguar', 'Skoda', 'Vw', 'Volvo']
+// m.forEach( function(e, index, array) {
+//     array[index] = e.toUpperCase();
+//     console.log(index);
+//     console.log(array);
+// })
+
+// console.log(m);
+
+// m = m.map(function(e) {
+//     return e;
+// })
+
+console.log(m.every(function (e) {
+    return e.length > 4
+}));
+
+
+console.log(m.some(function (e) {
+    return e.indexOf('b') !== -1}));
+
+console.log(m.some(function (e) {
+    return e.indexOf('b') !== -1}));
+
+
+let numbers = [1,2,3,4,5,6,7,8,9]
+
+var reduced = numbers.reduce(function name(a, b) {
+    console.log(a);
+    console.log(b);
+})*/
+
+console.log(Math.pow(2,2));
+console.log(Math.sqrt(16));
+console.log(Math.abs(-16));
+console.log(Math.round(9.5));
+console.log(Math.floor(9.6));
+console.log(Math.ceil(9.2));
+console.log(-10 + Math.random() * 20);
