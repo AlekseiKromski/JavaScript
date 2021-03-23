@@ -415,7 +415,7 @@ let numbers = [1,2,3,4,5,6,7,8,9]
 var reduced = numbers.reduce(function name(a, b) {
     console.log(a);
     console.log(b);
-})*/
+})
 
 console.log(Math.pow(2,2));
 console.log(Math.sqrt(16));
@@ -423,4 +423,24 @@ console.log(Math.abs(-16));
 console.log(Math.round(9.5));
 console.log(Math.floor(9.6));
 console.log(Math.ceil(9.2));
-console.log(-10 + Math.random() * 20);
+console.log(-10 + Math.random() * 20);*/
+
+function bind(context, fn){
+    return function(...args){
+        fn.apply(context, args);
+    }()
+}
+
+const person1 = {
+    name: 'Mihail'
+};
+const person2 = {
+    name: 'Alekse'
+}
+
+function logPerson(){
+    console.log(`Person: ${this.name}`);
+}
+
+bind(person1, logPerson)
+bind(person2, logPerson)
