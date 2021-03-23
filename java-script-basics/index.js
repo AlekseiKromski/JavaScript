@@ -423,7 +423,7 @@ console.log(Math.abs(-16));
 console.log(Math.round(9.5));
 console.log(Math.floor(9.6));
 console.log(Math.ceil(9.2));
-console.log(-10 + Math.random() * 20);*/
+console.log(-10 + Math.random() * 20);
 
 function bind(context, fn){
     return function(...args){
@@ -444,3 +444,22 @@ function logPerson(){
 
 bind(person1, logPerson)
 bind(person2, logPerson)
+
+var Pattern = /\w+/gim, string = `Lorem   Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled`;
+
+console.log(string.search(Pattern));
+console.log(string.split(/[\s,]+/));
+
+var input = document.querySelector('#input'), output = document.querySelector('#output')
+voc = {
+    name: 'Sorax'
+};
+input.addEventListener('keyup', function(){
+    output.innerHTML = this.value.replace(
+      /\{\{(\w*)\}\}/g, function(match, value){
+        if(value === 'name'){
+            return voc.name
+        }
+      }
+    )
+}, false);*/
