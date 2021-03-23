@@ -1,16 +1,19 @@
-var a = document.querySelector('a');
-var link = a.getAttribute('href');
-a.setAttribute('href', 'https://ya.ru')
-a.textContent = 'yandex'
+var boxs = document.querySelectorAll('div');
 
-var box1 = document.querySelector('#box1');
-box1.classList.add('red')
+boxs.forEach(e => {
+    e.addEventListener('click', function(event){
+        event.stopPropagation();
+        console.log(e.getAttribute('id'));
+    })
+})
 
-var box2 = document.querySelector('#box2');
-box2.classList.add('red')
-
-var hasClass = box2.classList.contains('blue');
-
-
-hasClass === true ? box2.classList.remove('blue') : box2.classList.add('blue')
-
+var toggler = document.querySelector('#toggle');
+var box2 = document.querySelector('.box2');
+toggler.addEventListener('click' , function(event){
+    event.preventDefault();
+    if(box2.classList.contains('hide')){
+        box2.classList.remove('hide')
+    }else{
+        box2.classList.add('hide')
+    }
+})
