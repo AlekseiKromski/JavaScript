@@ -463,4 +463,4 @@ input.addEventListener('keyup', function(){
       }
     )
 }, false);*/
-
+console.log(window.location);
