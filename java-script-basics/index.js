@@ -462,5 +462,23 @@ input.addEventListener('keyup', function(){
         }
       }
     )
-}, false);*/
-console.log(window.location);
+}, false);
+console.log(window.location);   */
+var data = localStorage.getItem('output')
+var output = document.querySelector('#output');
+var input = document.querySelector('#input');
+var save = document.querySelector('#save')
+
+
+try{
+    output.innerHTML = data;
+}catch(e){
+    output.innerHTML = "UNDEF";
+}
+
+
+save.addEventListener("click", function(event){
+    event.preventDefault();
+    localStorage.setItem("output", input.value);
+    output.innerHTML = input.value;
+})
