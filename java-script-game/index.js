@@ -13,13 +13,19 @@ function startGame(){
 
 function renderBox(){
     $game.innerHTML = '';
+
+    var boxSize = getRandom(30, 100) + 'px';
+    var gameScreen = $game.getBoundingClientRect();
+    var maxTop = gameScreen.height - Number.parseInt(boxSize);
+    var maxLeft = gameScreen.width - Number.parseInt(boxSize);
     var box = document.createElement('div');
-    box.style.height = '50px';
-    box.style.width = '50px';
+
+    box.style.height = boxSize;
+    box.style.width = boxSize;
     box.style.backgroundColor = 'red';
     box.style.position = 'absolute';
-    box.style.top = '50px'
-    box.style.top = '70px'
+    box.style.top = getRandom(0, maxTop) + 'px';
+    box.style.left = getRandom(0, maxLeft) + 'px';
     box.style.cursor = 'pointer'
     box.setAttribute('data-box', 'true')
     $game.insertAdjacentElement('afterbegin',box);
@@ -32,4 +38,8 @@ function handleBoxClick(event){
         score_++;
         renderBox();
     }
+}
+
+function getRandom (min, max){
+    return Math.floor(Math.random() * (max-min) + min)
 }
