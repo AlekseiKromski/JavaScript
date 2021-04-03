@@ -3,12 +3,19 @@ var $game = document.querySelector('#game');
 var score_ = 0;
 var $time = document.querySelector('#time');
 var isGameStarted = false;
+var $timeHeader = document.querySelector('#time-header');
+var $resultHeader = document.querySelector('#result-header');
+var $result = document.querySelector('#result')
 
 $start.addEventListener('click', startGame)
 
 
 function startGame(){
+    score_ = 0;
+    setGameTime();
     isGameStarted = true;
+    $timeHeader.classList.remove('hide');
+    $resultHeader.classList.add('hide');
     $start.classList.add('hide');
     $game.style.backgroundColor = "white";
     renderBox();
@@ -63,6 +70,20 @@ function getRandom (min, max){
 function endGame(){
     //end game 
     isGameStarted = false;
+    $start.classList.remove('hide');
+    $game.style.backgroundColor = "#ccc";
+    $game.innerHTML = '';
+    setGameScore();
+    $timeHeader.classList.add('hide');
+    $resultHeader.classList.remove('hide');
+    
+}
 
+function setGameScore(){
+    $result.textContent = score_;
+}
 
+function setGameTime(){
+    var time = 5;
+    $time.textContent = time.toFixed(1);
 }
