@@ -6,17 +6,19 @@ var isGameStarted = false;
 var $timeHeader = document.querySelector('#time-header');
 var $resultHeader = document.querySelector('#result-header');
 var $result = document.querySelector('#result')
+var $gameTimeInput = document.querySelector('#game-time');
 
 $start.addEventListener('click', startGame)
-
+$gameTimeInput.addEventListener('input', setGameTime);
 
 function startGame(){
     score_ = 0;
     setGameTime();
+    $gameTimeInput.setAttribute('disabled', 'true')
     isGameStarted = true;
-    $timeHeader.classList.remove('hide');
-    $resultHeader.classList.add('hide');
-    $start.classList.add('hide');
+    hide($resultHeader);
+    hide($start);
+    show($timeHeader);
     $game.style.backgroundColor = "white";
     renderBox();
 
@@ -52,7 +54,6 @@ function renderBox(){
     box.style.cursor = 'pointer'
     box.setAttribute('data-box', 'true')
     $game.insertAdjacentElement('afterbegin',box);
-
     $game.addEventListener('click', handleBoxClick)
 }
 
@@ -70,12 +71,14 @@ function getRandom (min, max){
 function endGame(){
     //end game 
     isGameStarted = false;
-    $start.classList.remove('hide');
+    show($start)
     $game.style.backgroundColor = "#ccc";
     $game.innerHTML = '';
     setGameScore();
-    $timeHeader.classList.add('hide');
-    $resultHeader.classList.remove('hide');
+    hide($timeHeader);
+    show( $resultHeader);
+    $gameTimeInput.removeAttribute('disabled');
+    
     
 }
 
@@ -84,6 +87,15 @@ function setGameScore(){
 }
 
 function setGameTime(){
-    var time = 5;
+    var time = +$gameTimeInput.value;
     $time.textContent = time.toFixed(1);
+}
+
+function show($el){
+    $el.classList.remove('hide');
+}
+
+function hide($el){
+    $el.classList.add('hide');
+
 }
