@@ -1,14 +1,30 @@
 var $start = document.querySelector('#start');
 var $game = document.querySelector('#game');
-var score_ = 0
+var score_ = 0;
+var $time = document.querySelector('#time');
+var isGameStarted = false;
 
 $start.addEventListener('click', startGame)
 
 
 function startGame(){
+    isGameStarted = true;
     $start.classList.add('hide');
     $game.style.backgroundColor = "white";
     renderBox();
+
+    var interval = setInterval(function() {
+        var time = Number.parseFloat($time.textContent);
+        if(time <= 0){
+            // end game
+            endGame();
+            clearInterval(interval);
+        }else{ 
+            // resume game
+            $time.textContent = (time - 0.1).toFixed(1);
+        }
+        
+    },100)
 }
 
 function renderBox(){
@@ -34,7 +50,7 @@ function renderBox(){
 }
 
 function handleBoxClick(event){
-    if(event.target.getAttribute('data-box')){
+    if(isGameStarted && event.target.getAttribute('data-box')){
         score_++;
         renderBox();
     }
@@ -42,4 +58,11 @@ function handleBoxClick(event){
 
 function getRandom (min, max){
     return Math.floor(Math.random() * (max-min) + min)
+}
+
+function endGame(){
+    //end game 
+    isGameStarted = false;
+
+
 }
