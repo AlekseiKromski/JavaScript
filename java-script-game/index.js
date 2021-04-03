@@ -21,7 +21,6 @@ function startGame(){
     show($timeHeader);
     $game.style.backgroundColor = "white";
     renderBox();
-
     var interval = setInterval(function() {
         var time = Number.parseFloat($time.textContent);
         if(time <= 0){
@@ -32,22 +31,19 @@ function startGame(){
             // resume game
             $time.textContent = (time - 0.1).toFixed(1);
         }
-        
     },100)
 }
 
 function renderBox(){
     $game.innerHTML = '';
-
     var boxSize = getRandom(30, 100) + 'px';
     var gameScreen = $game.getBoundingClientRect();
     var maxTop = gameScreen.height - Number.parseInt(boxSize);
     var maxLeft = gameScreen.width - Number.parseInt(boxSize);
     var box = document.createElement('div');
-
     box.style.height = boxSize;
     box.style.width = boxSize;
-    box.style.backgroundColor = 'red';
+    box.style.backgroundColor = getRandomColor();
     box.style.position = 'absolute';
     box.style.top = getRandom(0, maxTop) + 'px';
     box.style.left = getRandom(0, maxLeft) + 'px';
@@ -78,8 +74,6 @@ function endGame(){
     hide($timeHeader);
     show( $resultHeader);
     $gameTimeInput.removeAttribute('disabled');
-    
-    
 }
 
 function setGameScore(){
@@ -89,6 +83,8 @@ function setGameScore(){
 function setGameTime(){
     var time = +$gameTimeInput.value;
     $time.textContent = time.toFixed(1);
+    hide($resultHeader);
+    show($timeHeader);
 }
 
 function show($el){
@@ -97,5 +93,12 @@ function show($el){
 
 function hide($el){
     $el.classList.add('hide');
+}
 
+function getRandomColor () {
+    var red, blue, green;
+    red = getRandom(1,255);
+    blue = getRandom(1,255);
+    green = getRandom(1,255);
+    return (`rgb(${red}, ${blue}, ${green})`)
 }
