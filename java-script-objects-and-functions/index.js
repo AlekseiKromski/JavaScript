@@ -1,27 +1,18 @@
-function printObject(objName) {
-    console.log(objName);
-    for(var key in this){
-        if(this.hasOwnProperty(key)){
-            console.log(`[${key}]`, this[key]);
+var a = [1,2,3];
+var b = [5,'Hello',6];
+
+Array.prototype.double = function (){
+    return this.map(function(item){
+        if(typeof item === 'number'){
+            return item * item
+        }else if(typeof item === 'string'){
+            return item + item
         }
-    }
-}   
-
-var person = {
-    firstName: 'max',
-    job: 'js',
-    age: 29,
-    friends: [
-        'Elena', 'Igor'
-    ]
+    })
 }
 
-var car = {
-    name: 'ford',
-    year: 2012,
-    model: 'focus'
-}
+var newA = a.double();
+var newB = b.double();
 
-printObject.call(car, 'car')
-console.log('++++++++++++++++');
-printObject.apply(person, ['person'])
+console.log(newA);
+console.log(newB);
