@@ -1,11 +1,11 @@
 var person = {
-    name: 'max',
     age: 22,
-    job: 'front-end'
+    name: 'Fedor',
+    job: 'JS',
+    display: function(time){
+        setTimeout(function(){
+            console.log(this.age, this.name, this.job);
+        }.bind(this), time)
+    }
 }
-
-
-console.log(Object.keys(person));
-Object.keys(person).forEach(element => {
-    console.log(person[element]);
-})
+person.display(1000)
