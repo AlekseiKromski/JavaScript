@@ -4,6 +4,8 @@ function Car(name, year){
     this.year = year;
 }
 
+
+
 Car.prototype.getAge = function () {
     return new Date().getFullYear() - this.year;
 };
