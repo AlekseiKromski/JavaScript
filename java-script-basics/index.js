@@ -463,7 +463,7 @@ input.addEventListener('keyup', function(){
       }
     )
 }, false);
-console.log(window.location);   */
+console.log(window.location);  
 var data = localStorage.getItem('output')
 var output = document.querySelector('#output');
 var input = document.querySelector('#input');
@@ -481,4 +481,15 @@ save.addEventListener("click", function(event){
     event.preventDefault();
     localStorage.setItem("output", input.value);
     output.innerHTML = input.value;
-})
+})*/
+
+const createPost = (title,text,date = new Date().toLocaleDateString()) => {
+    return {
+        title: title,
+        text: text,
+        date: date
+    }
+}
+
+let post = createPost('HP', ' -- TEST test TEST -- ');
+console.log(post);
