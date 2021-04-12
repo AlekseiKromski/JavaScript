@@ -481,15 +481,33 @@ save.addEventListener("click", function(event){
     event.preventDefault();
     localStorage.setItem("output", input.value);
     output.innerHTML = input.value;
-})*/
+})
 
 const createPost = (title,text,date = new Date().toLocaleDateString()) => {
     return {
-        title: title,
-        text: text,
-        date: date
+        title, text, date
     }
 }
 
 let post = createPost('HP', ' -- TEST test TEST -- ');
-console.log(post);
+console.log(post);*/
+
+const createCar = (name, model) => ({name, model})
+
+const yearField = 'year'
+const ford = createCar('ford', 's749');
+const bmw = {
+    name: 'BMW',
+    ['model']: 'X6 Sport',
+    [yearField]: 2002,
+    logFields() {
+        const {name,year,model} = this
+        console.log(name, model, year);
+    }
+
+}
+console.log(bmw.logFields());
+
+const {year} = bmw
+
+console.log(year);
