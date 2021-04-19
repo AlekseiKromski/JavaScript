@@ -511,5 +511,34 @@ const bmw = {
 }
 
 console.log(bmw.logField());
-
 */
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    const title = form.title.value;
+    const text = form.text.value;
+    const description = form.description.value
+    saveForm({title, text, description})
+})
+
+//spread operator
+function saveForm1(data){
+    const formData = {
+        date: new Date().toLocaleDateString(),
+        ...data
+    }
+    console.log(formData);
+}
+
+//rest operator
+function saveForm(...args){
+    const [title, text, description] = args;
+    
+    const formData = {
+        date: new Date().toLocaleDateString(),
+        title,text,description
+    }
+    console.log(formData);
+}
