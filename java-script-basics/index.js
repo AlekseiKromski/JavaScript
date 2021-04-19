@@ -490,24 +490,26 @@ const createPost = (title,text,date = new Date().toLocaleDateString()) => {
 }
 
 let post = createPost('HP', ' -- TEST test TEST -- ');
-console.log(post);*/
+console.log(post);
 
 const createCar = (name, model) => ({name, model})
 
+const ford = createCar('ford','cougar')
+
 const yearField = 'year'
-const ford = createCar('ford', 's749');
+
 const bmw = {
     name: 'BMW',
-    ['model']: 'X6 Sport',
-    [yearField]: 2002,
-    logFields() {
-        const {name,year,model} = this
-        console.log(name, model, year);
+    ['model']: 'X6 sport',
+    [yearField] : 2002,
+
+    logField() {
+        //Диструктуризация
+        const {name,model,year} = this;
+        console.log(this.name, this.model, this.year);
     }
-
 }
-console.log(bmw.logFields());
 
-const {year} = bmw
+console.log(bmw.logField());
 
-console.log(year);
+*/
