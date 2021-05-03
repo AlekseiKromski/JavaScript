@@ -1,17 +1,37 @@
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
 const server = http.createServer((request, response) => {
     response.writeHead(200, {
         "Content-Type": 'text/html; charset=utf-8',
     });
     if(request.method === "GET"){
-        response.end(`
-            <h1>From</h1>
-            <form method="post" action="/">
-                <input name="title" type="text" />
-                <button type="submit">Отправить</button>
-            </form>
-        `)
+        if(request.url == '/'){
+            
+            response.end(fs.readFile(
+                path.join(__dirname, 'views', 'index.html'),
+                'utf-8',
+                (error, content) => {
+                    if(error){
+                        throw error;
+                    }
+                    console.log(content);
+                    response.end(content);
+                }
+            ));
+        }else if(request.url == '/about'){
+            response.end(fs.readFile(
+                path.join(__dirname, 'views', 'about.html'),
+                'utf-8',
+                (error, content) => {
+                    if(error){
+                        throw error;
+                    }
+                    response.end(content);
+                }
+            ));
+        }
     }else if(request.method === "POST"){
         const body = [];
         request.on('data', data => {
