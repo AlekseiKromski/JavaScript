@@ -9,19 +9,17 @@ const server = http.createServer((request, response) => {
     if(request.method === "GET"){
         if(request.url == '/'){
             
-            response.end(fs.readFile(
+            fs.readFile(
                 path.join(__dirname, 'views', 'index.html'),
                 'utf-8',
                 (error, content) => {
                     if(error){
                         throw error;
                     }
-                    console.log(content);
                     response.end(content);
-                }
-            ));
+            });
         }else if(request.url == '/about'){
-            response.end(fs.readFile(
+            fs.readFile(
                 path.join(__dirname, 'views', 'about.html'),
                 'utf-8',
                 (error, content) => {
@@ -29,8 +27,7 @@ const server = http.createServer((request, response) => {
                         throw error;
                     }
                     response.end(content);
-                }
-            ));
+            });
         }
     }else if(request.method === "POST"){
         const body = [];
