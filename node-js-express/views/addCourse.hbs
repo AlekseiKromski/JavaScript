@@ -1,1 +1,16 @@
 <h1>Add new course</h1>
+<br>
+<form action="/add-course" method="post">
+    <div class="input-field col s6">
+        <input id="course_title" type="text" name="title" class="validate" required>
+        <label for="course_title">Title</label>
+        <span class="helper-text" data-error="Fill field" data-success="right">This field is required</span>
+    </div>
+    <br>
+    <div class="input-field col s12">
+        <textarea id="textarea2" class="materialize-textarea" data-length="120" name="desc"></textarea>
+        <label for="textarea2">Textarea</label>
+    </div>
+
+    <button class="btn btn-primary">Add course</button>
+</form>

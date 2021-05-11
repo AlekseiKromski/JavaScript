@@ -2,6 +2,8 @@
 const { Router } = require("express");
 const router = Router();
 
+
+
 router.get('/', (request, response) => {
     response.status(200);
     response.render('addCourse', {
@@ -24,4 +26,9 @@ router.get('/', (request, response) => {
     });
 })
 
+router.post('/', (request, response) => {
+    response.status(200);
+    response.redirect('/courses')
+})
 module.exports = router;
+

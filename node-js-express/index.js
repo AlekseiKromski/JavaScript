@@ -22,6 +22,11 @@ app.set('views', 'views');
 //register statick folder
 app.use(express.static('public'));
 
+//? set config for post ? 
+app.use(express.urlencoded({
+    extended: true
+}));
+
 //set route
 app.use('/',homeRoute);
 app.use('/about',aboutRoute);
