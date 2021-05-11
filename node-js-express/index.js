@@ -16,7 +16,8 @@ app.set('view engine', 'hbs');
 //Set default views path
 app.set('views', 'views');
 
-
+//register statick folder
+app.use(express.static('public'));
 
 app.get('/', (request, response) => {
     response.status(200);
