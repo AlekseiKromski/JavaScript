@@ -1,7 +1,10 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
-
+const homeRoute = require('./routes/home');
+const aboutRoute = require('./routes/about');
+const coursesRoute = require('./routes/courses');
+const addCourseRoute = require('./routes/addCourse');
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs',
@@ -19,14 +22,11 @@ app.set('views', 'views');
 //register statick folder
 app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-    response.status(200);
-    response.render('index');
-});
-app.get('/about', (request, response) => {
-    response.status(200);
-    response.render('about');
-});
+//set route
+app.use('/',homeRoute);
+app.use('/about',aboutRoute);
+app.use('/courses',coursesRoute);
+app.use('/add-course',addCourseRoute);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log('Server started on port: ' + PORT);
