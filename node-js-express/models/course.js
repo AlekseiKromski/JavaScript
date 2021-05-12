@@ -58,6 +58,33 @@ class Course {
       const courses = await this.getAll();
       return courses.find(c => c.id === id);
     }
+
+    static async editCourse(data, id){
+      
+      
+      const courses = await Course.getAll();
+      const index = courses.findIndex(c => c.id === id);
+      courses[index] = {
+        title: data.title,
+        desc: data.desc,
+        id: id
+      }
+
+      
+      return new Promise((resolve, reject) => {
+        fs.writeFile(
+            path.join(__dirname,'..','data','courses.json'),
+            JSON.stringify(courses),
+            (error) => {
+                if(error){
+                    reject(error);
+                }else{
+                    resolve();
+                }
+        })
+      });
+    }
+
 }
 
 module.exports = Course;
