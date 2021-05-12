@@ -1,6 +1,8 @@
 //Get only router from express object
 const { Router } = require("express");
 const router = Router();
+const Course = require('../models/course');
+
 
 router.get('/', (request, response) => {
     response.status(200);
@@ -24,8 +26,10 @@ router.get('/', (request, response) => {
     });
 })
 
-router.post('/', (request, response) => {
+router.post('/', async (request, response) => {
     response.status(200);
+    const course = new Course(request.body.title, request.body.desc);
+    await course.save();
     response.redirect()
 })
 module.exports = router;
