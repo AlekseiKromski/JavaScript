@@ -1,28 +1,17 @@
 //Get only router from express object
 const { Router } = require("express");
 const router = Router();
+const Course = require('../models/course')
 
-router.get('/', (request, response) => {
+router.get('/', async (request, response) => {
     response.status(200);
-
+    const courses = await Course.getAll();
     response.render('courses', {
         title: 'Courses course',
-        courses: [
-            {
-                title: 'JavaScript junior developer',
-                desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s'
-            },
-            {
-                title: 'JavaScript junior developer',
-                desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s'
-            },
-            {
-                title: 'JavaScript junior developer',
-                desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s'
-            },
-        ],
+        courses,
         isCourses: true
     });
+    
 })
 
 module.exports = router;

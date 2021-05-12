@@ -10,7 +10,8 @@ class Course {
 
     async save(){
         const courses = await Course.getAll();
-        courses.push(this.toJSON());
+        
+        courses.unshift(this.toJSON());
         return new Promise((resolve, reject) => {
             fs.writeFile(
                 path.join(__dirname,'..','data','courses.json'),
@@ -27,32 +28,29 @@ class Course {
 
     }
 
-    get(){
 
-    }
-
-    static getAll(){
-        return new Promise((resolve,reject) => {
-            fs.readFile(
-                path.join(__dirname, '..','data','courses.json'),
-                'utf-8',
-                (error, content) => {
-                    if (error) {
-                        reject(error)
-                    }else{
-                        resolve(JSON.parse(content));
-                    }
-        
-                });
+    static getAll() {
+        return new Promise((resolve, reject) => {
+          fs.readFile(
+            path.join(__dirname, '..', 'data', 'courses.json'),
+            'utf-8',
+            (err, content) => {
+              if (err) {
+                reject(err)
+              } else {
+                resolve(JSON.parse(content))
+              }
+            }
+          )
         })
-    }
+      }
 
     toJSON(){
-        return JSON.stringify({
+        return{
             title : this.title,
             desc : this.desc,
             id : this.id
-        })
+        }
     }
 }
 
