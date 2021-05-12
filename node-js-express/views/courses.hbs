@@ -1,10 +1,11 @@
+
 <h1>Courses</h1>
 <ul>
     {{#each courses}}
         <li>
             <h4 class="title">{{this.title}}</h4>
             <p>{{this.desc}}</p>
-            <a class="btn" href="/course/{{id}}" type="button">See details</a>
+            <a class="btn" href="/courses/{{id}}" type="button">See details</a>
         </li>
     {{/each}}
 </ul>
