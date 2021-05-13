@@ -16,6 +16,13 @@ router.get('/', async (request, response) => {
         card,
         isCard: true
     });
- })
+})
+
+router.delete('/delete/:id', async (request, response) => {
+    const course = await Course.getCourseById(request.params.id);
+    await Card.delete(course);
+    const card = await Card.fetch();
+    response.json(card);
+})
 
 module.exports = router;

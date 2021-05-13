@@ -46,6 +46,26 @@ class Card {
           })
       })  
     }
+
+    static async delete(course){
+        const card = await Card.fetch();
+        const index = card.courses.findIndex(c => c.id === course.id);
+        if(card.courses[index]){
+            card.courses = card.courses.filter(node => node.id !== course.id)
+
+        }
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(p, JSON.stringify(card),
+            (error) => {
+                if(error){
+                    reject(error);
+                }else{
+                    resolve();
+                }
+            })
+        })
+    }
 }
 
 module.exports = Card;

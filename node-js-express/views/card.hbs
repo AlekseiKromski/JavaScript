@@ -1,6 +1,27 @@
 <h1>Your Cards</h1>
-<ul>
-    {{#each card.courses}}
-        <li><a href="/courses/{{this.id}}">{{this.title}}</a> - Count: <b>{{this.count}}</b></li>
-    {{/each}}
-</ul>
+<hr>
+<h4 id="total_count">Total count: {{card.courses.length}}</h4>
+<div id="card">
+    <table>
+    <thead>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {{#each card.courses}}
+            <tr>
+                <th>
+                    <a href="/courses/{{this.id}}">{{this.title}}</a>
+                </th>
+                <th>
+                    {{this.count}}
+                </th>
+                <th>
+                    <button class="btn red js-remove" data-id="{{this.id}}" href="/card/delete/{{this.id}}" >Delete</button>
+                </th>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
