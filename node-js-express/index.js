@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
+const card = require('./routes/card');
 const coursesRoute = require('./routes/courses');
 const addCourseRoute = require('./routes/addCourse');
 const hbs = exphbs.create({
@@ -32,6 +33,7 @@ app.use('/',homeRoute);
 app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
 app.use('/add-course',addCourseRoute);
+app.use('/card/',card);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log('Server started on port: ' + PORT);
