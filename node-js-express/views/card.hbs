@@ -1,1 +1,6 @@
 <h1>Your Cards</h1>
+<ul>
+    {{#each card.courses}}
+        <li><a href="/courses/{{this.id}}">{{this.title}}</a> - Count: <b>{{this.count}}</b></li>
+    {{/each}}
+</ul>
