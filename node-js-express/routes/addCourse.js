@@ -14,9 +14,16 @@ router.get('/', (request, response) => {
 
 router.post('/', async (request, response) => {
     response.status(200);
-    const course = new Course(request.body.title, request.body.desc);
-    await course.save();
-    response.redirect('/courses')
+    const course = new Course({
+        title: request.body.title,
+        desc: request.body.desc
+    });
+    try{
+        await course.save();
+        response.redirect('/courses')
+    }catch(e){
+        console.log(e);
+    }
 })
 module.exports = router;
 

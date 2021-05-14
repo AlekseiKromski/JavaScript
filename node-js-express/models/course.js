@@ -1,90 +1,15 @@
-const uuid = require('uuid');
-const fs = require('fs');
-const path = require('path');
-const { resolve } = require('path');
-class Course {
-    constructor(title, desc){
-        this.title = title;
-        this.desc = desc;
-        this.id = uuid.v4();
-    }
+const {Schema, model} = require('mongoose')
 
-    async save(){
-        const courses = await Course.getAll();
-        
-        courses.unshift(this.toJSON());
-        return new Promise((resolve, reject) => {
-            fs.writeFile(
-                path.join(__dirname,'..','data','courses.json'),
-                JSON.stringify(courses),
-                (error) => {
-                    if(error){
-                        reject(error);
-                    }else{
-                        resolve();
-                    }
-            })
-        });
-        
+//Set and configure schem
+const course = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  desc: {
+    type: String,
+    required: true,
+  }
+});
 
-    }
-
-
-    static getAll() {
-        return new Promise((resolve, reject) => {
-          fs.readFile(
-            path.join(__dirname, '..', 'data', 'courses.json'),
-            'utf-8',
-            (err, content) => {
-              if (err) {
-                reject(err)
-              } else {
-                resolve(JSON.parse(content))
-              }
-            }
-          )
-        })
-      }
-
-    toJSON(){
-        return{
-            title : this.title,
-            desc : this.desc,
-            id : this.id
-        }
-    }
-
-    static async getCourseById(id){
-      const courses = await this.getAll();
-      return courses.find(c => c.id === id);
-    }
-
-    static async editCourse(data, id){
-      
-      
-      const courses = await Course.getAll();
-      const index = courses.findIndex(c => c.id === id);
-      courses[index] = {
-        title: data.title,
-        desc: data.desc,
-        id: id
-      }
-
-      
-      return new Promise((resolve, reject) => {
-        fs.writeFile(
-            path.join(__dirname,'..','data','courses.json'),
-            JSON.stringify(courses),
-            (error) => {
-                if(error){
-                    reject(error);
-                }else{
-                    resolve();
-                }
-        })
-      });
-    }
-
-}
-
-module.exports = Course;
+module.exports = model('Course', course)

@@ -11,6 +11,8 @@ const hbs = exphbs.create({
     extname: 'hbs',
 });
 const path = require('path');
+const mongoose = require('mongoose');
+const { start } = require('repl');
 
 //Register hbs engine
 app.engine('hbs', hbs.engine);
@@ -29,13 +31,34 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-//set route
+//Set up atlas mongodb connection
+const url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 app.use('/',homeRoute);
 app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
 app.use('/add-course',addCourseRoute);
 app.use('/card/',card);
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log('Server started on port: ' + PORT);
-})
+async function start_server(){
+    try{
+        //set connection
+        await mongoose.connect(url_mongodb, {
+            useNewUrlParser: true,
+            useFindAndModify: false,
+        });
+
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+            console.log('Server started on port: ' + PORT);
+        })
+
+    }catch(e){
+        console.log(e);
+    }    
+}
+
+//start all application 
+start_server();
+
+
+
+

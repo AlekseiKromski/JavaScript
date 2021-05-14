@@ -3,11 +3,11 @@
 <ul>
     {{#each courses}}
         <li>
-            <h4 class="title">{{this.title}}</h4>
+            <h4 class="title">{{title}}</h4>
             <p>{{this.desc}}</p>
-            <a class="btn" href="/courses/{{id}}" type="button">See details</a>
-            <a class="btn" href="/courses/{{id}}/edit?allow=true" type="button">Edit</a>
-            <a class="btn blue" href="/card/add/{{id}}">Add to card</a>
+            <a class="btn" href="/courses/{{this._id}}" type="button">See details</a>
+            <a class="btn" href="/courses/{{this._id}}/edit?allow=true" type="button">Edit</a>
+            <a class="btn blue" href="/card/add/{{this._id}}">Add to card</a>
         </li>
     {{/each}}
 </ul>
