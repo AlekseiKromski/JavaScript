@@ -4,13 +4,22 @@ const Course = require('../models/course');
 const router = Router();
 
 router.get('/add/:id', async (request, response) => {
-   const course = await Course.getCourseById(request.params.id);
-   await Card.add(course);
+   const course = await Course.findById(request.params.id);
+   try{
+        await card.save();
+        response.render('card', {
+            title: 'Card',
+            card,
+            isCard: true
+        });
+    }catch(e){
+        console.log(e);
+    }
    response.redirect('/card');
 })
 
 router.get('/', async (request, response) => {
-    const card = await Card.fetch();
+    const card = await Card.find().lean();
     response.render('card', {
         title: 'Card',
         card,
