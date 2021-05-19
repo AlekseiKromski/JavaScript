@@ -28,12 +28,12 @@ const userSchema = new Schema({
 })
 
 userSchema.methods.addToCard = function (course) {
-    const items = [...this.cart.items.concat()];
+    const items = this.card.items.concat();
     const index = items.findIndex(c => {
-        return c.course.toString() === course._id;
+        return c.course.toString() === course._id.toString();
     })
-    if(index){
-        items[index].count++;
+    if(index > 0){
+        items[index].count++
     }else{
         items.unshift({
             course: course._id,
@@ -41,7 +41,7 @@ userSchema.methods.addToCard = function (course) {
         });
     }
     //Change user.cart object
-    this.cart = {items};
+    this.card = {items: items};
     return this.save();
 }
 

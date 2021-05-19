@@ -5,8 +5,9 @@ const router = Router();
 
 router.get('/add/:id', async (request, response) => {
    const course = await Course.findById(request.params.id);
+   
    try{
-        await request.user.addToCard();
+        await request.user.addToCard(course);
         
     }catch(e){
         console.log(e);
