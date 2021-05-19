@@ -17,7 +17,7 @@ const userSchema = new Schema({
                     required: true,
                     default: 1
                 },
-                courseInfo:{
+                course:{
                     type: Schema.Types.ObjectId,
                     ref: 'Course',
                     required: true,

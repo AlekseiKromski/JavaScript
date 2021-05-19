@@ -5,7 +5,10 @@ const Course = require('../models/course')
 
 router.get('/', async (request, response) => {
     response.status(200);
-    const courses = await Course.find().lean();
+    const courses = await Course.find()
+        .populate('user', 'email name')
+        .lean();
+    console.log(courses);
     response.render('courses', {
         title: 'Courses course',
         courses,

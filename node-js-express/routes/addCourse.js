@@ -16,7 +16,8 @@ router.post('/', async (request, response) => {
     response.status(200);
     const course = new Course({
         title: request.body.title,
-        desc: request.body.desc
+        desc: request.body.desc,
+        user: request.user
     });
     try{
         await course.save();

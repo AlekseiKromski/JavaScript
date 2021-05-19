@@ -4,6 +4,7 @@ const app = express();
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
 const card = require('./routes/card');
+const User = require('./models/user');
 const coursesRoute = require('./routes/courses');
 const addCourseRoute = require('./routes/addCourse');
 const hbs = exphbs.create({
@@ -13,6 +14,7 @@ const hbs = exphbs.create({
 const path = require('path');
 const mongoose = require('mongoose');
 const { start } = require('repl');
+const { request } = require('express');
 
 //Register hbs engine
 app.engine('hbs', hbs.engine);
@@ -22,6 +24,18 @@ app.set('view engine', 'hbs');
 
 //Set default views path
 app.set('views', 'views');
+
+//Add middleware
+app.use(async (requst, response, next) => {
+    try{
+        const user = await User.findById('60a4b2297486700714d2c00b');
+        request.user = user;
+        next();
+    }catch(e){
+        console.log(e)
+    }
+})
+
 
 //register statick folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,6 +60,18 @@ async function start_server(){
             useFindAndModify: false,
             useUnifiedTopology: true
         });
+
+        const candidate = await User.findOne();
+        if(!candidate){
+            const user = new User({
+                email: 'Admin',
+                name: 'root',
+                card: {
+                    items: []
+                }
+            })
+            await user.save();
+        }
 
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
