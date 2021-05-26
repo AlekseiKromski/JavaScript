@@ -7,8 +7,8 @@ router.get('/add/:id', async (request, response) => {
    const course = await Course.findById(request.params.id);
    
    try{
+        console.log("user",request.user);
         await request.user.addToCard(course);
-        
     }catch(e){
         console.log(e);
     }
@@ -16,13 +16,15 @@ router.get('/add/:id', async (request, response) => {
 })
 
 router.get('/', async (request, response) => {
-    const card = await Card.find().lean();
+    //const card = await Card.find().lean();
+    const card = request.user.card;
+    console.log(request.user.card.items[0].course)
     response.render('card', {
         title: 'Card',
         card,
         isCard: true
     });
-})
+}) 
 
 router.delete('/delete/:id', async (request, response) => {
     const course = await Course.getCourseById(request.params.id);

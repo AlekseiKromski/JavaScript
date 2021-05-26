@@ -8,7 +8,6 @@ router.get('/', async (request, response) => {
     const courses = await Course.find()
         .populate('user', 'email name')
         .lean();
-    console.log(courses);
     response.render('courses', {
         title: 'Courses course',
         courses,

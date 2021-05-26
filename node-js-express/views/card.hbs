@@ -9,7 +9,8 @@
         <th>Actions</th>
     </thead>
     <tbody>
-        {{#each card.courses}}
+        {{card.items}}
+        {{#each card.items}}
             <tr>
                 <th>
                     <a href="/courses/{{this.id}}">{{this.title}}</a>

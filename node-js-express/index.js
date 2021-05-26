@@ -15,6 +15,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { start } = require('repl');
 const { request } = require('express');
+let url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+let app_user_id = "60a4b2297486700714d2c00b";
+const mongouser = false;
+const logger = require('./logger')
+logger.setLoggerLogs(false)
 
 //Register hbs engine
 app.engine('hbs', hbs.engine);
@@ -28,7 +33,7 @@ app.set('views', 'views');
 //Add middleware
 app.use(async (requst, response, next) => {
     try{
-        const user = await User.findById('60a4b2297486700714d2c00b');
+        const user = await User.findById(app_user_id);
         request.user = user;
         next();
     }catch(e){
@@ -45,13 +50,24 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+logger.log("All settings were installed")
+
 //Set up atlas mongodb connection
-const url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+logger.setServiceName("LOGGER_MONGODB_CUSTOM")
+if(!mongouser){
+    url_mongodb = "mongodb+srv://root:root@courseapp.4sqcj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    app_user_id = "60addfda3f0c6f23ece8c10c"
+    logger.log("set new id for future user search db cluster link")
+    logger.log("set 'ask-lo' db cluster link")
+}else{
+    logger.log("set 'no name' db cluster link")
+}
 app.use('/',homeRoute);
 app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
 app.use('/add-course',addCourseRoute);
 app.use('/card/',card);
+logger.log("Success router installation", "LOGGER");
 async function start_server(){
     try{
         //set connection
@@ -72,13 +88,15 @@ async function start_server(){
             })
             await user.save();
         }
-
+        logger.log("Success connection to mongodb")
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
-            console.log('Server started on port: ' + PORT);
+            logger.setServiceName("LOGGER_SERVER")
+            logger.log("Server was started. Port for usage: " + PORT)
         })
-
+        logger.makeDefaultSettings();
     }catch(e){
+        logger.log("Faild connection to mongodb")
         console.log(e);
     }    
 }
