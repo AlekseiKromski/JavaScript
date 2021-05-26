@@ -32,7 +32,7 @@ userSchema.methods.addToCard = function (course) {
     const index = items.findIndex(c => {
         return c.course.toString() === course._id.toString();
     })
-    if(index > 0){
+    if(index >= 0){
         items[index].count++
     }else{
         items.unshift({
@@ -44,5 +44,17 @@ userSchema.methods.addToCard = function (course) {
     this.card = {items: items};
     return this.save();
 }
+
+userSchema.methods.removeIntoCard = async function(deleteCourseId){
+    
+    await this.populate('card.items.course').execPopulate();
+
+    this.card.items = this.card.items.filter(course => {
+        if(course.course._id != deleteCourseId){
+            return course;
+        }
+    })
+    return this.save()
+} 
 
 module.exports = model('User', userSchema);

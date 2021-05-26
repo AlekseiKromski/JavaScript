@@ -1,6 +1,6 @@
 <h1>Your Cards</h1>
 <hr>
-<h4 id="total_count">Total count: {{card.courses.length}}</h4>
+<h4 id="total_count">Total count: {{card.length}}</h4>
 <div id="card">
     <table>
     <thead>
@@ -9,17 +9,16 @@
         <th>Actions</th>
     </thead>
     <tbody>
-        {{card.items}}
-        {{#each card.items}}
+        {{#each card}}
             <tr>
                 <th>
-                    <a href="/courses/{{this.id}}">{{this.title}}</a>
+                    <a href="/courses/{{this._id}}">{{this.title}}</a>
                 </th>
                 <th>
                     {{this.count}}
                 </th>
                 <th>
-                    <button class="btn red js-remove" data-id="{{this.id}}" href="/card/delete/{{this.id}}" >Delete</button>
+                    <button class="btn red js-remove" data-id="{{this._id}}" href="/card/delete/{{this._id}}" >Delete</button>
                 </th>
             </tr>
         {{/each}}

@@ -14,24 +14,24 @@ if($card){
                 
             }).then(res => res.json())
             .then(card => {
-                if(card.courses.length){
-                    const html = card.courses.map(c => {
+                if(card.items.length){
+                    const html = card.items.map(c => {
                         return `
                         <tr>
                             <th>
-                                <a href="/courses/${c.id}">${c.title}</a>
+                                <a href="/courses/${c.course._id}">${c.course.title}</a>
                             </th>
                             <th>
                                 ${c.count}
                             </th>
                             <th>
-                                <button class="btn red js-remove" data-id="${c.id}" href="/card/delete/${c.id}" >Delete</button>
+                                <button class="btn red js-remove" data-id="${c.course._id}" href="/card/delete/${c.course._id}" >Delete</button>
                             </th>
                         </tr>
                         `
                     }).join('');
                     $card.querySelector('tbody').innerHTML = html;
-                    document.querySelector('#total_count').innerHTML = `Total count: ${card.courses.length}`;
+                    document.querySelector('#total_count').innerHTML = `Total count: ${card.items.length}`;
                 } else {
                     $card.innerHTML = "<p>Card is empty</p>"
                     document.querySelector('#total_count').innerHTML = `Total count: 0`;
