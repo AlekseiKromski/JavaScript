@@ -10,7 +10,7 @@ const coursesRoute = require('./routes/courses');
 const addCourseRoute = require('./routes/addCourse');
 const hbs = exphbs.create({
     defaultLayout: 'main',
-    extname: 'hbs',
+    extname: 'hbs'
 });
 const path = require('path');
 const mongoose = require('mongoose');
@@ -19,9 +19,8 @@ const { request } = require('express');
 let url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 let app_user_id = "60b52995caaff848c08413e0";
 const mongouser = true;
-const logger = require('./logger')
+const logger = require('./logger')  
 logger.setLoggerLogs(false)
-
 //Register hbs engine
 app.engine('hbs', hbs.engine);
 

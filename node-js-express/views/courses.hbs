@@ -3,7 +3,9 @@
 <ul>
     {{#each courses}}
         <li>
-            <h4 class="title">{{title}}</h4>
+
+            {{courses}}
+            <h4 class="title">{{this.title}}</h4>
             <p>{{this.desc}}</p>
             <a class="btn" href="/courses/{{this._id}}" type="button">See details</a>
             <a class="btn" href="/courses/{{this._id}}/edit?allow=true" type="button">Edit</a>

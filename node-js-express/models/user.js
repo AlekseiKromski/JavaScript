@@ -56,5 +56,10 @@ userSchema.methods.removeIntoCard = async function(deleteCourseId){
     })
     return this.save()
 } 
+userSchema.methods.clearCard = async function(){
+    
+    this.card = {items: []}
+    return this.save()
+} 
 
 module.exports = model('User', userSchema);

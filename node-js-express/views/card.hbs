@@ -25,8 +25,9 @@
         </tbody>
     </table>
     <br>
-    <div class="">
-        <a class="btn btn-warning" href="/order/add">Make order</a>
-    </div>
-
+    {{#if card.length}}
+        <div class="">
+            <a class="btn btn-warning" href="/order/add">Make order</a>
+        </div>
+    {{/if}}
 </div>

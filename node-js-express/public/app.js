@@ -3,7 +3,7 @@ document.querySelectorAll('.title').forEach(node => {
 })
 
 const $card = document.querySelector('#card')
-
+const $order = document.querySelector('#order');
 if($card){
     $card.addEventListener('click', event => {
         event.preventDefault;
