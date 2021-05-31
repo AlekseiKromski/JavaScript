@@ -4,6 +4,7 @@ const app = express();
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
 const card = require('./routes/card');
+const order = require('./routes/order');
 const User = require('./models/user');
 const coursesRoute = require('./routes/courses');
 const addCourseRoute = require('./routes/addCourse');
@@ -16,8 +17,8 @@ const mongoose = require('mongoose');
 const { start } = require('repl');
 const { request } = require('express');
 let url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-let app_user_id = "60a4b2297486700714d2c00b";
-const mongouser = false;
+let app_user_id = "60b52995caaff848c08413e0";
+const mongouser = true;
 const logger = require('./logger')
 logger.setLoggerLogs(false)
 
@@ -67,6 +68,7 @@ app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
 app.use('/add-course',addCourseRoute);
 app.use('/card/',card);
+app.use('/order/',order);
 logger.log("Success router installation", "LOGGER");
 async function start_server(){
     try{

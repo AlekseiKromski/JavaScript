@@ -3,25 +3,30 @@
 <h4 id="total_count">Total count: {{card.length}}</h4>
 <div id="card">
     <table>
-    <thead>
-        <th>Name</th>
-        <th>Count</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
-        {{#each card}}
-            <tr>
-                <th>
-                    <a href="/courses/{{this._id}}">{{this.title}}</a>
-                </th>
-                <th>
-                    {{this.count}}
-                </th>
-                <th>
-                    <button class="btn red js-remove" data-id="{{this._id}}" href="/card/delete/{{this._id}}" >Delete</button>
-                </th>
-            </tr>
-        {{/each}}
-    </tbody>
-</table>
+        <thead>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {{#each card}}
+                <tr>
+                    <th>
+                        <a href="/courses/{{this._id}}">{{this.title}}</a>
+                    </th>
+                    <th>
+                        {{this.count}}
+                    </th>
+                    <th>
+                        <button class="btn red js-remove" data-id="{{this._id}}" href="/card/delete/{{this._id}}" >Delete</button>
+                    </th>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br>
+    <div class="">
+        <a class="btn btn-warning" href="/order/add">Make order</a>
+    </div>
+
 </div>
