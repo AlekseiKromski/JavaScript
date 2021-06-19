@@ -33,18 +33,6 @@ app.set('view engine', 'hbs');
 //Set default views path
 app.set('views', 'views');
 
-//Add middleware
-app.use(async (requst, response, next) => {
-    try{
-        const user = await User.findById(app_user_id);
-        request.user = user;
-        next();
-    }catch(e){
-        console.log(e)
-    }
-})
-
-
 //register statick folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -89,17 +77,17 @@ async function start_server(){
             useUnifiedTopology: true
         });
 
-        const candidate = await User.findOne();
-        if(!candidate){
-            const user = new User({
-                email: 'Admin',
-                name: 'root',
-                card: {
-                    items: []
-                }
-            })
-            await user.save();
-        }
+        // const candidate = await User.findOne();
+        // if(!candidate){
+        //     const user = new User({
+        //         email: 'Admin',
+        //         name: 'root',
+        //         card: {
+        //             items: []
+        //         }
+        //     })
+        //     await user.save();
+        // }
         logger.log("Success connection to mongodb")
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {

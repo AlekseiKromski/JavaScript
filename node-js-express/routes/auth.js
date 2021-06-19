@@ -1,6 +1,7 @@
 //Get only router from express object
 const { Router } = require("express");
 const router = Router();
+const User = require('../models/user');
 
 router.get('/login', async (req,res) => {
     res.render('auth/login', {
@@ -9,9 +10,18 @@ router.get('/login', async (req,res) => {
     })
 })
 
-router.post('/login-in', async (req,res) => {
-    req.session.isAuth = true;
-    res.redirect('/');
+router.post('/login-in', async (request,response) => {
+    const user = await User.findById("60cc96d635dfd30574aacbdf");
+    request.user = user;
+    request.session.isAuth = true;
+
+    request.session.save(error => {
+        if(error){
+            console.log(error);
+        }
+        response.redirect('/');
+    })
+    
 })
 
 router.get('/logout', async (req,res) => {
