@@ -1,6 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
+const session = require('express-session');
+const varMiddleware = require('./middleware/variables');
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
 const card = require('./routes/card');
@@ -51,6 +53,13 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.use(session({
+    secret: "some secret value",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(varMiddleware);
+logger.log("All middlewares was installed")
 logger.log("All settings were installed")
 
 //Set up atlas mongodb connection
