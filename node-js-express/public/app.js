@@ -4,6 +4,7 @@ document.querySelectorAll('.title').forEach(node => {
 
 const $card = document.querySelector('#card')
 const $order = document.querySelector('#order');
+const $tabs = document.querySelector(".tabs");
 if($card){
     $card.addEventListener('click', event => {
         event.preventDefault;
@@ -39,4 +40,6 @@ if($card){
             })
         }
     })
+}else if($tabs){
+    M.Tabs.init($tabs);
 }

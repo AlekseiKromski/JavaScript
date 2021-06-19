@@ -1,0 +1,43 @@
+<div class="row " style="margin-top: 20%;">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#login">Login</a></li>
+        <li class="tab col s6"><a href="#register">Register</a></li>
+      </ul>
+    </div>
+    <div id="login" class="col s6 offset-s3">
+        <form action="/auth/login-in" method="post" style="margin-top: 8%;">
+            <div class="input-field col s6">
+                <input id="email" type="email" name="title" class="validate" required>
+                <label for="email">Email</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert email</span>
+            </div>
+            <div class="input-field col s6">
+                <input id="password" type="password" name="title" class="validate" required>
+                <label for="password">Password</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert password</span>
+            </div>
+            <button class="btn btn-primary" type="submit">Login in</button>
+        </form>
+    </div>
+    <div id="register" class="col s6 offset-s3">
+        <form action="/auth/login-in" method="post" style="margin-top: 8%;">
+            <div class="input-field">
+                <input id="email_register" type="email" name="title" class="validate" required>
+                <label for="email_register">Email</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert email</span>
+            </div>
+            <div class="input-field">
+                <input id="password_register" type="password" name="title" class="validate" required>
+                <label for="password_register">Password</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert password</span>
+            </div>
+            <div class="input-field">
+                <input id="password_register_confirm" type="password" name="title" class="validate" required>
+                <label for="password_register_confirm">Password confirmation</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert confitm password</span>
+            </div>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+</div>

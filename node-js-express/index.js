@@ -8,6 +8,7 @@ const order = require('./routes/order');
 const User = require('./models/user');
 const coursesRoute = require('./routes/courses');
 const addCourseRoute = require('./routes/addCourse');
+const authRoute = require('./routes/auth');
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs'
@@ -17,7 +18,7 @@ const mongoose = require('mongoose');
 const { start } = require('repl');
 const { request } = require('express');
 let url_mongodb = "mongodb+srv://root:root@course-node-app.crjsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-let app_user_id = "60b52995caaff848c08413e0";
+let app_user_id = "60cc96d635dfd30574aacbdf";
 const mongouser = true;
 const logger = require('./logger')  
 logger.setLoggerLogs(false)
@@ -68,6 +69,7 @@ app.use('/courses',coursesRoute);
 app.use('/add-course',addCourseRoute);
 app.use('/card/',card);
 app.use('/order/',order);
+app.use('/auth',authRoute);
 logger.log("Success router installation", "LOGGER");
 async function start_server(){
     try{
