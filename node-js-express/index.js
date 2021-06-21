@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
 const session = require('express-session');
+const MongoStore = require('connect-mongodb-session')(session);
 const varMiddleware = require('./middleware/variables');
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
@@ -24,6 +25,7 @@ let app_user_id = "60cc96d635dfd30574aacbdf";
 const mongouser = true;
 const logger = require('./logger')  
 logger.setLoggerLogs(false)
+
 //Register hbs engine
 app.engine('hbs', hbs.engine);
 
@@ -41,15 +43,6 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.use(session({
-    secret: "some secret value",
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(varMiddleware);
-logger.log("All middlewares was installed")
-logger.log("All settings were installed")
-
 //Set up atlas mongodb connection
 logger.setServiceName("LOGGER_MONGODB_CUSTOM")
 if(!mongouser){
@@ -60,6 +53,24 @@ if(!mongouser){
 }else{
     logger.log("set 'no name' db cluster link")
 }
+
+const store = new MongoStore({
+    collection: 'sessions',
+    uri: url_mongodb,
+});
+
+app.use(session({
+    secret: "some secret value",
+    resave: false,
+    saveUninitialized: false,
+    store,
+}));
+app.use(varMiddleware);
+logger.log("All middlewares was installed")
+logger.log("All settings were installed")
+
+
+
 app.use('/',homeRoute);
 app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
