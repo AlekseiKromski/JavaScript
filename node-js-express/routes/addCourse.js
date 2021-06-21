@@ -2,9 +2,10 @@
 const { Router } = require("express");
 const router = Router();
 const Course = require('../models/course');
+const auth = require('../middleware/auth');
 
 
-router.get('/', (request, response) => {
+router.get('/', auth, (request, response) => {
     response.status(200);
     response.render('addCourse', {
         title: 'Courses course',
@@ -12,7 +13,7 @@ router.get('/', (request, response) => {
     });
 })
 
-router.post('/', async (request, response) => {
+router.post('/', auth, async (request, response) => {
     response.status(200);
     const course = new Course({
         title: request.body.title,

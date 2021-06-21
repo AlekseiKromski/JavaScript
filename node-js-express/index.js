@@ -66,11 +66,8 @@ app.use(session({
     store,
 }));
 app.use(varMiddleware);
-logger.log("All middlewares was installed")
-logger.log("All settings were installed")
-
-
-
+logger.log("All middlewares was installed");
+logger.log("All settings were installed");
 app.use('/',homeRoute);
 app.use('/about',aboutRoute);
 app.use('/courses',coursesRoute);
@@ -87,18 +84,6 @@ async function start_server(){
             useFindAndModify: false,
             useUnifiedTopology: true
         });
-
-        // const candidate = await User.findOne();
-        // if(!candidate){
-        //     const user = new User({
-        //         email: 'Admin',
-        //         name: 'root',
-        //         card: {
-        //             items: []
-        //         }
-        //     })
-        //     await user.save();
-        // }
         logger.log("Success connection to mongodb")
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {

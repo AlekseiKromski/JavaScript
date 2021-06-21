@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const router = Router();
 const Course = require('../models/course')
-
+const auth = require('../middleware/auth');
 router.get('/', async (request, response) => {
     response.status(200);
     const courses = await Course.find()
@@ -30,7 +30,7 @@ router.get('/:id', async (request, response) => {
     
 })
 
-router.get('/:id/edit', async (request, response) => {
+router.get('/:id/edit',auth, async (request, response) => {
     if (!request.query.allow) {
         return response.redirect('/');
     }
@@ -42,7 +42,7 @@ router.get('/:id/edit', async (request, response) => {
     });
 })
 
-router.get('/:id/remove', async (request, response) => {
+router.get('/:id/remove', auth, async (request, response) => {
     if (!request.query.allow) {
         return response.redirect('/');
     }
@@ -57,7 +57,7 @@ router.get('/:id/remove', async (request, response) => {
     }
 })
 
-router.post('/:id/edit', async (request, response) => {
+router.post('/:id/edit',auth, async (request, response) => {
     await Course.findByIdAndUpdate(request.params.id, request.body);
     response.redirect('/courses')
 })

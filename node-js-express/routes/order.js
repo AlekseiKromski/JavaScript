@@ -4,7 +4,8 @@ const router = Router();
 const Order = require('../models/order');
 const logger = require('../logger');
 const order = require('../models/order');
-router.get('/', async (requset, response) => {
+const auth = require('../middleware/auth');
+router.get('/',auth, async (requset, response) => {
 
     const orders = await Order.find({
         'user.userId': request.user._id
@@ -25,7 +26,7 @@ router.get('/', async (requset, response) => {
     )
 });
 
-router.get('/add', async (requset, response) => {
+router.get('/add', auth, async (requset, response) => {
     if(request.user !== null) {
         const user = await request.user
             .populate('card.items.course')
