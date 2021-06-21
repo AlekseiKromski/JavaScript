@@ -15,6 +15,7 @@ router.post('/login-in', async (request,response) => {
     const user = await User.findById("60cc96d635dfd30574aacbdf");
     request.user = user;
     request.session.isAuth = true;
+    request.session.user = user;
 
     request.session.save(error => {
         if(error){

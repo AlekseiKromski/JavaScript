@@ -14,7 +14,7 @@ router.get('/add/:id',auth, async (request, response) => {
    const course = await Course.findById(request.params.id);
    
    try{
-        await request.session.user.addToCard(course);
+        await request.user.addToCard(course);
         logger.log(`course{${course.title}} was added into user{${request.user.name}}`)
     }catch(e){
         console.log(e);
@@ -23,7 +23,6 @@ router.get('/add/:id',auth, async (request, response) => {
 })
 
 router.get('/', async (request, response) => {
-    
     if(request.user !== null){
         const user = await request.user
             .populate('card.items.course')
