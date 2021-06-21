@@ -4,6 +4,7 @@ const app = express();
 const session = require('express-session');
 const MongoStore = require('connect-mongodb-session')(session);
 const varMiddleware = require('./middleware/variables');
+const userMiddleware = require('./middleware/user');
 const homeRoute = require('./routes/home');
 const aboutRoute = require('./routes/about');
 const card = require('./routes/card');
@@ -66,6 +67,7 @@ app.use(session({
     store,
 }));
 app.use(varMiddleware);
+app.use(userMiddleware);
 logger.log("All middlewares was installed");
 logger.log("All settings were installed");
 app.use('/',homeRoute);

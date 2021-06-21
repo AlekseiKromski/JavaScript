@@ -14,7 +14,7 @@ router.get('/add/:id',auth, async (request, response) => {
    const course = await Course.findById(request.params.id);
    
    try{
-        await request.user.addToCard(course);
+        await request.session.user.addToCard(course);
         logger.log(`course{${course.title}} was added into user{${request.user.name}}`)
     }catch(e){
         console.log(e);
