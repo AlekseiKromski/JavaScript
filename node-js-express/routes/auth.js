@@ -11,19 +11,53 @@ router.get('/login', async (req,res) => {
     })
 })
 
-router.post('/login-in', async (request,response) => {
-    const user = await User.findById("60cc96d635dfd30574aacbdf");
-    request.user = user;
-    request.session.isAuth = true;
-    request.session.user = user;
-
-    request.session.save(error => {
-        if(error){
-            console.log(error);
+router.post('/register-in', async (req,res) => {
+    try{    
+        const {email_register, name_register, password_register, password_register_confirm} = req.body;
+        let candidate = await User.findOne({email_register})
+        if(candidate){
+            res.redirect('/auth/login#register');
+        }else{
+            let user = new User({
+                email: email_register, name: name_register, password: password_register
+            })
+            await user.save()
+            res.redirect("/auth/login#login");
         }
-        response.redirect('/');
-    })
-    
+    }catch(e){
+        console.log(e);
+    }
+})
+
+router.post('/login-in', async (request,response) => {
+    try{
+        const {email, password} = request.body;
+        let candidate = await User.findOne({email})
+        if(candidate){
+            let isSame = password === candidate.password;
+            if(isSame){
+                const user = candidate;
+                request.user = user;
+                request.session.isAuth = true;
+                request.session.user = user;
+
+                request.session.save(error => {
+                    if(error){
+                        console.log(error);
+                    }
+                    response.redirect('/');
+                })
+            }else{
+                return response.redirect('/auth/login#login');
+            }
+        } else {
+            console.log("opa");
+            return response.redirect('/auth/login#login');
+        }
+
+    }catch(e){
+        console.log(e);
+    }
 })
 
 router.get('/logout',auth, async (req,res) => {

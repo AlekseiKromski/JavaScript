@@ -8,12 +8,12 @@
     <div id="login" class="col s6 offset-s3">
         <form action="/auth/login-in" method="post" style="margin-top: 8%;">
             <div class="input-field col s6">
-                <input id="email" type="email" name="title" class="validate" required>
+                <input id="email" type="email" name="email" class="validate" required>
                 <label for="email">Email</label>
                 <span class="helper-text" data-error="Fill field" data-success="right">Insert email</span>
             </div>
             <div class="input-field col s6">
-                <input id="password" type="password" name="title" class="validate" required>
+                <input id="password" type="password" name="password" class="validate" required>
                 <label for="password">Password</label>
                 <span class="helper-text" data-error="Fill field" data-success="right">Insert password</span>
             </div>
@@ -23,17 +23,22 @@
     <div id="register" class="col s6 offset-s3">
         <form action="/auth/register-in" method="post" style="margin-top: 8%;">
             <div class="input-field">
-                <input id="email_register" type="email" name="title" class="validate" required>
+                <input id="email_register" type="email" name="email_register" class="validate" required>
                 <label for="email_register">Email</label>
                 <span class="helper-text" data-error="Fill field" data-success="right">Insert email</span>
             </div>
             <div class="input-field">
-                <input id="password_register" type="password" name="title" class="validate" required>
+                <input id="name_register" type="text" name="name_register" class="validate" required>
+                <label for="name_register">Name</label>
+                <span class="helper-text" data-error="Fill field" data-success="right">Insert email</span>
+            </div>
+            <div class="input-field">
+                <input id="password_register" type="password" name="password_register" class="validate" required>
                 <label for="password_register">Password</label>
                 <span class="helper-text" data-error="Fill field" data-success="right">Insert password</span>
             </div>
             <div class="input-field">
-                <input id="password_register_confirm" type="password" name="title" class="validate" required>
+                <input id="password_register_confirm" type="password" name="password_register_confirm" class="validate" required>
                 <label for="password_register_confirm">Password confirmation</label>
                 <span class="helper-text" data-error="Fill field" data-success="right">Insert confitm password</span>
             </div>
