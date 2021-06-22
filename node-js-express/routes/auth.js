@@ -3,6 +3,7 @@ const { Router } = require("express");
 const router = Router();
 const User = require('../models/user');
 const auth = require('../middleware/auth');
+const bcrypt = require('bcryptjs');
 
 router.get('/login', async (req,res) => {
     res.render('auth/login', {
@@ -18,8 +19,9 @@ router.post('/register-in', async (req,res) => {
         if(candidate){
             res.redirect('/auth/login#register');
         }else{
+            const hash_password = await bcrypt.hash(password_register,10)
             let user = new User({
-                email: email_register, name: name_register, password: password_register
+                email: email_register, name: name_register, password: hash_password
             })
             await user.save()
             res.redirect("/auth/login#login");
@@ -34,7 +36,7 @@ router.post('/login-in', async (request,response) => {
         const {email, password} = request.body;
         let candidate = await User.findOne({email})
         if(candidate){
-            let isSame = password === candidate.password;
+            let isSame = await bcrypt.compare(password, candidate.password);
             if(isSame){
                 const user = candidate;
                 request.user = user;
@@ -51,7 +53,6 @@ router.post('/login-in', async (request,response) => {
                 return response.redirect('/auth/login#login');
             }
         } else {
-            console.log("opa");
             return response.redirect('/auth/login#login');
         }
 
